@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Map.js" defer></script>
+    <script src="Wall.js" defer></script>
+    <script src="Treasure.js" defer></script>
+    <script src="Player.js" defer></script>
+    <script src="Enemy.js" defer></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="map">
+        <table id="map"></table>
+        <br>
+        <br>
+    </section>
+    <section class="controls">
+        <div class="slidecontainer">
+            <label for="mapSize">Grootte speelveld</label>
+            <br>
+            <input type="range" min="15" max="30" value="15" class="slider" id="mapSize">
+            <p>
+                <span id="mapSizeCurrent"></span>
+            </p>
+        </div>
+        <br>
+        <div class="slidecontainer">
+            <label for="wallSlider">Aantal muren</label>
+            <br>
+            <input type="range" min="10" max="60" value="50" class="slider" id="wallSlider">
+            <p><span id="wallsCurrent"></span></p>
+        </div>
+        <br>
+        <div class="slidecontainer">
+            <label for="treasureSlider">Aantal schatten</label>
+            <br>
+            <input type="range" min="10" max="60" value="50" class="slider" id="treasureSlider">
+            <p><span id="treasuresCurrent"></span></p>
+        </div>
+        <br>
+        <div class="slidecontainer">
+            <label for="livesSlide">Aantal levens</label>
+            <br>
+            <input type="range" min="1" max="5" value="1" class="slider" id="livesSlider">
+            <br>
+            <div id="hearts"><img src="assets/img/life.png" id="heart"></div>
+        </div>
+        <br>
+        <button onClick="window.location.reload();">START</button>
+        <p>SCHATTEN VERZAMELD: <span class="points" id="points"></span></p>
+    </section>
+
+</body>
+
+</html>

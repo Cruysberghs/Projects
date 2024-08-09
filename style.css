@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0 auto;
+    width: 75%;
+}
+
+button {
+    width: 500px;
+    height: 3em;
+    margin-bottom: 3em;
+}
+
+#map {
+    width: 500px;
+    height: 500px;
+    cursor: pointer;
+    background-color: green; /* Zorg ervoor dat dit groen is */
+}
+
+#map td {
+    width: 20px; /* Zorg ervoor dat cellen zichtbaar zijn */
+    height: 20px; /* Zorg ervoor dat cellen zichtbaar zijn */
+}
+
+#map .wall {
+    background-color: transparent;
+    background-image: url("img/wall.png");
+    background-size: cover;
+}
+
+#map .treasure {
+    background-color: transparent;
+    background-image: url("img/treasure.png");
+    background-size: cover;
+}
+
+#map .player {
+    background-color: transparent;
+    background-image: url("img/player.png");
+    background-size: cover;
+}
+
+#map .enemy {
+    background-color: transparent;
+    background-image: url("img/monster.png");
+    background-size: cover;
+}
+
+#map .tunnel {
+    background-color: transparent;
+    background-image: url("img/hole.png");
+    background-size: cover;
+}
+
+.map, .controls {
+    margin-top: 100px;
+    width: 50%;
+    float: left;
+}
+
+input[type=range] {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+#hearts img {
+    width: 2em;
+}
+
+#hearts {
+    margin-top: 1em;
+}
+
+/* Verwijder of decommentarieer deze regels als ze ongewenst zijn */
+/*
+#map td:nth-of-type(odd) {
+    background-color: blue;
+}
+
+#map td:nth-of-type(even) {
+    background-color: green;
+}
+*/
