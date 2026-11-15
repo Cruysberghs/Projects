@@ -151,7 +151,7 @@ function koppelMandje() {
   document.getElementById("afrekenen").addEventListener("click", () => {
     if (!Mandje.lees().length) return toast("Je mandje is nog leeg.");
     // TODO: hier komt later de echte betaling (bv. Mollie of Shopify met Bancontact).
-    alert("Bedankt! Online betalen wordt binnenkort gekoppeld.\nTot dan kan je bestellen via info@beer.be.");
+    toast("Online betalen komt binnenkort. Tot dan bestel je via info@beer.be.");
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") Mandje.open(false); });
   Mandje.toon();
