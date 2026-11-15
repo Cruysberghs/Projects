@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact – BEER.</title>
+  <meta name="description" content="Neem contact op met BEER. in Gent of reserveer een workshop, feestje of kampje.">
+  <link rel="icon" href="img/bear-classic.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <section>
+    <div class="container split" style="align-items:start">
+      <div>
+        <h1>Contact</h1>
+        <p>Heb je een vraag, een idee of wil je iets reserveren? Laat het ons weten!</p>
+        <ul class="contact-lijst">
+          <li><span>✉</span><a href="mailto:info@beer.be">info@beer.be</a></li>
+          <li><span>☎</span><a href="tel:+32479123456">+32 479 12 34 56</a></li>
+          <li><span>📍</span><div>Onze locatie<br>Straatnaam 12, 9000 Gent</div></li>
+        </ul>
+        <img src="img/bear-dreamy.svg" alt="" style="width:200px;opacity:.9">
+      </div>
+      <form class="formulier kaart links" data-demo>
+        <div class="rij">
+          <div><label for="naam">Naam</label><input id="naam" name="naam" required autocomplete="name"></div>
+          <div><label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        <div><label for="onderwerp">Onderwerp</label>
+          <select id="onderwerp" name="onderwerp">
+            <option>Vraag</option><option>Bestelling</option><option>Workshop</option><option>Kinderfeestje</option><option>Kampje</option>
+          </select></div>
+        <div class="rij">
+          <div><label for="datum">Gewenste datum (optioneel)</label><input id="datum" name="datum" type="date"></div>
+          <div><label for="aantal">Aantal kinderen (optioneel)</label><input id="aantal" name="aantal" type="number" min="1"></div>
+        </div>
+        <div><label for="bericht">Bericht</label><textarea id="bericht" name="bericht" rows="5" required></textarea></div>
+        <button class="btn" type="submit">Stuur een bericht</button>
+        <p class="melding" role="status">Bedankt voor je bericht! We antwoorden zo snel mogelijk. 🧸</p>
+      </form>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>
