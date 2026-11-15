@@ -1,0 +1,34 @@
+<?php
+/**
+ * Title: Contact
+ * Slug: beer/contact
+ * Categories: beer
+ */
+?>
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide"><!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">Contact</h1>
+<!-- /wp:heading --><!-- wp:paragraph {"fontSize":"large"} -->
+<p class="has-large-font-size">Heb je een vraag, een idee of wil je iets reserveren? Laat het ons weten!</p>
+<!-- /wp:paragraph --><!-- wp:paragraph -->
+<p>✉ <a href="mailto:info@beer.be">info@beer.be</a></p>
+<!-- /wp:paragraph --><!-- wp:paragraph -->
+<p>☎ <a href="tel:+32479123456">+32 479 12 34 56</a></p>
+<!-- /wp:paragraph --><!-- wp:paragraph -->
+<p>📍 Onze locatie<br>Straatnaam 12, 9000 Gent</p>
+<!-- /wp:paragraph --><!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="mailto:info@beer.be">Stuur een bericht →</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"width":"300px","sizeSlug":"full","linkDestination":"none","align":"center","className":"is-style-wiebel"} -->
+<figure class="wp-block-image aligncenter size-full is-resized is-style-wiebel"><img src="<?php echo beer_img( 'bear-dreamy.svg' ); ?>" alt="" style="width:300px"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
