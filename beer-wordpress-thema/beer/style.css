@@ -1,0 +1,261 @@
+/*
+Theme Name: BEER.
+Description: Warm, zacht thema voor BEER. – jouw knuffel, jouw verhaal. Met kant-en-klare blokpatronen voor shop, workshops, kinderfeestjes, kampjes, FAQ en contact.
+Version: 1.5.0
+Requires at least: 6.6
+Tested up to: 6.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: beer
+*/
+
+/* Kleuren, lettertypes en knoppen staan in theme.json.
+   Hieronder enkel wat theme.json niet kan. */
+
+/* ---------- Kaart (blokstijl voor Groep) ---------- */
+.is-style-kaart {
+	background: var(--wp--preset--color--wit);
+	border-radius: 22px;
+	box-shadow: var(--wp--preset--shadow--zacht);
+	padding: 26px;
+	transition: transform .2s;
+}
+.is-style-kaart:hover { transform: translateY(-4px); }
+
+/* ---------- Prijsbadge (blokstijl voor Groep) ---------- */
+.is-style-prijs-badge {
+	width: 130px; height: 130px; border-radius: 50%;
+	background: var(--wp--preset--color--wit);
+	border: 2px dashed var(--wp--preset--color--terracotta);
+	display: flex; flex-direction: column; justify-content: center; align-items: center;
+	text-align: center; transform: rotate(-10deg);
+	box-shadow: var(--wp--preset--shadow--zacht);
+	font-family: var(--wp--preset--font-family--caveat);
+	color: var(--wp--preset--color--terracotta);
+	font-size: 1.3rem; line-height: 1;
+}
+.is-style-prijs-badge > * { margin: 0 !important; }
+.is-style-prijs-badge strong { font-family: var(--wp--preset--font-family--fredoka); font-size: 1.8rem; display: block; margin: 4px 0; }
+
+/* ---------- Hartjeslijst (blokstijl voor Lijst) ---------- */
+ul.is-style-hartjes { list-style: none; padding-left: 0; }
+ul.is-style-hartjes li { position: relative; padding-left: 30px; margin: 8px 0; }
+ul.is-style-hartjes li::before { content: "♡"; position: absolute; left: 0; color: var(--wp--preset--color--terracotta); font-size: 1.2rem; line-height: 1.3; }
+
+/* ---------- Wiebelende beer (blokstijl voor Afbeelding) ---------- */
+.is-style-wiebel img { animation: beer-wiebel 6s ease-in-out infinite; filter: drop-shadow(0 20px 30px rgba(120, 60, 20, .2)); }
+@keyframes beer-wiebel { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+
+/* ---------- Omlijnde knop ---------- */
+.wp-block-button.is-style-outline > .wp-block-button__link {
+	background: transparent; color: var(--wp--preset--color--terracotta);
+	border: 2px solid currentColor; box-shadow: none;
+}
+
+/* ---------- Header ---------- */
+.beer-header { position: sticky; top: 0; z-index: 50; }
+.admin-bar .beer-header { top: 32px; }
+@media (max-width: 782px) { .admin-bar .beer-header { top: 0; } }
+.beer-header .wp-block-navigation a:hover,
+.beer-header .wp-block-navigation .current-menu-item > a { color: var(--wp--preset--color--terracotta); }
+.beer-header .wp-block-navigation .current-menu-item > a { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+
+/* ---------- Handschrift-tekst ---------- */
+.beer-hand { font-family: var(--wp--preset--font-family--caveat); color: var(--wp--preset--color--terracotta); transform: rotate(-5deg); display: inline-block; }
+
+/* ---------- Badge rechtsboven op een afbeelding ---------- */
+.beer-badge-houder { position: relative; }
+.beer-badge-houder > .is-style-prijs-badge { position: absolute; top: 4%; right: 2%; z-index: 2; }
+
+/* ---------- Kenmerkenbalk ---------- */
+.beer-kenmerken .beer-ico { font-size: 1.9rem; line-height: 1; margin-bottom: 4px; }
+
+/* ---------- Veelgestelde vragen ---------- */
+.wp-block-details summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 10px; }
+.wp-block-details summary::-webkit-details-marker { display: none; }
+.wp-block-details summary::after { content: "+"; color: var(--wp--preset--color--terracotta); font-size: 1.4rem; line-height: 1; }
+.wp-block-details[open] summary::after { content: "–"; }
+
+@media (prefers-reduced-motion: reduce) {
+	.is-style-wiebel img { animation: none; }
+	.is-style-kaart { transition: none; }
+}
+
+/* ---------- Secties sluiten naadloos op elkaar aan ---------- */
+.wp-site-blocks > * + * { margin-block-start: 0; }
+.beer-volle-pagina .wp-block-post-content > .alignfull { margin-block-start: 0; margin-block-end: 0; }
+
+/* ---------- Footer-links zonder bolletjes ---------- */
+ul.beer-footer-links { list-style: none; padding-left: 0; }
+ul.beer-footer-links li { margin: 4px 0; }
+.beer-footer-links a, footer .wp-block-paragraph a, footer p a { color: inherit; text-decoration: none; }
+.beer-footer-links a:hover, footer p a:hover { color: var(--wp--preset--color--terracotta); }
+
+/* ---------- Rasters op gsm: kaarten onder elkaar ---------- */
+@media (max-width: 700px) {
+	.wp-block-group.is-layout-grid { grid-template-columns: 1fr !important; }
+	.beer-kenmerken .wp-block-group.is-layout-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+	.wp-block-group.is-layout-grid { grid-template-columns: repeat(2, 1fr) !important; }
+	.beer-kenmerken .wp-block-group.is-layout-grid { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* ---------- Icoontjes ---------- */
+.beer-kenmerken .wp-block-image img { transition: transform .25s; }
+.beer-kenmerken .wp-block-group:hover .wp-block-image img { transform: translateY(-3px) rotate(-6deg); }
+.beer-ico-rij { gap: 10px; margin-block: 6px; }
+.beer-ico-rij > * { margin: 0 !important; }
+.beer-ico-rij .wp-block-image { flex: none; }
+
+/* ---------- Hero: zachte gloed, getekende krul en "voel je zijn hartje?" ---------- */
+.beer-hero-beeld { position: relative; }
+.beer-hero-beeld::before {
+	content: ""; position: absolute; inset: 4% 8%; border-radius: 50%;
+	background: radial-gradient(circle, rgba(255, 249, 240, .95) 0, rgba(255, 249, 240, .5) 40%, transparent 70%);
+}
+.beer-hero-beeld > .wp-block-image { position: relative; z-index: 1; }
+.beer-hero-beeld > .wp-block-image.beer-krul { position: absolute; width: 44%; right: -6%; top: -4%; margin: 0; z-index: 0; pointer-events: none; }
+.beer-hero-beeld > .beer-hart-hint {
+	position: absolute; top: 46%; left: -16%; z-index: 2; margin: 0 !important;
+	font-size: 2.1rem; line-height: 1; text-align: center;
+	animation: beer-hint-in .8s 1s both ease-out;
+}
+.beer-hart-hint img { width: 80px; margin: 6px 0 0 50px; transform: scaleX(-1); }
+@keyframes beer-hint-in { from { transform: rotate(-14deg) scale(.9); } to { transform: rotate(-6deg); } }
+@media (max-width: 781px) {
+	.beer-hero-beeld > .wp-block-image.beer-krul, .beer-hart-hint img { display: none; }
+	.beer-hero-beeld > .beer-hart-hint { top: auto; bottom: -2%; left: auto; right: 0; font-size: 1.6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .beer-hero-beeld > .beer-hart-hint { animation: none; } }
+.beer-ico-rij .wp-block-image img { display: block; }
+.beer-footer a { color: inherit; text-decoration: none; }
+.beer-footer a:hover { color: var(--wp--preset--color--terracotta); }
+.beer-footer .wp-block-site-title a { color: var(--wp--preset--color--terracotta); }
+
+/* =========================================================
+   Beweging (staat stil bij "minder beweging" op het toestel)
+   ========================================================= */
+.beer-header { transition: box-shadow .3s; }
+.beer-header.gescrold { box-shadow: 0 6px 20px rgba(140, 80, 40, .1); }
+
+/* Beer kantelt bij hover over zijn kaart */
+.is-style-kaart .wp-block-image img { transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
+.is-style-kaart:hover .wp-block-image img { transform: rotate(-5deg) scale(1.05); }
+
+/* Knoppen veren mee */
+.wp-block-button__link { transition: transform .2s, background-color .2s; }
+.wp-block-button__link:hover { transform: translateY(-2px); }
+
+/* Zwevende hartjes rond de hero-beer */
+.beer-hero-beeld::after {
+	content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+	background: url(assets/img/zweef-hartjes.svg) center / contain no-repeat;
+	animation: beer-zweef 7s ease-in-out infinite;
+}
+@keyframes beer-zweef { 0%, 100% { transform: translateY(6px); opacity: .7; } 50% { transform: translateY(-14px); opacity: 1; } }
+
+/* Inschuiven bij scrollen */
+.beer-onthul { opacity: 0; transform: translateY(26px); transition: opacity .7s ease-out var(--d, 0ms), transform .7s ease-out var(--d, 0ms); }
+.beer-onthul.zichtbaar { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+	.beer-hero-beeld::after { animation: none; }
+	.beer-onthul { opacity: 1; transform: none; }
+	.wp-block-button__link:hover { transform: none; }
+}
+
+/* =========================================================
+   Verkoop: seizoensbalk, hero, pakket, productpagina, cadeaubon
+   ========================================================= */
+.beer-seizoensbalk, .beer-seizoensbalk p { color: #fff; margin: 0; }
+.beer-seizoensbalk a { color: #FFD9C4; font-weight: 700; }
+.beer-hero-klein { opacity: .85; }
+.wp-block-button.is-style-outline > .wp-block-button__link { color: var(--wp--preset--color--terracotta-donker); }
+
+/* Pakket */
+.beer-pakket {
+	background: var(--wp--preset--color--wit); border: 2px dashed var(--wp--preset--color--terracotta);
+	border-radius: 22px; padding: 26px 34px; box-shadow: var(--wp--preset--shadow--zacht);
+}
+.beer-pakket-beeld { background: var(--wp--preset--color--perzik); border-radius: 50%; padding: 18px; max-width: 240px; margin-inline: auto; }
+.beer-pakket-label { display: inline-block; background: var(--wp--preset--color--terracotta-donker); color: #fff; font-size: .8rem; font-weight: 700; padding: 3px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 0 !important; }
+.beer-pakket h3 { color: var(--wp--preset--color--terracotta); font-size: 1.6rem; margin-top: .3em; }
+.beer-pakket .is-style-hartjes { display: grid; grid-template-columns: repeat(2, auto); justify-content: start; gap: 0 28px; }
+.beer-pakket-prijs strong { font-family: var(--wp--preset--font-family--fredoka); font-size: 1.7rem; color: var(--wp--preset--color--bruin); }
+.beer-pakket-prijs s { opacity: .55; margin-left: 6px; }
+@media (max-width: 640px) { .beer-pakket .is-style-hartjes { grid-template-columns: auto; } }
+
+/* Productpagina */
+.beer-galerij-groot { background: var(--wp--preset--color--perzik); border-radius: 22px; padding: 40px; }
+.beer-galerij-klein { gap: 12px; }
+.beer-galerij-klein .wp-block-image { margin: 0; background: var(--wp--preset--color--wit); border: 2px solid var(--wp--preset--color--perzik); border-radius: 14px; padding: 6px; }
+.beer-product-prijs { font-family: var(--wp--preset--font-family--fredoka); font-size: 2rem; font-weight: 600; color: var(--wp--preset--color--bruin); margin-top: 0 !important; }
+.beer-specs { border-top: 1px solid var(--wp--preset--color--perzik); gap: 0; }
+.beer-specs > * { margin: 0 !important; }
+.wp-block-group.beer-spec { grid-template-columns: 120px 1fr !important; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--wp--preset--color--perzik); }
+.beer-spec p { margin: 0; }
+
+/* Cadeaubon */
+.beer-bon {
+	position: relative; overflow: hidden; max-width: 460px; padding: 30px 34px !important;
+	background: var(--wp--preset--color--wit); border: 2px dashed var(--wp--preset--color--terracotta);
+	border-radius: 22px; box-shadow: var(--wp--preset--shadow--zacht);
+}
+.beer-bon > * { margin-block: 0 !important; position: relative; z-index: 1; }
+.beer-bon > .beer-bon-beer { position: absolute; right: -20px; bottom: -24px; z-index: 0; }
+.beer-bon-logo { font-family: var(--wp--preset--font-family--fredoka); color: var(--wp--preset--color--terracotta); font-size: 1.4rem; }
+.beer-bon-titel { letter-spacing: .12em; font-size: .8rem; font-weight: 700; }
+.beer-bon-waarde { font-family: var(--wp--preset--font-family--fredoka); font-size: 3rem; font-weight: 600; color: var(--wp--preset--color--bruin); margin-block: 10px !important; }
+.beer-bon-boodschap { font-size: 1.7rem; margin-top: 12px !important; }
+@media (min-width: 782px) { .beer-hero-beeld > .beer-hart-hint { top: 60%; left: -2%; } }
+.is-style-kaart h3 a { color: inherit; text-decoration: none; }
+.is-style-kaart h3 a:hover { color: var(--wp--preset--color--terracotta-donker); }
+.beer-galerij-klein img { cursor: pointer; }
+
+/* =========================================================
+   Details uit de mockup
+   ========================================================= */
+.beer-titel-deco { position: relative; width: fit-content; margin-inline: auto !important; }
+.beer-titel-deco::after {
+	content: ""; position: absolute; right: -58px; top: -18px; width: 48px; height: 48px;
+	background: url(assets/img/ill/doodle-stralen.png) center / contain no-repeat;
+}
+.beer-faq { position: relative; }
+.beer-faq::before {
+	content: ""; position: absolute; left: calc(50% - 510px); top: 230px; width: 80px; height: 80px; transform: rotate(-12deg);
+	background: url(assets/img/ill/doodle-hartje.png) center / contain no-repeat;
+}
+@media (max-width: 1100px) { .beer-faq::before { display: none; } }
+@media (min-width: 601px) {
+	.beer-beloftes .is-layout-grid > * + * { border-left: 1px solid var(--wp--preset--color--perzik); }
+}
+@media (max-width: 600px) { .beer-titel-deco::after { right: -40px; width: 34px; height: 34px; } }
+
+/* =========================================================
+   Illustraties
+   ========================================================= */
+.wp-block-image img[src*="/ill/"] { object-fit: contain; }
+
+/* Hero: de beer met het grote hart klopt zachtjes */
+.beer-klop img { animation: beer-hero-klop 2.6s ease-in-out infinite; transform-origin: 50% 60%; }
+@keyframes beer-hero-klop {
+	0%, 100% { transform: scale(1); }
+	8% { transform: scale(1.035); }
+	16% { transform: scale(1.005); }
+	24% { transform: scale(1.025); }
+	40% { transform: scale(1); }
+}
+.beer-hero-beeld > .wp-block-image.beer-krul { width: 46%; right: -8%; top: -2%; }
+
+/* Icoontjes in de kenmerkenbalk */
+.beer-kenmerk-ico img { height: 46px; width: auto; max-width: 70px; }
+
+@media (prefers-reduced-motion: reduce) { .beer-klop img { animation: none; } }
+
+/* Grote illustraties (tweede set) */
+.beer-hero-beeld::after { content: none; }            /* de illustraties hebben zelf al hartjes */
+@media (min-width: 782px) { .beer-hero-beeld > .beer-hart-hint { top: 62%; left: -4%; } }
+@media (max-width: 781px) { .beer-hero-beeld > .beer-hart-hint { display: none; } }
+.beer-kaart-beeld img { height: 150px; width: 100%; object-fit: contain; }

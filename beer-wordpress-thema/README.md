@@ -1,0 +1,68 @@
+# BEER. – WordPress-thema
+
+Een WordPress-thema in de stijl van het BEER.-ontwerp: warme crème- en perziktinten, terracotta knoppen en zachte knuffelberen.
+
+## Installeren (5 minuten)
+
+1. **Hosting met WordPress**: neem een hostingpakket met WordPress (bv. Combell, one.com of Hostinger). Bij de meeste hosts installeer je WordPress met één klik. Zet het account en de domeinnaam op naam van de eigenaar(s).
+2. **Thema uploaden**: ga in WordPress naar *Weergave → Thema's → Nieuw thema → Thema uploaden* en kies **`beer.zip`** (in deze map).
+3. **Activeren**: klik op *Activeren*. Het thema doet dan automatisch het volgende:
+   - het maakt de pagina's Home, Shop, Stel jouw BEER. samen, Workshops, Kinderfeestjes, Kampjes, Ons verhaal, FAQ en Contact aan, al gevuld met tekst;
+   - het stelt **Home** in als startpagina;
+   - het zet de sitenaam op "BEER." (als die nog op de standaardnaam stond);
+   - het verwijdert de lege standaard-"Voorbeeldpagina".
+
+   Bestaande pagina's worden nooit overschreven.
+
+## Aanpassen (zonder code)
+
+| Wat | Waar in WordPress |
+|---|---|
+| Teksten, prijzen, afbeeldingen op een pagina | *Pagina's* → pagina openen → gewoon klikken en typen |
+| Beer-afbeelding vervangen door een foto | klik op de afbeelding → *Vervangen* |
+| Menu, logo, footer | *Weergave → Editor → Patronen → Template-onderdelen* (Header / Footer) |
+| Kleuren en lettertypes | *Weergave → Editor → Stijlen* |
+| Kant-en-klare blokken toevoegen | in een pagina op **+** klikken → *Patronen* → categorie **BEER.** |
+
+Extra stijlen die je rechts bij een blok kan kiezen (onder *Stijlen*):
+- **Groep → Kaart**: wit kaartje met afgeronde hoeken en schaduw
+- **Groep → Prijsbadge**: het ronde "Vanaf € …"-stempel
+- **Lijst → Hartjes**: opsomming met hartjes
+- **Afbeelding → Wiebelen**: de beer wiebelt zachtjes
+
+## Verkoop
+
+- **Seizoensbalk** bovenaan (Sinterklaas, Kerst, anders "gratis verzending vanaf € 40"). De teksten en data pas je aan bovenaan in `beer/patterns/seizoensbalk.php`.
+- **Het complete knuffelpakket** op Home en Shop (beer + geurtje + kloppend hartje + paspoort, met korting).
+- **Productpagina's** per beer onder Shop (bv. `/shop/brownie-bear/`). **Let op:** hoogte, materiaal, leeftijd en wasvoorschrift zijn voorbeelden. Vul de echte gegevens in.
+- **Cadeaubonpagina** (`/cadeaubon/`). Bestellen gebeurt voorlopig per e-mail.
+- **Thema al geïnstalleerd?** Upload de nieuwe `beer.zip`, activeer even een ander thema en daarna opnieuw BEER. Zo worden de nieuwe pagina's (cadeaubon, productpagina's) aangemaakt. Bestaande pagina's blijven ongewijzigd, dus het pakketblok voeg je op Home en Shop zelf toe via **+** → *Patronen* → **BEER.**
+- **Menu**: pas de volgorde of namen aan in `beer_menu()` in `beer/functions.php`. Veelgestelde vragen staat in de footer.
+
+## Later uitbreiden
+
+- **Contactformulier**: installeer de plugin *WPForms Lite* of *Contact Form 7* en zet het formulier op de Contact-pagina. Nu staat er een knop die een e-mail opent.
+- **Webshop**: plugin *WooCommerce*, met *Mollie Payments for WooCommerce* om met Bancontact te betalen. De knoppen "Bestellen" op de Shop-pagina kunnen dan naar de echte producten wijzen.
+- **Online boeken** van workshops, feestjes en kampjes: bv. de plugin *Amelia* of *Bookly*.
+
+## Voor wie verder wil knutselen
+
+- `beer/theme.json`: kleuren, lettertypes, knoppen
+- `beer/style.css`: extra stijlen (kaart, prijsbadge, hartjes, …)
+- `beer/patterns/`: de kant-en-klare blokken. Ze worden gemaakt met `hulpmiddelen/maak_patronen.py`:
+  ```
+  python3 hulpmiddelen/maak_patronen.py beer/patterns
+  ```
+- Nieuwe illustraties (PNG met transparante achtergrond) verwerken: lege randen wegsnijden, verkleinen en comprimeren:
+  ```
+  python3 hulpmiddelen/verwerk_illustraties.py <map-met-png's> beer/assets/img/ill
+  ```
+  De bestandsnamen moeten beginnen met het nummer uit de set (01 tot 24), zie het script.
+- Een nieuwe `beer.zip` maken na wijzigingen:
+  ```
+  zip -r beer.zip beer
+  ```
+
+De lettertypes (Fredoka, Nunito, Caveat) zitten in het thema zelf, zodat er niets bij Google geladen wordt (beter voor de privacy/GDPR). Ze vallen onder de SIL Open Font License.
+
+Getest met WordPress 6.6. Het thema heeft minstens WordPress 6.6 nodig.

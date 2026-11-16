@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stel jouw BEER. samen</title>
+  <meta name="description" content="Maak in 5 stappen je eigen unieke knuffelbeer.">
+  <link rel="icon" href="img/ill/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <section id="samensteller">
+    <div class="container">
+      <nav class="kruimel" aria-label="Kruimelpad"><a href="index.html">Home</a> › <span>Stel jouw BEER. samen</span></nav>
+      <div class="center">
+        <h1>Stel jouw BEER. samen</h1>
+        <p class="lead">In een paar simpele stappen creëer je een unieke knuffelvriend.</p>
+      </div>
+      <ol class="stappen">
+        <li>Kies je beer</li><li>Kies een geurtje</li><li>Voeg een hartje toe</li><li>Kies een paspoort</li><li>Optioneel: kraaltjes</li>
+      </ol>
+      <div class="configurator">
+        <div class="voorbeeld">
+          <div class="voorbeeld-beer"><img id="voorbeeld-img" src="img/ill/classic.png" alt="Voorbeeld van jouw beer"><span class="klop-hart" id="klop-hart" hidden aria-hidden="true">♥</span></div>
+          <p class="hand hart-label" id="hart-label" hidden>boem-boem ♡</p>
+          <span class="extra-label" id="voorbeeld-naam">Classic Bear</span>
+        </div>
+        <div>
+          <div id="stap-inhoud"></div>
+          <div class="configurator-voet">
+            <span class="totaal" id="totaal">€ 24,95</span>
+            <div>
+              <button class="btn licht geen-pijl" id="vorige">← Vorige</button>
+              <button class="btn" id="volgende">Volgende stap</button>
+            </div>
+          </div>
+          <p class="pakket-tip" id="pakket-tip"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>
