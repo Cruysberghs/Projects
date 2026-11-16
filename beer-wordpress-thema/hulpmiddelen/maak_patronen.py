@@ -146,9 +146,8 @@ save("hero", "Welkom (hero)", section(cols(
     + p("Kies je beer, een geurtje en een kloppend hartje, en geef hem een eigen paspoort.")
     + btns(("Stel jouw beer samen →", L("samenstellen")), ("Bekijk de knuffels", L("shop"), True))
     + p("Vanaf € 22,95 · Klaar in 5 stappen · Gratis verzending vanaf € 40", size="small", className="beer-hero-klein"),
-    group(img("ill/doodle-golflijn.png", "", None, className="beer-krul")
-          + p(f'voel je<br>zijn hartje?<br><img src="{IMG("ill/doodle-pijl.png")}" alt="">', className="beer-hand beer-hart-hint")
-          + img("ill/beer-hart.png", "Een zachte knuffelbeer met een groot hart", "400px", center=True, className="beer-klop"),
+    group(p(f'een knuffel<br>voor het leven<br><img src="{IMG("ill/doodle-pijl.png")}" alt="">', className="beer-hand beer-hart-hint")
+          + img("ill/groot-hero.webp", "Een grote beer knuffelt een kleine beer", "460px", center=True, className="is-style-wiebel"),
           className="beer-hero-beeld"))
 , gradient="zacht"), desc="Grote welkomstbanner met beer en knop.")
 
@@ -182,12 +181,13 @@ save("samenstellen-cta", "Stel jouw BEER. samen (blok)", section(cols(
     + btns(("Begin nu →", L("samenstellen"))))
 , bg="wit"))
 
+BEELD = {"workshops": "workshop-knutselen", "kinderfeestjes": "kinderfeestje", "kampjes": "kampjes"}
 AANBOD = [("Workshops", "Samen knutselen, samen herinneringen maken. Vanaf € 19,95 per kind.", "workshops", "Ontdek →"),
           ("Kinderfeestjes", "Een onvergetelijk feestje met al je vriendjes. Vanaf € 17,50 per kind.", "kinderfeestjes", "Formules →"),
           ("Kampjes", "Een week vol knutselplezier, spel en creativiteit. € 125 per week.", "kampjes", "Ontdek →")]
 save("samen-beleven", "Samen beleven", section(
     h("Samen beleven", center=True)
-    + grid("".join(kaart(h(t, 3) + p(x) + btns((b, L(s)))) for t, x, s, b in AANBOD), "15rem")))
+    + grid("".join(kaart(img(f"ill/groot-{BEELD[s]}.webp", "", None, center=True, className="beer-kaart-beeld") + h(t, 3) + p(x) + btns((b, L(s)))) for t, x, s, b in AANBOD), "15rem")))
 
 save("beloftes", "Onze beloftes", section(
     h("Onze beloftes", center=True)
@@ -223,7 +223,7 @@ def aanbod(slug, titel, lead, punten, knop, beren, prijs, per, info_titel, info)
 
 aanbod("workshops", "Workshops", "Samen knutselen, samen herinneringen maken.",
        ["Maak je eigen knuffelbeer", "Kies een geurtje", "Versier je berenpaspoort"], "Reserveer een workshop →",
-       ("ill/workshop.png", "Kinderen knutselen samen een knuffelbeer"), "€ 19,95", "per kind",
+       ("ill/groot-workshop-knuffelen.webp", "Twee kinderen knuffelen hun zelfgemaakte beer"), "€ 19,95", "per kind",
        "Hoe werkt een workshop?",
        [("1. Welkom", "We ontvangen je in ons atelier in Gent met een drankje."),
         ("2. Knutselen", "Je kiest je beer, vult hem zelf en geeft hem een hartje en geurtje."),
@@ -231,7 +231,7 @@ aanbod("workshops", "Workshops", "Samen knutselen, samen herinneringen maken.",
 
 aanbod("kinderfeestjes", "Kinderfeestjes", "Vier een onvergetelijk feestje met BEER. en al je vriendjes!",
        ["Kies jouw formule", "Maak, speel en geniet", "Elk kind gaat naar huis met een eigen beer"], "Boek een feestje →",
-       ("ill/kinderfeestje.png", "Een beer met feesthoedje tussen ballonnen en cadeautjes"), "€ 17,50", "per kind",
+       ("ill/groot-kinderfeestje.webp", "Een beer met feesthoedje tussen ballonnen en cadeautjes"), "€ 17,50", "per kind",
        "Onze formules",
        [("Mini-feestje", "<strong>€ 17,50 per kind</strong><br>1,5 uur · Little Bear · paspoort"),
         ("Berenfeest", "<strong>€ 24,50 per kind</strong><br>2 uur · beer naar keuze · geurtje · drankje &amp; taart"),
@@ -239,7 +239,7 @@ aanbod("kinderfeestjes", "Kinderfeestjes", "Vier een onvergetelijk feestje met B
 
 aanbod("kampjes", "Kampjes", "Een week vol knutselplezier, spel en creativiteit.",
        ["Creatief knutselatelier", "Spel en avontuur", "Nieuwe vriendjes"], "Schrijf je in →",
-       ("ill/kampjes.png", "Een beer met rugzak naast een tentje"), "€ 125", "per week",
+       ("ill/groot-kampjes.webp", "Een beer met rugzak en kaart bij een tent en een kampvuur"), "€ 125", "per week",
        "Praktisch",
        [("Wanneer?", "Tijdens de krokus-, paas-, zomer- en herfstvakantie. Ma–vr, 9u tot 16u."),
         ("Voor wie?", "Kinderen van 5 tot 12 jaar, in kleine groepjes."),
@@ -252,8 +252,7 @@ save("ons-verhaal", "Ons verhaal", section(cols(
     + p("Een vriendje om te koesteren, een maatje voor het leven.")
     + p("Vertel hier jullie eigen verhaal: wie zit erachter, hoe kwam het idee, en waarom beren?")
     + btns(("Leer ons kennen →", L("contact"))),
-    group(img("ill/doodle-golflijn.png", "", None, className="beer-krul")
-          + img("ill/ons-verhaal.png", "Twee knuffelberen naast elkaar", "420px", center=True), className="beer-hero-beeld")), gradient="zacht"))
+    group(img("ill/groot-ons-verhaal.webp", "Een grote en een kleine beer lezen samen een boek", "480px", center=True), className="beer-hero-beeld")), gradient="zacht"))
 
 FAQ = [("Hoe werkt het zelf vullen?", "In onze winkel of tijdens een workshop vul je je beer zelf met zachte vulling, zo stevig of zo zacht als je wil."),
        ("Welke geurtjes zijn er?", "Vanille, aardbei en lavendel. Het geurtje zit in een klein zakje in de buik en blijft maandenlang lekker ruiken."),
@@ -275,7 +274,7 @@ save("contact", "Contact", section(cols(
     + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>')
     + rij("locatie", "Onze locatie<br>Straatnaam 12, 9000 Gent")
     + btns(("Stuur een bericht →", "mailto:info@beer.be")),
-    img("ill/beer-zwaait.png", "Een zwaaiende beer", "360px", center=True))))
+    img("ill/groot-contact.webp", "Een zwaaiende beer achter een laptop", "440px", center=True))))
 
 # ---------------- Verkoop ----------------
 save("seizoensbalk", "Seizoensbalk", """<?php

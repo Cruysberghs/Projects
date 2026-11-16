@@ -11,7 +11,9 @@
 <h2 class="wp-block-heading has-text-align-center">Samen beleven</h2>
 <!-- /wp:heading --><!-- wp:group {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"15rem"}} -->
 <div class="wp-block-group"><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
-<div class="wp-block-group is-style-kaart"><!-- wp:heading {"level":3} -->
+<div class="wp-block-group is-style-kaart"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kaart-beeld"} -->
+<figure class="wp-block-image aligncenter size-full beer-kaart-beeld"><img src="<?php echo beer_img( 'ill/groot-workshop-knutselen.webp' ); ?>" alt=""/></figure>
+<!-- /wp:image --><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Workshops</h3>
 <!-- /wp:heading --><!-- wp:paragraph -->
 <p>Samen knutselen, samen herinneringen maken. Vanaf € 19,95 per kind.</p>
@@ -21,7 +23,9 @@
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
-<div class="wp-block-group is-style-kaart"><!-- wp:heading {"level":3} -->
+<div class="wp-block-group is-style-kaart"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kaart-beeld"} -->
+<figure class="wp-block-image aligncenter size-full beer-kaart-beeld"><img src="<?php echo beer_img( 'ill/groot-kinderfeestje.webp' ); ?>" alt=""/></figure>
+<!-- /wp:image --><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Kinderfeestjes</h3>
 <!-- /wp:heading --><!-- wp:paragraph -->
 <p>Een onvergetelijk feestje met al je vriendjes. Vanaf € 17,50 per kind.</p>
@@ -31,7 +35,9 @@
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
-<div class="wp-block-group is-style-kaart"><!-- wp:heading {"level":3} -->
+<div class="wp-block-group is-style-kaart"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kaart-beeld"} -->
+<figure class="wp-block-image aligncenter size-full beer-kaart-beeld"><img src="<?php echo beer_img( 'ill/groot-kampjes.webp' ); ?>" alt=""/></figure>
+<!-- /wp:image --><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Kampjes</h3>
 <!-- /wp:heading --><!-- wp:paragraph -->
 <p>Een week vol knutselplezier, spel en creativiteit. € 125 per week.</p>

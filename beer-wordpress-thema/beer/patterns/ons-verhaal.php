@@ -24,10 +24,8 @@
 <!-- /wp:buttons --></div>
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"className":"beer-hero-beeld","layout":{"type":"constrained"}} -->
-<div class="wp-block-group beer-hero-beeld"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"beer-krul"} -->
-<figure class="wp-block-image size-full beer-krul"><img src="<?php echo beer_img( 'ill/doodle-golflijn.png' ); ?>" alt=""/></figure>
-<!-- /wp:image --><!-- wp:image {"width":"420px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/ons-verhaal.png' ); ?>" alt="Twee knuffelberen naast elkaar" style="width:420px"/></figure>
+<div class="wp-block-group beer-hero-beeld"><!-- wp:image {"width":"480px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/groot-ons-verhaal.webp' ); ?>" alt="Een grote en een kleine beer lezen samen een boek" style="width:480px"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>

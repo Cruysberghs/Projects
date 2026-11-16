@@ -1,7 +1,7 @@
 /*
 Theme Name: BEER.
 Description: Warm, zacht thema voor BEER. – jouw knuffel, jouw verhaal. Met kant-en-klare blokpatronen voor shop, workshops, kinderfeestjes, kampjes, FAQ en contact.
-Version: 1.4.0
+Version: 1.5.0
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -253,3 +253,9 @@ ul.beer-footer-links li { margin: 4px 0; }
 .beer-kenmerk-ico img { height: 46px; width: auto; max-width: 70px; }
 
 @media (prefers-reduced-motion: reduce) { .beer-klop img { animation: none; } }
+
+/* Grote illustraties (tweede set) */
+.beer-hero-beeld::after { content: none; }            /* de illustraties hebben zelf al hartjes */
+@media (min-width: 782px) { .beer-hero-beeld > .beer-hart-hint { top: 62%; left: -4%; } }
+@media (max-width: 781px) { .beer-hero-beeld > .beer-hart-hint { display: none; } }
+.beer-kaart-beeld img { height: 150px; width: 100%; object-fit: contain; }

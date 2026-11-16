@@ -29,7 +29,7 @@
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"className":"beer-badge-houder","layout":{"type":"constrained"}} -->
 <div class="wp-block-group beer-badge-houder"><!-- wp:image {"width":"100%","sizeSlug":"full","linkDestination":"none","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/kampjes.png' ); ?>" alt="Een beer met rugzak naast een tentje" style="width:100%"/></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/groot-kampjes.webp' ); ?>" alt="Een beer met rugzak en kaart bij een tent en een kampvuur" style="width:100%"/></figure>
 <!-- /wp:image --><!-- wp:group {"className":"is-style-prijs-badge","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-prijs-badge"><!-- wp:paragraph -->
 <p>Vanaf<br><strong>€ 125</strong>per week</p>

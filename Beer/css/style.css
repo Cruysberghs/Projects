@@ -565,3 +565,11 @@ img[src*="img/ill/"] { object-fit: contain; }
 .kenmerken .ico { width: auto; max-width: 70px; height: 46px; }
 .voorbeeld .hart-label { top: 12%; right: 4%; }
 .beeld-vak .doodle { z-index: 2; }
+
+/* Grote illustraties (tweede set) */
+.hero-beeld::after { content: none; }                 /* de illustraties hebben zelf al hartjes */
+@media (min-width: 761px) { .hero .hart-hint { top: 52%; left: -18%; } }
+.kaart-beeld { width: 100%; height: 150px; object-fit: contain; margin: -6px 0 12px; }
+.contact-beer { width: min(100%, 440px); }
+.aanbod-beeld { max-width: 560px; }
+@media (max-width: 760px) { .hero .hart-hint { display: none; } }

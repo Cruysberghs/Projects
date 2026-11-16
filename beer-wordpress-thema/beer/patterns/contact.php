@@ -37,8 +37,8 @@
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"width":"360px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/beer-zwaait.png' ); ?>" alt="Een zwaaiende beer" style="width:360px"/></figure>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"width":"440px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/groot-contact.webp' ); ?>" alt="Een zwaaiende beer achter een laptop" style="width:440px"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>

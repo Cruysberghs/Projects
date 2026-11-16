@@ -27,12 +27,10 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"className":"beer-hero-beeld","layout":{"type":"constrained"}} -->
-<div class="wp-block-group beer-hero-beeld"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"beer-krul"} -->
-<figure class="wp-block-image size-full beer-krul"><img src="<?php echo beer_img( 'ill/doodle-golflijn.png' ); ?>" alt=""/></figure>
-<!-- /wp:image --><!-- wp:paragraph {"className":"beer-hand beer-hart-hint"} -->
-<p class="beer-hand beer-hart-hint">voel je<br>zijn hartje?<br><img src="<?php echo beer_img( 'ill/doodle-pijl.png' ); ?>" alt=""></p>
-<!-- /wp:paragraph --><!-- wp:image {"width":"400px","sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-klop"} -->
-<figure class="wp-block-image aligncenter size-full is-resized beer-klop"><img src="<?php echo beer_img( 'ill/beer-hart.png' ); ?>" alt="Een zachte knuffelbeer met een groot hart" style="width:400px"/></figure>
+<div class="wp-block-group beer-hero-beeld"><!-- wp:paragraph {"className":"beer-hand beer-hart-hint"} -->
+<p class="beer-hand beer-hart-hint">een knuffel<br>voor het leven<br><img src="<?php echo beer_img( 'ill/doodle-pijl.png' ); ?>" alt=""></p>
+<!-- /wp:paragraph --><!-- wp:image {"width":"460px","sizeSlug":"full","linkDestination":"none","align":"center","className":"is-style-wiebel"} -->
+<figure class="wp-block-image aligncenter size-full is-resized is-style-wiebel"><img src="<?php echo beer_img( 'ill/groot-hero.webp' ); ?>" alt="Een grote beer knuffelt een kleine beer" style="width:460px"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
