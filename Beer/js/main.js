@@ -308,6 +308,7 @@ function toonKnuffels() {
         <div class="pk-info">
           <h3><a href="product.html?id=${k.id}">${k.naam}</a></h3>
           ${doel.dataset.knuffels === "lang" ? `<p>${k.tekst}</p>` : ""}
+          <a class="pk-info-link" href="product.html?id=${k.id}">Meer info · ${k.hoogte}</a>
           <div class="pk-koop">
             <span class="prijs">${euro(k.prijs)}</span>
             <button class="btn koop klein plus" data-koop="${k.id}" aria-label="${k.naam} in mijn mandje">In mandje</button>
@@ -451,7 +452,17 @@ function samensteller() {
       </button>`).join("")}</div>`;
 
   const schermen = [
-    () => `<h3>1. Kies je beer</h3><div class="beer-keuzes">${knoppen(KNUFFELS, "beer")}</div>`,
+    () => `<h3>1. Kies je beer</h3><div class="beer-keuzes">${knoppen(KNUFFELS, "beer")}</div>
+      <div class="beer-info">
+        <p class="beer-info-tekst"><strong>${keuze.beer.naam}</strong> – ${keuze.beer.tekst}</p>
+        <dl class="beer-specs">
+          <div><dt>Hoogte</dt><dd>${keuze.beer.hoogte}</dd></div>
+          <div><dt>Leeftijd</dt><dd>${keuze.beer.leeftijd}</dd></div>
+          <div><dt>Materiaal</dt><dd>${keuze.beer.materiaal}</dd></div>
+          <div><dt>Wassen</dt><dd>${keuze.beer.wassen}</dd></div>
+        </dl>
+        <a class="tekst-pijl" href="product.html?id=${keuze.beer.id}">Alles over ${keuze.beer.naam}</a>
+      </div>`,
     () => `<h3>2. Kies een geurtje</h3>${knoppen(GEURTJES, "geur")}`,
     () => `<h3>3. Voeg een hartje toe</h3>${knoppen(HARTJES, "hart")}`,
     () => `<h3>4. Maak een paspoort</h3>

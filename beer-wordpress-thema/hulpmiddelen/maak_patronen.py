@@ -211,8 +211,15 @@ save("stappen", "Stel jouw BEER. samen (stappen)", section(
     + p("In een paar simpele stappen creëer je een unieke knuffelvriend.", center=True, size="large")
     + grid("".join(kaart(p(f"<strong>{n}</strong>", center=True, size="x-large", className="beer-hand") + h(t, 3, center=True) + p(x, center=True, size="small"))
                    for n, (t, x) in enumerate(STAPPEN, 1)), "11rem", 5)
-    + p("Vanaf <strong>€ 24,95</strong> · geurtje + € 2,50 · kloppend hartje + € 4,95 · bandje + € 3,50", center=True)
-    + btns(("Kom langs in de winkel →", L("contact")), ("Boek een workshop", L("workshops"), True), center=True),
+    + h("Kies je beer", 3, center=True)
+    + grid("".join(kaart(img(f"ill/{b}.webp", n, "110px", center=True, link=L(PSLUG(n)))
+                         + p(f'<strong><a href="{L(PSLUG(n))}">{n}</a></strong><br>{pr}', center=True)
+                         + p(f"{hoogte} · vanaf 0 jaar<br>Zacht pluche · wasbaar op 30°C", center=True, size="small")
+                         + p(f'<a href="{L(PSLUG(n))}">Meer info →</a>', center=True, className="beer-tekst-pijl"))
+                   for b, n, pr, hoogte in [("classic", "Classic Bear", "€ 24,95", "30 cm"), ("brownie", "Brownie Bear", "€ 24,95", "30 cm"),
+                                             ("dreamy", "Dreamy Bear", "€ 24,95", "30 cm"), ("little", "Little Bear", "€ 22,95", "20 cm")]), "10rem", 4)
+    + p("Vanaf <strong>€ 22,95</strong> · geurtje + € 2,50 · kloppend hartje + € 4,95 · bandje + € 3,50", center=True)
+    + btns(("Kom langs in de winkel →", L("contact"), "koop"), ("Boek een workshop", L("workshops"), True), center=True),
     gradient="zacht"))
 
 # ---------------- Aanbodpagina's ----------------

@@ -901,3 +901,17 @@ h1, h2 { color: var(--terracotta-donker); }
 /* Nieuwe beer met hart staat zelf al in het midden: niet meer opschuiven */
 .samenstel-beeld img, .pakket-beeld img { transform: none; width: 64% !important; }
 .pakket:hover .pakket-beeld img, .samenstel-blok:hover .samenstel-beeld img { transform: translateY(-10px) rotate(-3deg); }
+
+/* Duidelijke link naar de productpagina op elke kaart */
+.pk-info-link { font-size: .85rem; font-weight: 700; color: var(--terracotta-donker); text-decoration: none; }
+.pk-info-link::after { content: " →"; }
+.pk-info-link:hover { text-decoration: underline; }
+
+/* Samensteller: info van de gekozen beer */
+.beer-info { background: var(--wit); border: 1.5px solid var(--perzik); border-radius: 16px; padding: 14px 16px; margin: -8px 0 22px; }
+.beer-info-tekst { margin: 0 0 10px; font-size: .95rem; }
+.beer-specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 16px; margin: 0 0 10px; font-size: .88rem; }
+.beer-specs div { display: flex; gap: 6px; }
+.beer-specs dt { font-weight: 700; min-width: 74px; }
+.beer-specs dd { margin: 0; }
+@media (max-width: 480px) { .beer-specs { grid-template-columns: 1fr; } }
