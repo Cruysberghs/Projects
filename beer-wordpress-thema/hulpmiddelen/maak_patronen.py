@@ -135,8 +135,7 @@ save("footer", "Footer", section(
             [("shop", "Shop"), ("samenstellen", "Stel jouw BEER. samen"), ("cadeaubon", "Cadeaubon"), ("workshops", "Workshops"), ("kinderfeestjes", "Kinderfeestjes"), ("kampjes", "Kampjes"), ("faq", "Veelgestelde vragen"), ("ons-verhaal", "Ons verhaal")]], className="beer-footer-links"),
         h("Contact", 3) + rij("mail", '<a href="mailto:info@beer.be">info@beer.be</a>', "18px")
         + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>', "18px")
-        + rij("locatie", "Straatnaam 12, 9000 Gent", "18px")
-        + rij("uniek", "Wo–za 10u–18u", "18px"),
+        + rij("locatie", "Workshops: Straatnaam 12, 9000 Gent", "18px"),
         center=False)
     + p("© <?php echo esc_html( gmdate( 'Y' ) ); ?> BEER. – Met liefde gemaakt", center=True, size="small"),
     bg="perzik", className="beer-footer"), inserter=False)
@@ -153,7 +152,7 @@ save("hero", "Welkom (hero)", section(cols(
           className="beer-hero-beeld"))
 , gradient="zacht"), desc="Grote welkomstbanner met beer en knop.")
 
-kenmerken = [("zelf-vullen", "Zelf vullen", "in de winkel of workshop"), ("geurtje", "Heerlijk geurtje", "vanille, aardbei of lavendel"), ("kloppend-hartje", "Kloppend hartje", "klopt als je drukt"), ("paspoort", "Berenpaspoort", "met naam en verjaardag"), ("bandje", "Vriendschapsbandje", "voor jou én je beer")]
+kenmerken = [("zelf-vullen", "Zelf vullen", "tijdens een workshop"), ("geurtje", "Heerlijk geurtje", "vanille, aardbei of lavendel"), ("kloppend-hartje", "Kloppend hartje", "klopt als je drukt"), ("paspoort", "Berenpaspoort", "met naam en verjaardag"), ("bandje", "Vriendschapsbandje", "voor jou én je beer")]
 save("kenmerken", "Kenmerken", group(group(
     grid("".join(group(img(f"ill/icoon-{i}.png", "", None, center=True, className="beer-kenmerk-ico") + p(f"<strong>{t}</strong><br>{u}", center=True, size="small"),
                        style_extra=({"spacing": {"blockGap": "0"}}, "")) for i, t, u in kenmerken), "9rem", 5),
@@ -220,7 +219,7 @@ save("stappen", "Stel jouw BEER. samen (stappen)", section(
                    for b, n, pr, hoogte in [("classic", "Classic Bear", "€ 24,95", "30 cm"), ("brownie", "Brownie Bear", "€ 24,95", "30 cm"),
                                              ("dreamy", "Dreamy Bear", "€ 24,95", "30 cm"), ("little", "Little Bear", "€ 22,95", "20 cm")]), "10rem", 4)
     + p("Vanaf <strong>€ 22,95</strong> · geurtje + € 2,50 · kloppend hartje + € 4,95 · bandje + € 3,50", center=True)
-    + btns(("Kom langs in de winkel →", L("contact"), "koop"), ("Boek een workshop", L("workshops"), True), center=True),
+    + btns(("Kies je beer in de shop →", L("shop"), "koop"), ("Boek een workshop", L("workshops"), True), center=True),
     gradient="zacht"))
 
 # ---------------- Aanbodpagina's ----------------
@@ -270,12 +269,12 @@ save("ons-verhaal", "Ons verhaal", section(cols(
     + btns(("Leer ons kennen →", L("contact"))),
     group(img("ill/groot-ons-verhaal.webp", "Een grote en een kleine beer lezen samen een boek", "480px", center=True), className="beer-hero-beeld")), gradient="zacht"))
 
-FAQ = [("Hoe werkt het zelf vullen?", "In onze winkel of tijdens een workshop vul je je beer zelf met zachte vulling, zo stevig of zo zacht als je wil."),
+FAQ = [("Hoe werkt het zelf vullen?", "Tijdens een workshop, kinderfeestje of kamp vul je je beer zelf met zachte vulling, zo stevig of zo zacht als je wil. Online bestelde beren vullen wij met liefde voor je."),
        ("Welke geurtjes zijn er?", "Vanille, aardbei en lavendel. Het geurtje zit in een klein zakje in de buik en blijft maandenlang lekker ruiken."),
        ("Is de knuffel wasbaar?", "Ja! Haal het hartje en geurzakje eruit en was je beer op 30°C in een kussensloop. Laat hem daarna aan de lucht drogen."),
        ("Hoe lang is de levertijd?", "We verzenden binnen 2 tot 3 werkdagen in België. Een beer op maat kan een dagje langer duren."),
        ("Kan ik mijn bestelling retourneren?", "Niet-gepersonaliseerde knuffels kan je binnen 14 dagen terugsturen. Beren met een naam of paspoort zijn uniek en kunnen niet geruild worden."),
-       ("Hoe betaal ik?", "Veilig met Bancontact, of ter plaatse in de winkel.")]
+       ("Hoe betaal ik?", "Veilig online met Bancontact of Payconiq. BEER. is een webshop: je bestelt online en wij leveren aan huis.")]
 save("faq", "Veelgestelde vragen", group(
     h("Veelgestelde vragen", 1, center=True)
     + p("Hier vind je de antwoorden op de meestgestelde vragen.", center=True)
@@ -288,7 +287,7 @@ save("contact", "Contact", section(cols(
     + p("Heb je een vraag, een idee of wil je iets reserveren? Laat het ons weten!", size="large")
     + rij("mail", '<a href="mailto:info@beer.be">info@beer.be</a>')
     + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>')
-    + rij("locatie", "Onze locatie<br>Straatnaam 12, 9000 Gent<br><strong>Open:</strong> wo–za 10u–18u")
+    + rij("locatie", "Workshops en feestjes<br>Straatnaam 12, 9000 Gent<br><small>Geen winkel: onze knuffels bestel je online.</small>")
     + btns(("Stuur een bericht →", "mailto:info@beer.be")),
     img("ill/groot-contact.webp", "Een zwaaiende beer achter een laptop", "440px", center=True))))
 

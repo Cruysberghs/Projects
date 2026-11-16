@@ -103,7 +103,7 @@
 <p class="has-text-align-center">Vanaf <strong>€ 22,95</strong> · geurtje + € 2,50 · kloppend hartje + € 4,95 · bandje + € 3,50</p>
 <!-- /wp:paragraph --><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
-<div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'contact' ); ?>">Kom langs in de winkel →</a></div>
+<div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'shop' ); ?>">Kies je beer in de shop →</a></div>
 <!-- /wp:button --><!-- wp:button {"className":"is-style-outline"} -->
 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'workshops' ); ?>">Boek een workshop</a></div>
 <!-- /wp:button --></div>

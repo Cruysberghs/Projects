@@ -23,9 +23,6 @@ const SEIZOEN = [
 ];
 const SEIZOEN_ANDERS = { tekst: `Gratis verzending in België vanaf € ${WINKEL.gratisVanaf}`, link: "shop.html", knop: "Naar de shop" };
 
-// Openingsuren van de winkel/het atelier (VOORBEELD – aanpassen)
-const OPENINGSUREN = "Wo–za 10u–18u";
-
 // Menu bovenaan
 const MENU = [
   ["index.html", "Home"],
@@ -145,8 +142,7 @@ function bouwLayout() {
           <div><h3>Contact</h3><ul>
             <li><img class="ico" src="img/icons/mail.svg" alt=""><a href="mailto:info@beer.be">info@beer.be</a></li>
             <li><img class="ico" src="img/icons/telefoon.svg" alt=""><a href="tel:+32479123456">+32 479 12 34 56</a></li>
-            <li><img class="ico" src="img/icons/locatie.svg" alt="">Straatnaam 12, 9000 Gent</li>
-            <li><img class="ico" src="img/icons/uniek.svg" alt="">${OPENINGSUREN}</li>
+            <li><img class="ico" src="img/icons/locatie.svg" alt="">Workshops: Straatnaam 12, 9000 Gent</li>
           </ul></div>
         </div>
         <p class="footer-onder">© ${new Date().getFullYear()} BEER. – Met liefde gemaakt · Veilig betalen met Bancontact</p>
@@ -165,7 +161,7 @@ function bouwLayout() {
         <div class="totaal"><span>Totaal</span><span id="mandje-totaal">€ 0,00</span></div>
         <button class="btn koop" id="afrekenen">Bestelling afronden</button>
         <p class="betaal-chips"><span>Bancontact</span><span>Payconiq</span><span>Visa</span><span>Mastercard</span></p>
-        <p class="mandje-belofte">Levering in 2–3 werkdagen · Gratis afhalen in Gent · 14 dagen bedenktijd</p>
+        <p class="mandje-belofte">Levering in 2–3 werkdagen · 14 dagen bedenktijd</p>
       </div>
     </aside>
     <div class="toast" id="toast" role="status"></div>`);
@@ -612,29 +608,26 @@ function bestelPagina() {
   if (!items.length) { el.innerHTML = `<p class="lead">Je mandje is leeg. <a href="shop.html">Kies eerst een beer →</a></p>`; return; }
   const sub = Mandje.subtotaal();
   const teken = () => {
-    const afhalen = el.querySelector("[name=levering]:checked").value === "afhalen";
-    const verzend = afhalen || sub >= WINKEL.gratisVanaf ? 0 : WINKEL.verzendkost;
-    el.querySelector("#adres-velden").hidden = afhalen;
-    el.querySelectorAll("#adres-velden input").forEach((i) => (i.required = !afhalen));
+    const verzend = sub >= WINKEL.gratisVanaf ? 0 : WINKEL.verzendkost;
+    el.querySelectorAll("#adres-velden input").forEach((i) => (i.required = true));
     el.querySelector("#b-verzend").textContent = verzend ? euro(verzend) : "Gratis";
     el.querySelector("#b-totaal").textContent = euro(sub + verzend);
-    return { afhalen, verzend };
+    return { verzend };
   };
   el.querySelector("#b-items").innerHTML = items.map((it) =>
     `<li><img src="${it.img}" alt=""><span>${it.aantal} × ${esc(it.naam)}${it.details ? `<small>${esc(it.details)}</small>` : ""}</span><strong>${euro(it.prijs * it.aantal)}</strong></li>`).join("");
   el.querySelector("#b-sub").textContent = euro(sub);
-  el.querySelectorAll("[name=levering]").forEach((r) => r.addEventListener("change", teken));
   teken();
   el.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const { afhalen, verzend } = teken();
+    const { verzend } = teken();
     const d = new FormData(e.target);
     const tekst = [
       "Hallo BEER., ik wil graag bestellen:", "",
       ...items.map((it) => `- ${it.aantal} x ${it.naam}${it.details ? " (" + it.details + ")" : ""}: ${euro(it.prijs * it.aantal)}`),
       "", `Verzending: ${verzend ? euro(verzend) : "gratis"}`, `Totaal: ${euro(sub + verzend)}`, "",
       `Naam: ${d.get("naam")}`, `E-mail: ${d.get("email")}`, `Telefoon: ${d.get("telefoon") || "-"}`,
-      afhalen ? "Levering: ik haal af in Gent" : `Adres: ${d.get("straat")}, ${d.get("postcode")} ${d.get("gemeente")}`,
+      `Adres: ${d.get("straat")}, ${d.get("postcode")} ${d.get("gemeente")}`,
       d.get("opmerking") ? `Opmerking: ${d.get("opmerking")}` : "",
     ].join("\n");
     location.href = `mailto:info@beer.be?subject=${encodeURIComponent("Bestelling via de website")}&body=${encodeURIComponent(tekst)}`;

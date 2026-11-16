@@ -12,7 +12,7 @@
 <p class="has-text-align-center">Hier vind je de antwoorden op de meestgestelde vragen.</p>
 <!-- /wp:paragraph --><!-- wp:details -->
 <details class="wp-block-details"><summary>Hoe werkt het zelf vullen?</summary><!-- wp:paragraph -->
-<p>In onze winkel of tijdens een workshop vul je je beer zelf met zachte vulling, zo stevig of zo zacht als je wil.</p>
+<p>Tijdens een workshop, kinderfeestje of kamp vul je je beer zelf met zachte vulling, zo stevig of zo zacht als je wil. Online bestelde beren vullen wij met liefde voor je.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --><!-- wp:details -->
 <details class="wp-block-details"><summary>Welke geurtjes zijn er?</summary><!-- wp:paragraph -->
@@ -32,7 +32,7 @@
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --><!-- wp:details -->
 <details class="wp-block-details"><summary>Hoe betaal ik?</summary><!-- wp:paragraph -->
-<p>Veilig met Bancontact, of ter plaatse in de winkel.</p>
+<p>Veilig online met Bancontact of Payconiq. BEER. is een webshop: je bestelt online en wij leveren aan huis.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --><!-- wp:paragraph {"align":"center"} -->
 <p class="has-text-align-center">Staat je vraag er niet bij? <a href="<?php echo beer_link( 'contact' ); ?>">Stuur ons een bericht</a>.</p>
