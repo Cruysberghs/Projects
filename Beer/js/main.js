@@ -166,6 +166,23 @@ function bouwLayout() {
     </aside>
     <div class="toast" id="toast" role="status"></div>`);
 
+  // Op de gsm: vaste knop onderaan, zodat bestellen altijd één tik ver is
+  if (!["samenstellen.html", "product.html", "cadeaubon.html"].includes(huidig)) {
+    document.body.insertAdjacentHTML("beforeend",
+      `<a class="gsm-cta" href="samenstellen.html">Stel jouw BEER. samen →</a>`);
+    document.body.classList.add("heeft-gsm-cta");
+    // Verbergen zolang er al een grote bestelknop in beeld is (geen dubbele knoppen)
+    if ("IntersectionObserver" in window) {
+      const cta = document.querySelector(".gsm-cta");
+      const zichtbaar = new Set();
+      const io = new IntersectionObserver((items) => {
+        items.forEach((it) => it.isIntersecting ? zichtbaar.add(it.target) : zichtbaar.delete(it.target));
+        cta.classList.toggle("verborgen", zichtbaar.size > 0);
+      });
+      setTimeout(() => document.querySelectorAll("main .btn.groot, main .pakket .btn, main .hero-knoppen .btn").forEach((b) => io.observe(b)), 0);
+    }
+  }
+
   const menu = document.getElementById("hoofdmenu");
   const menuKnop = document.getElementById("menu-knop");
   menuKnop.addEventListener("click", () => {
@@ -286,14 +303,16 @@ function toast(tekst) {
 function toonKnuffels() {
   document.querySelectorAll("[data-knuffels]").forEach((doel) => {
     doel.innerHTML = KNUFFELS.map((k) => `
-      <article class="kaart">
-        <a class="kaart-link" href="product.html?id=${k.id}">
-          <img src="${k.img}" alt="${k.naam}">
-          <h3>${k.naam}</h3>
-        </a>
-        ${doel.dataset.knuffels === "lang" ? `<p>${k.tekst}</p>` : ""}
-        <p class="prijs">${euro(k.prijs)}</p>
-        <button class="btn plus" data-koop="${k.id}">Toevoegen</button>
+      <article class="product-kaart">
+        <a class="pk-beeld" href="product.html?id=${k.id}"><img src="${k.img}" alt="${k.naam}"></a>
+        <div class="pk-info">
+          <h3><a href="product.html?id=${k.id}">${k.naam}</a></h3>
+          ${doel.dataset.knuffels === "lang" ? `<p>${k.tekst}</p>` : ""}
+          <div class="pk-koop">
+            <span class="prijs">${euro(k.prijs)}</span>
+            <button class="btn klein plus" data-koop="${k.id}" aria-label="${k.naam} in mijn mandje">In mandje</button>
+          </div>
+        </div>
       </article>`).join("");
   });
 
@@ -608,7 +627,7 @@ function onthul() {
     // daarna de klasse weghalen, zodat het hover-effect weer werkt
     setTimeout(() => it.target.classList.remove("onthul", "zichtbaar"), 1200);
   }), { rootMargin: "0px 0px -8% 0px" });
-  document.querySelectorAll(".kaart, .beloftes > div, .kenmerken li, .faq details, .split > *, .raster > *, .pakket").forEach((el) => {
+  document.querySelectorAll(".kaart, .beloftes > div, .faq details, .split > *, .raster > *, .pakket, .samenstel-blok").forEach((el) => {
     if (el.getBoundingClientRect().top < innerHeight) return; // al in beeld: niets verbergen
     const broers = [...el.parentElement.children];
     el.style.setProperty("--d", (broers.indexOf(el) % 4) * 90 + "ms");

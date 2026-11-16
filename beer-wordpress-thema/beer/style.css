@@ -1,7 +1,7 @@
 /*
 Theme Name: BEER.
 Description: Warm, zacht thema voor BEER. – jouw knuffel, jouw verhaal. Met kant-en-klare blokpatronen voor shop, workshops, kinderfeestjes, kampjes, FAQ en contact.
-Version: 1.5.0
+Version: 1.6.0
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -259,3 +259,102 @@ ul.beer-footer-links li { margin: 4px 0; }
 @media (min-width: 782px) { .beer-hero-beeld > .beer-hart-hint { top: 62%; left: -4%; } }
 @media (max-width: 781px) { .beer-hero-beeld > .beer-hart-hint { display: none; } }
 .beer-kaart-beeld img { height: 150px; width: 100%; object-fit: contain; }
+
+/* =========================================================
+   Look v2: duidelijke hiërarchie, kleur en sneller kopen
+   ========================================================= */
+:root { --beer-tint-perzik: #FBE3D2; --beer-tint-zand: #F3E2D0; --beer-tint-roze: #FBE4E1; --beer-tint-salie: #EAEEDD; }
+h1.wp-block-heading, h2.wp-block-heading { color: var(--wp--preset--color--terracotta-donker); }
+.beer-bovenkop { margin-bottom: 0 !important; font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--wp--preset--color--terracotta-donker); }
+.beer-hero-snel a {
+	display: inline-block; margin: 4px 4px 0 0; text-decoration: none; color: var(--wp--preset--color--bruin); font-weight: 700; font-size: .88rem;
+	background: var(--wp--preset--color--wit); border: 1.5px solid var(--wp--preset--color--perzik); border-radius: 999px; padding: 5px 14px;
+	transition: background .2s, color .2s;
+}
+.beer-hero-snel a:hover { background: var(--wp--preset--color--terracotta-donker); color: #fff; }
+.beer-tekst-pijl a { text-decoration: none; }
+
+/* Kenmerken: altijd gecentreerd */
+.beer-kenmerken .wp-block-group.is-layout-grid { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 18px 10px; }
+.beer-kenmerken .wp-block-group.is-layout-grid > * { flex: 1 1 150px; max-width: 220px; }
+
+/* Knuffelkaarten en Samen beleven: gekleurd beeldvlak bovenaan */
+.beer-knuffels .is-style-kaart, .beer-beleven .is-style-kaart { padding: 0 0 20px; overflow: hidden; }
+.beer-knuffels .is-style-kaart > *:not(.wp-block-image), .beer-beleven .is-style-kaart > *:not(.wp-block-image) { padding-inline: 20px; }
+.beer-knuffels .is-style-kaart > .wp-block-image, .beer-beleven .is-style-kaart > .wp-block-image { margin: 0 0 14px !important; padding: 20px; background: var(--beer-tint-perzik); }
+.beer-knuffels .is-layout-grid > :nth-child(2) > .wp-block-image { background: var(--beer-tint-zand); }
+.beer-knuffels .is-layout-grid > :nth-child(3) > .wp-block-image, .beer-beleven .is-layout-grid > :nth-child(1) > .wp-block-image { background: var(--beer-tint-roze); }
+.beer-knuffels .is-layout-grid > :nth-child(4) > .wp-block-image, .beer-beleven .is-layout-grid > :nth-child(3) > .wp-block-image { background: var(--beer-tint-salie); }
+.beer-knuffels h3 a { color: inherit; text-decoration: none; }
+.beer-prijs strong { font-family: var(--wp--preset--font-family--fredoka); font-size: 1.25rem; color: var(--wp--preset--color--bruin); }
+.beer-knuffels .wp-block-button__link { font-size: .88rem; padding: .55em 1.1em; box-shadow: none; }
+
+/* Samenstel-blok */
+.beer-samenstel-blok .wp-block-columns { background: var(--wp--preset--color--perzik); border-radius: 32px; padding: 40px 50px; }
+.beer-stap-chips span {
+	display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; margin: 0 6px 0 14px;
+	background: var(--wp--preset--color--terracotta-donker); color: #fff; font-size: .78rem; font-weight: 700;
+}
+.beer-stap-chips span:first-child { margin-left: 0; }
+
+/* Beer echt in het midden van de cirkel (het lijf staat op 40% van de afbeelding) */
+.beer-samenstel-beeld, .beer-pakket-beeld { aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; padding: 0 !important; overflow: hidden; max-width: 340px; margin-inline: auto; }
+.beer-samenstel-beeld { background: #FDEFE4; }
+.beer-samenstel-beeld img, .beer-pakket-beeld img { width: 70% !important; margin-inline: auto; transform: translateX(9.6%); transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.beer-samenstel-blok:hover .beer-samenstel-beeld img, .beer-pakket:hover .beer-pakket-beeld img { transform: translateX(9.6%) translateY(-10px) rotate(-3deg); }
+
+/* Donkere footer */
+.beer-footer.has-background { background-color: var(--wp--preset--color--bruin) !important; color: #F6E7DA; }
+.beer-footer h3.wp-block-heading { color: #FFD9C4; }
+.beer-footer a, .beer-footer .wp-block-site-title a { color: #F6E7DA; }
+.beer-footer a:hover { color: #FFD9C4; }
+.beer-footer .beer-hand { color: #FFC9AE; }
+.beer-footer .beer-ico-rij img { filter: brightness(0) invert(.88) sepia(.3); }
+
+/* Elk soort element een eigen hover-effect */
+.beer-knuffels .is-style-kaart:hover { transform: none; box-shadow: 0 16px 36px rgba(140, 80, 40, .2); }
+.beer-knuffels .is-style-kaart:hover .wp-block-image img { transform: none; }
+.beer-knuffels .is-layout-grid > :nth-child(1):hover img { animation: beer-hop .6s ease; }
+.beer-knuffels .is-layout-grid > :nth-child(2):hover img { animation: beer-wiebel-kort .6s ease; }
+.beer-knuffels .is-layout-grid > :nth-child(3):hover img { animation: beer-knik .7s ease; }
+.beer-knuffels .is-layout-grid > :nth-child(4):hover img { animation: beer-draai .7s ease; }
+.beer-beleven .wp-block-image img { transition: transform .6s ease; }
+.beer-beleven .is-style-kaart:hover .wp-block-image img { transform: scale(1.08); }
+.beer-kenmerken .wp-block-group:hover .wp-block-image img { transform: none; animation: beer-schud .5s ease; }
+.beer-beloftes .wp-block-group:hover .wp-block-image img { animation: beer-hartslag .8s ease; }
+@keyframes beer-hop { 0%, 100% { transform: translateY(0); } 35% { transform: translateY(-16px); } 60% { transform: translateY(0); } 75% { transform: translateY(-5px); } }
+@keyframes beer-wiebel-kort { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-8deg); } 45% { transform: rotate(7deg); } 70% { transform: rotate(-4deg); } }
+@keyframes beer-knik { 0%, 100% { transform: scale(1); } 30% { transform: scale(1.08, .94); } 60% { transform: scale(.96, 1.05); } }
+@keyframes beer-draai { 0% { transform: rotate(0); } 60% { transform: rotate(14deg) scale(1.05); } 100% { transform: rotate(0); } }
+@keyframes beer-schud { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 50% { transform: rotate(10deg); } 75% { transform: rotate(-5deg); } }
+@keyframes beer-hartslag { 0%, 100% { transform: scale(1); } 20% { transform: scale(1.2); } 40% { transform: scale(1); } 60% { transform: scale(1.12); } }
+.wp-block-button.is-style-outline > .wp-block-button__link:hover { background: var(--wp--preset--color--terracotta-donker); color: #fff; transform: none; }
+
+/* Vaste bestelknop onderaan op de gsm */
+.beer-gsm-cta { display: none; }
+
+/* Gsm */
+@media (max-width: 781px) {
+	.wp-block-column:has(> .beer-hero-beeld) { order: -1; }
+	.beer-hero-beeld .wp-block-image img { width: min(55vw, 210px) !important; }
+	.wp-block-buttons > .wp-block-button { width: 100%; }
+	.wp-block-buttons > .wp-block-button > .wp-block-button__link { width: 100%; }
+	.beer-kenmerken .wp-block-group.is-layout-grid > * { flex: 0 0 31%; font-size: .78rem; }
+	.beer-kenmerk-ico img { height: 32px !important; }
+	.beer-knuffels .wp-block-group.is-layout-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
+	.beer-knuffels .is-style-kaart > *:not(.wp-block-image) { padding-inline: 12px; }
+	.beer-knuffels .is-style-kaart p.has-small-font-size { display: none; }
+	.beer-samenstel-blok .wp-block-columns { padding: 26px 20px; text-align: center; }
+	.beer-samenstel-beeld { max-width: 230px; }
+	.beer-gsm-cta {
+		display: block; position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 80;
+		background: var(--wp--preset--color--terracotta-donker); color: #fff !important; text-align: center; text-decoration: none; font-weight: 700;
+		padding: 14px; border-radius: 999px; box-shadow: 0 8px 24px rgba(120, 50, 20, .35); transition: transform .3s, opacity .3s;
+	}
+	.beer-gsm-cta.verborgen { transform: translateY(140%); opacity: 0; pointer-events: none; }
+	body.heeft-gsm-cta { padding-bottom: 76px; }
+}
+.beer-knuffels .is-style-kaart > .wp-block-image, .beer-beleven .is-style-kaart > .wp-block-image { display: block; width: auto; max-width: none !important; margin-inline: 0 !important; text-align: center; }
+.beer-knuffels .is-style-kaart > .wp-block-image img, .beer-beleven .is-style-kaart > .wp-block-image img { margin-inline: auto; }
+.beer-beleven .is-style-kaart > .wp-block-image img { height: 150px; width: auto; }
+@media (max-width: 781px) { h1.wp-block-heading { font-size: 2rem !important; } }

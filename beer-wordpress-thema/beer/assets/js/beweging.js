@@ -35,3 +35,17 @@
 		img.addEventListener('click', function () { groot.src = img.src; groot.alt = img.alt; });
 	});
 })();
+
+/* Gsm-knop onderaan: verbergen zolang er al een grote knop in beeld is. */
+(function () {
+	var cta = document.querySelector('.beer-gsm-cta');
+	if (!cta) return;
+	document.body.classList.add('heeft-gsm-cta');
+	if (!('IntersectionObserver' in window)) return;
+	var zichtbaar = new Set();
+	var io = new IntersectionObserver(function (items) {
+		items.forEach(function (it) { if (it.isIntersecting) zichtbaar.add(it.target); else zichtbaar.delete(it.target); });
+		cta.classList.toggle('verborgen', zichtbaar.size > 0);
+	});
+	document.querySelectorAll('main .wp-block-button__link').forEach(function (b) { io.observe(b); });
+})();

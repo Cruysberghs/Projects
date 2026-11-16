@@ -183,3 +183,15 @@ function beer_maak_paginas() {
 	}
 }
 add_action( 'after_switch_theme', 'beer_maak_paginas' );
+
+/**
+ * Op de gsm: vaste knop "Stel jouw BEER. samen" onderaan (niet op de samenstelpagina zelf).
+ */
+function beer_gsm_knop() {
+	if ( is_page( 'samenstellen' ) ) {
+		return;
+	}
+	echo '<a class="beer-gsm-cta" href="' . esc_url( home_url( '/samenstellen/' ) ) . '">Stel jouw BEER. samen →</a>';
+}
+add_action( 'wp_footer', 'beer_gsm_knop' );
+

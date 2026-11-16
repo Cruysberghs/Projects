@@ -573,3 +573,249 @@ img[src*="img/ill/"] { object-fit: contain; }
 .contact-beer { width: min(100%, 440px); }
 .aanbod-beeld { max-width: 560px; }
 @media (max-width: 760px) { .hero .hart-hint { display: none; } }
+
+/* =========================================================
+   Look v2: duidelijke hiërarchie, kleur en sneller kopen
+   ========================================================= */
+:root {
+  --tint-perzik: #FBE3D2;
+  --tint-zand: #F3E2D0;
+  --tint-roze: #FBE4E1;
+  --tint-salie: #EAEEDD;
+}
+h1, h2 { color: var(--terracotta-donker); }
+
+/* Bovenkopje boven titels */
+.bovenkop {
+  margin: 0 0 .5em !important; font-size: .82rem !important; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-donker);
+}
+
+/* Knoppen in drie niveaus: hoofdknop (groot) – tweede keuze (omlijnd) – tekstlink */
+.btn.groot { font-size: 1.08rem; padding: 1em 2em; }
+.btn.licht { background: transparent; }
+.btn.licht:hover { background: var(--wit); }
+.btn.klein { font-size: .88rem; padding: .55em 1.1em; box-shadow: none; }
+.tekst-pijl { font-weight: 700; color: var(--terracotta-donker); text-decoration: none; white-space: nowrap; }
+.tekst-pijl::after { content: " →"; transition: margin .2s; }
+.tekst-pijl:hover::after, a:hover .tekst-pijl::after { margin-left: 4px; }
+
+/* Hero */
+.hero { background: linear-gradient(120deg, #FFF8F1 0%, var(--creme) 45%, var(--perzik) 100%); }
+.hero h1 { color: var(--terracotta-donker); }
+.hero h1 span { font-size: 1.55em; }
+.hero-sub { font-size: 1.2rem !important; max-width: 470px; margin: 0 0 1.6em; }
+.hero-klein { font-size: .9rem !important; }
+.hero-beeld::before {
+  inset: 2% 0; background: radial-gradient(circle, #FBD9C4 0, #FBE3D2 55%, transparent 71%);
+}
+.hero-beer { width: min(100%, 500px); }
+.hero-snel { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 1.4em 0 0; font-size: .95rem !important; }
+.hero-snel a {
+  text-decoration: none; color: var(--bruin); font-weight: 700; font-size: .88rem;
+  background: var(--wit); border: 1.5px solid var(--perzik); border-radius: 999px; padding: 5px 14px;
+}
+.hero-snel a:hover { border-color: var(--terracotta-donker); color: var(--terracotta-donker); }
+@media (max-width: 760px) { .hero-snel { justify-content: center; } .hero-sub { margin-inline: auto; } }
+
+/* Kenmerkenbalk: gecentreerd, ook als een rij niet vol is */
+.kenmerken ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 10px; }
+.kenmerken li { flex: 1 1 150px; max-width: 220px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.kenmerken .ico { display: block; margin: 0 auto 8px; }
+@media (max-width: 700px) { .kenmerken li { flex-basis: 40%; } }
+
+/* Sectiekop: titel links, link rechts */
+.sectie-kop { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 28px; flex-wrap: wrap; }
+.sectie-kop h2 { margin-bottom: .2em; }
+.sectie-kop p { margin: 0; max-width: 560px; }
+.sectie-kop.midden { justify-content: center; text-align: center; }
+.sectie-kop.midden p { margin-inline: auto; }
+
+/* Productkaarten met gekleurde beeldvlakken */
+.product-raster-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 980px) { .product-raster-4 { grid-template-columns: repeat(2, 1fr); } }
+.product-kaart {
+  background: var(--wit); border-radius: var(--radius); overflow: hidden; box-shadow: var(--schaduw);
+  display: flex; flex-direction: column; transition: transform .2s;
+}
+.product-kaart:hover { transform: translateY(-4px); }
+.pk-beeld { display: grid; place-items: center; padding: 22px; background: var(--tint-perzik); }
+.product-kaart:nth-child(4n+2) .pk-beeld { background: var(--tint-zand); }
+.product-kaart:nth-child(4n+3) .pk-beeld { background: var(--tint-roze); }
+.product-kaart:nth-child(4n+4) .pk-beeld { background: var(--tint-salie); }
+.pk-beeld img { width: 70%; max-width: 170px; aspect-ratio: 448 / 600; object-fit: contain; transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
+.product-kaart:hover .pk-beeld img { transform: rotate(-5deg) scale(1.05); }
+.pk-info { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; text-align: left; }
+.pk-info h3 { margin: 0; font-size: 1.2rem; }
+.pk-info h3 a { color: inherit; text-decoration: none; }
+.pk-info h3 a:hover { color: var(--terracotta-donker); }
+.pk-info p { margin: 0; font-size: .92rem; }
+.pk-koop { margin-top: auto; padding-top: 8px; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.pk-koop .prijs { font: 600 1.25rem var(--kop); color: var(--bruin); margin: 0; }
+@media (max-width: 480px) {
+  .pk-info { padding: 12px; }
+  .pk-koop .btn { width: 100%; justify-content: center; }
+}
+
+/* Samenstel-blok */
+.samenstel-blok {
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: center;
+  background: var(--perzik); border-radius: 32px; padding: 40px 50px;
+}
+.samenstel-beeld { background: radial-gradient(ellipse at center, #FDEFE4 0, #FDEFE4 58%, transparent 60%); display: grid; place-items: center; padding: 20px; }
+.samenstel-beeld img { width: min(100%, 300px); }
+.samenstel-blok h2 { margin-bottom: .3em; }
+.stap-chips { list-style: none; padding: 0; margin: 18px 0 26px; display: flex; flex-wrap: wrap; gap: 10px; counter-reset: chip; }
+.stap-chips li {
+  counter-increment: chip; background: var(--wit); border-radius: 999px; padding: 6px 16px 6px 6px;
+  display: flex; align-items: center; gap: 8px; font-size: .92rem; font-weight: 600;
+}
+.stap-chips li::before {
+  content: counter(chip); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--terracotta-donker); color: #fff; font-size: .8rem; font-weight: 700;
+}
+@media (max-width: 760px) { .samenstel-blok { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; } .stap-chips { justify-content: center; } }
+
+/* Samen beleven: kaarten met een eigen kleur */
+.beleef-kaart {
+  display: flex; flex-direction: column; background: var(--wit); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--schaduw); color: inherit; text-decoration: none; transition: transform .2s;
+}
+.beleef-kaart:hover { transform: translateY(-4px); }
+.bk-beeld { display: grid; place-items: center; height: 180px; padding: 16px; background: var(--tint-roze); }
+.beleef-kaart:nth-child(2) .bk-beeld { background: var(--tint-perzik); }
+.beleef-kaart:nth-child(3) .bk-beeld { background: var(--tint-salie); }
+.bk-beeld img { max-height: 100%; width: auto; max-width: 100%; object-fit: contain; }
+.bk-tekst { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 4px; }
+.bk-tekst h3 { margin: 0; font-size: 1.35rem; color: var(--terracotta-donker); }
+.bk-tekst strong { color: var(--bruin); font-size: .95rem; margin-top: 4px; }
+.bk-tekst .tekst-pijl { margin-top: 10px; }
+
+/* Donkere footer */
+.site-footer { background: var(--bruin); color: #F6E7DA; }
+.site-footer .logo { color: #fff; }
+.site-footer h3 { color: #FFD9C4; }
+.site-footer a { color: #F6E7DA; }
+.site-footer a:hover { color: #FFD9C4; }
+.site-footer .hand { color: #FFC9AE; }
+.site-footer .ico { filter: brightness(0) invert(.88) sepia(.3); }
+
+/* Vaste knop onderaan op de gsm */
+.gsm-cta { display: none; }
+@media (max-width: 760px) {
+  .gsm-cta {
+    display: block; position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 80;
+    background: var(--terracotta-donker); color: #fff; text-align: center; text-decoration: none; font-weight: 700;
+    padding: 14px; border-radius: 999px; box-shadow: 0 8px 24px rgba(120, 50, 20, .35);
+  }
+  body.heeft-gsm-cta { padding-bottom: 76px; }
+  body.heeft-gsm-cta .toast { bottom: 90px; }
+}
+.bk-beeld img { height: 100%; width: 100%; object-fit: contain; }
+.bk-beeld { display: flex; justify-content: center; align-items: center; } .bk-beeld img { height: 148px; width: auto; max-width: 100%; }
+
+/* ---------- Beer echt in het midden van de cirkel ----------
+   In beer-hart.png staat rechts een sterretje: het lijf staat op 40% van de breedte.
+   Daarom schuiven we de afbeelding 9,6% naar rechts. */
+.samenstel-beeld, .pakket-beeld {
+  aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; padding: 0; overflow: hidden;
+}
+.samenstel-beeld { width: min(100%, 360px); margin: 0 auto; background: #FDEFE4; }
+.pakket-beeld { background: var(--perzik); }
+.samenstel-beeld img, .pakket-beeld img { width: 70% !important; transform: translateX(9.6%); }
+
+/* ---------- Elk soort element een eigen hover-effect ---------- */
+/* Knuffelkaarten: de kaart blijft staan, elke beer reageert op zijn manier */
+.product-kaart:hover { transform: none; box-shadow: 0 16px 36px rgba(140, 80, 40, .2); }
+.product-kaart:hover .pk-beeld img { transform: none; }
+.product-kaart:nth-child(4n+1):hover .pk-beeld img { animation: hop .6s ease; }
+.product-kaart:nth-child(4n+2):hover .pk-beeld img { animation: wiebel-kort .6s ease; }
+.product-kaart:nth-child(4n+3):hover .pk-beeld img { animation: knik .7s ease; }
+.product-kaart:nth-child(4n+4):hover .pk-beeld img { animation: draai .7s ease; }
+@keyframes hop { 0%, 100% { transform: translateY(0); } 35% { transform: translateY(-16px); } 60% { transform: translateY(0); } 75% { transform: translateY(-5px); } }
+@keyframes wiebel-kort { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-8deg); } 45% { transform: rotate(7deg); } 70% { transform: rotate(-4deg); } }
+@keyframes knik { 0%, 100% { transform: scale(1); } 30% { transform: scale(1.08, .94); } 60% { transform: scale(.96, 1.05); } }
+@keyframes draai { 0% { transform: rotate(0); } 60% { transform: rotate(14deg) scale(1.05); } 100% { transform: rotate(0); } }
+
+/* Samen beleven: de kaart komt omhoog en de illustratie zoomt traag in */
+.bk-beeld img { transition: transform .6s ease; }
+.beleef-kaart:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(140, 80, 40, .2); }
+.beleef-kaart:hover .bk-beeld img { transform: scale(1.08); }
+
+/* Kenmerken: icoontje schudt even */
+.kenmerken li:hover .ico { transform: none; animation: schud .5s ease; }
+@keyframes schud { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 50% { transform: rotate(10deg); } 75% { transform: rotate(-5deg); } }
+
+/* Beloftes: icoontje klopt als een hartje */
+.beloftes > div:hover .ico { animation: hartslag .8s ease; }
+@keyframes hartslag { 0%, 100% { transform: scale(1); } 20% { transform: scale(1.2); } 40% { transform: scale(1); } 60% { transform: scale(1.12); } }
+
+/* Pakket en samenstel-blok: de beer zweeft omhoog */
+.pakket-beeld img, .samenstel-beeld img { transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.pakket:hover .pakket-beeld img, .samenstel-blok:hover .samenstel-beeld img { transform: translateX(9.6%) translateY(-10px) rotate(-3deg); }
+
+/* Knoppen: hoofdknop komt omhoog, omlijnde knop vult zich, chips kleuren in */
+.btn.licht:hover { background: var(--terracotta-donker); color: #fff; transform: none; }
+.hero-snel a { transition: background .2s, color .2s, border-color .2s; }
+.hero-snel a:hover { background: var(--terracotta-donker); color: #fff; border-color: var(--terracotta-donker); }
+.stap-chips li { transition: transform .2s; }
+.stap-chips li:hover { transform: translateY(-3px); }
+
+/* =========================================================
+   Gsm: compacter, zodat de knuffels sneller in beeld komen
+   ========================================================= */
+@media (max-width: 760px) {
+  section { padding: 44px 0; }
+  .hero-inner { padding: 24px 20px 32px; gap: 10px; }
+  .hero h1 { font-size: 2rem; margin-bottom: .3em; }
+  .hero-sub { font-size: 1.02rem !important; margin-bottom: 1.1em; }
+  .hero-knoppen { flex-direction: column; gap: 10px; }
+  .hero-knoppen .btn { width: 100%; justify-content: center; }
+  .hero-beer { width: min(78%, 300px); }
+  .hero-beeld { order: -1; }                        /* eerst de beer, dan de tekst */
+
+  .kenmerken ul { padding: 18px 12px; gap: 12px 4px; }
+  .kenmerken li { flex: 0 0 31%; font-size: .78rem; }
+  .kenmerken .ico { height: 32px; margin-bottom: 4px; }
+
+  .sectie-kop { margin-bottom: 18px; }
+  .raster.product-raster-4 { gap: 12px; }
+  .pk-beeld { padding: 14px; }
+  .pk-info h3 { font-size: 1.05rem; }
+  .pk-koop .prijs { font-size: 1.1rem; }
+
+  .samenstel-beeld { width: min(70%, 230px); }
+  .samenstel-blok { gap: 16px; }
+
+  /* Samen beleven: beeld links, tekst rechts */
+  .beleef-raster { gap: 12px; }
+  .beleef-kaart { flex-direction: row; }
+  .bk-beeld { flex: 0 0 38%; height: auto; padding: 10px; }
+  .bk-beeld img { height: auto; width: 100%; }
+  .bk-tekst { padding: 14px; }
+  .bk-tekst h3 { font-size: 1.15rem; }
+  .bk-tekst > span:not(.tekst-pijl) { font-size: .88rem; }
+
+  /* Beloftes: compacte rijen */
+  .beloftes { gap: 10px; text-align: left; }
+  .beloftes > div { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; padding: 4px 0; }
+  .beloftes .ico { grid-row: span 2; width: 36px; height: 36px; margin: 2px 0 0; }
+  .beloftes h3 { margin: 0; font-size: 1rem; }
+  .beloftes p { margin: 0; font-size: .9rem; }
+}
+@media (max-width: 760px) {
+  .seizoensbalk p { font-size: .78rem; }
+  .hero-beer { width: min(55%, 210px); }
+  .hero-inner { padding-top: 16px; }
+  .hero h1 span { font-size: 1.4em; }
+  .stap-chips { gap: 6px; margin: 12px 0 20px; }
+  .stap-chips li { font-size: .78rem; padding: 4px 10px 4px 4px; gap: 6px; }
+  .stap-chips li::before { width: 22px; height: 22px; font-size: .72rem; }
+  .pakket { padding: 18px; gap: 10px; }
+  .pakket-beeld { width: 120px !important; }
+  .pakket h3 { font-size: 1.3rem; }
+  .pakket .hart-lijst { grid-template-columns: repeat(2, auto); gap: 0 14px; font-size: .88rem; justify-content: center; }
+  .pakket .hart-lijst li { margin: 3px 0; }
+  .gsm-cta { transition: transform .3s, opacity .3s; }
+  .gsm-cta.verborgen { transform: translateY(140%); opacity: 0; pointer-events: none; }
+}

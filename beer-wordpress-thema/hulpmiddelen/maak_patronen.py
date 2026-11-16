@@ -141,13 +141,13 @@ save("footer", "Footer", section(
 
 # ---------------- Home ----------------
 save("hero", "Welkom (hero)", section(cols(
-    h('Welkom bij<br><span style="font-size:1.5em;font-weight:600">BEER.</span>', 1)
-    + p("Jouw knuffel, jouw verhaal.", size="large")
-    + p("Kies je beer, een geurtje en een kloppend hartje, en geef hem een eigen paspoort.")
-    + btns(("Stel jouw beer samen →", L("samenstellen")), ("Bekijk de knuffels", L("shop"), True))
-    + p("Vanaf € 22,95 · Klaar in 5 stappen · Gratis verzending vanaf € 40", size="small", className="beer-hero-klein"),
-    group(p(f'een knuffel<br>voor het leven<br><img src="{IMG("ill/doodle-pijl.png")}" alt="">', className="beer-hand beer-hart-hint")
-          + img("ill/groot-hero.webp", "Een grote beer knuffelt een kleine beer", "460px", center=True, className="is-style-wiebel"),
+    p("Een knuffel met een verhaal", className="beer-bovenkop")
+    + h('Welkom bij<br><span style="font-size:1.55em;font-weight:600">BEER.</span>', 1)
+    + p("Niet zomaar een knuffel. Een vriendje dat je zelf kiest, vult en helemaal van jou maakt.", size="large")
+    + btns(("Stel jouw BEER. samen →", L("samenstellen")), ("Bekijk de knuffels", L("shop"), True))
+    + p("Vanaf € 22,95 · Gratis verzending vanaf € 40", size="small", className="beer-hero-klein")
+    + p(f'Liever samen knutselen? <a href="{L("workshops")}">Workshops</a> <a href="{L("kinderfeestjes")}">Kinderfeestjes</a> <a href="{L("kampjes")}">Kampjes</a>', className="beer-hero-snel"),
+    group(img("ill/groot-hero.webp", "Een grote beer knuffelt een kleine beer", "460px", center=True, className="is-style-wiebel"),
           className="beer-hero-beeld"))
 , gradient="zacht"), desc="Grote welkomstbanner met beer en knop.")
 
@@ -165,29 +165,30 @@ KNUFFELS = [("ill/classic.png", "Classic Bear", "€ 24,95", "De tijdloze favori
             ("ill/little.png", "Little Bear", "€ 22,95", "Klein maar dapper, past in elke rugzak.")]
 PSLUG = lambda naam: "shop/" + naam.lower().replace(" ", "-")
 save("knuffels", "Onze knuffels", section(
-    h("Onze knuffels", center=True, className="beer-titel-deco")
-    + p("Kies je favoriete beer en maak hem helemaal van jou. Zacht, warm en klaar voor een knuffelavontuur!", center=True)
-    + grid("".join(kaart(img(f, n, "150px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3, center=True) + p(t, center=True, size="small")
-                         + p(f"<strong>{pr}</strong>", center=True) + btns(("Bekijk", L(PSLUG(n))), center=True))
-                   for f, n, pr, t in KNUFFELS), "13rem", 4)), desc="Vier knuffelkaarten met prijs.")
+    p("Onze knuffelvriendjes", className="beer-bovenkop")
+    + h("Onze knuffels")
+    + p("Vier zachte karaktertjes, ieder met een eigen verhaal.")
+    + grid("".join(kaart(img(f, n, "150px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3) + p(t, size="small")
+                         + p(f"<strong>{pr}</strong>", className="beer-prijs") + btns(("Bekijk →", L(PSLUG(n)))))
+                   for f, n, pr, t in KNUFFELS), "13rem", 4), className="beer-knuffels"), desc="Vier knuffelkaarten met prijs.")
 
 save("samenstellen-cta", "Stel jouw BEER. samen (blok)", section(cols(
-    group(group(img("ill/dreamy.png", "", "150px") + img("ill/classic.png", "", "200px") + img("ill/brownie.png", "", "130px"),
-                layout={"type": "flex", "flexWrap": "nowrap", "justifyContent": "center", "verticalAlignment": "bottom"}),
-          bg="perzik", style_extra=({"border": {"radius": "22px"}, "spacing": {"padding": {"top": "30px", "bottom": "30px", "left": "30px", "right": "30px"}}},
-                                    "border-radius:22px;padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px")),
-    h("Stel jouw BEER. samen")
-    + p("In een paar simpele stappen creëer je een unieke knuffelvriend: kies je beer, een geurtje, een hartje, maak een paspoort en voeg eventueel kraaltjes toe.")
-    + btns(("Begin nu →", L("samenstellen"))))
-, bg="wit"))
+    group(img("ill/beer-hart.png", "Een beer met een groot hart", "280px", center=True), className="beer-samenstel-beeld"),
+    p("Helemaal van jou", className="beer-bovenkop")
+    + h("Stel jouw BEER. samen")
+    + p("Kies je beer, geef hem een geurtje en een kloppend hartje, en maak een vriend voor het leven.")
+    + p("<span>1</span> Kies je beer <span>2</span> Geef hem een geur <span>3</span> Een hartje erbij", className="beer-stap-chips")
+    + btns(("Begin met samenstellen →", L("samenstellen")))), className="beer-samenstel-blok", bg="wit"))
 
 BEELD = {"workshops": "workshop-knutselen", "kinderfeestjes": "kinderfeestje", "kampjes": "kampjes"}
 AANBOD = [("Workshops", "Samen knutselen, samen herinneringen maken. Vanaf € 19,95 per kind.", "workshops", "Ontdek →"),
           ("Kinderfeestjes", "Een onvergetelijk feestje met al je vriendjes. Vanaf € 17,50 per kind.", "kinderfeestjes", "Formules →"),
           ("Kampjes", "Een week vol knutselplezier, spel en creativiteit. € 125 per week.", "kampjes", "Ontdek →")]
 save("samen-beleven", "Samen beleven", section(
-    h("Samen beleven", center=True)
-    + grid("".join(kaart(img(f"ill/groot-{BEELD[s]}.webp", "", None, center=True, className="beer-kaart-beeld") + h(t, 3) + p(x) + btns((b, L(s)))) for t, x, s, b in AANBOD), "15rem")))
+    p("Samen knutselen", center=True, className="beer-bovenkop")
+    + h("Samen beleven", center=True)
+    + p("Samen knutselen, vieren en herinneringen maken.", center=True)
+    + grid("".join(kaart(img(f"ill/groot-{BEELD[s]}.webp", "", None, center=True, className="beer-kaart-beeld") + h(t, 3) + p(x) + p(f'<a href="{L(s)}"><strong>{b}</strong></a>', className="beer-tekst-pijl")) for t, x, s, b in AANBOD), "15rem"), className="beer-beleven"))
 
 save("beloftes", "Onze beloftes", section(
     h("Onze beloftes", center=True)
