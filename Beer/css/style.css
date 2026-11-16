@@ -823,3 +823,4 @@ h1, h2 { color: var(--terracotta-donker); }
 /* Nieuwe gekleurde icoontjes in de kenmerkenbalk */
 .kenmerken .ico { height: 60px; width: auto; max-width: 72px; object-fit: contain; }
 @media (max-width: 760px) { .kenmerken .ico { height: 44px; } }
+.kenmerken ul { margin-left: auto; margin-right: auto; }   /* rij in het midden van het scherm */
