@@ -30,7 +30,7 @@
 <div class="wp-block-group"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kenmerk-ico"} -->
 <figure class="wp-block-image aligncenter size-full beer-kenmerk-ico"><img src="<?php echo beer_img( 'ill/icoon-paspoort.png' ); ?>" alt=""/></figure>
 <!-- /wp:image --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong>Paspoort</strong></p>
+<p class="has-text-align-center has-small-font-size"><strong>Berenpaspoort</strong></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kenmerk-ico"} -->

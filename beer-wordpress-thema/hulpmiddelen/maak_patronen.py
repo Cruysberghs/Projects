@@ -151,7 +151,7 @@ save("hero", "Welkom (hero)", section(cols(
           className="beer-hero-beeld"))
 , gradient="zacht"), desc="Grote welkomstbanner met beer en knop.")
 
-kenmerken = [("zelf-vullen", "Zelf vullen"), ("geurtje", "Heerlijk geurtje"), ("kloppend-hartje", "Kloppend hartje"), ("paspoort", "Paspoort"), ("bandje", "Vriendschapsbandje")]
+kenmerken = [("zelf-vullen", "Zelf vullen"), ("geurtje", "Heerlijk geurtje"), ("kloppend-hartje", "Kloppend hartje"), ("paspoort", "Berenpaspoort"), ("bandje", "Vriendschapsbandje")]
 save("kenmerken", "Kenmerken", group(group(
     grid("".join(group(img(f"ill/icoon-{i}.png", "", None, center=True, className="beer-kenmerk-ico") + p(f"<strong>{t}</strong>", center=True, size="small"),
                        style_extra=({"spacing": {"blockGap": "0"}}, "")) for i, t in kenmerken), "9rem", 5),
