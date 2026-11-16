@@ -22,8 +22,8 @@
 <li>Nieuwe vriendjes</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --><!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'contact' ); ?>">Schrijf je in →</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
+<div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'contact' ); ?>">Schrijf je in →</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->

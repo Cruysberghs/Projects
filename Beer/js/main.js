@@ -44,19 +44,19 @@ const FOOTER_LINKS = [
 
 // Knuffels. LET OP: hoogte, materiaal, leeftijd en wasvoorschrift zijn VOORBEELDEN – vervang ze door de echte gegevens.
 const KNUFFELS = [
-  { id: "classic", naam: "Classic Bear", prijs: 24.95, img: "img/ill/classic.png",
+  { id: "classic", naam: "Classic Bear", prijs: 24.95, img: "img/ill/classic.webp",
     tekst: "De tijdloze favoriet in warm honingbruin.",
     lang: "Classic Bear is de beer waar het allemaal mee begon. Zacht honingbruin pluche, een lieve snuit en armen die gemaakt zijn om te knuffelen.",
     hoogte: "30 cm", materiaal: "Zacht pluche, gerecycleerde vulling", leeftijd: "Vanaf 0 jaar", wassen: "Handwas of 30°C in een kussensloop" },
-  { id: "brownie", naam: "Brownie Bear", prijs: 24.95, img: "img/ill/brownie.png",
+  { id: "brownie", naam: "Brownie Bear", prijs: 24.95, img: "img/ill/brownie.webp",
     tekst: "Chocoladebruin en extra knuffelbaar.",
     lang: "Brownie Bear heeft een diepe chocoladebruine vacht en is net iets steviger gevuld. Een echte bodyguard voor onder het donsdeken.",
     hoogte: "30 cm", materiaal: "Zacht pluche, gerecycleerde vulling", leeftijd: "Vanaf 0 jaar", wassen: "Handwas of 30°C in een kussensloop" },
-  { id: "dreamy", naam: "Dreamy Bear", prijs: 24.95, img: "img/ill/dreamy.png",
+  { id: "dreamy", naam: "Dreamy Bear", prijs: 24.95, img: "img/ill/dreamy.webp",
     tekst: "Zacht vanillekleurig, voor zoete dromen.",
     lang: "Dreamy Bear is licht als een wolkje. Met een geurtje lavendel erbij is hij de perfecte slaapvriend.",
     hoogte: "30 cm", materiaal: "Extra zacht pluche, gerecycleerde vulling", leeftijd: "Vanaf 0 jaar", wassen: "Handwas of 30°C in een kussensloop" },
-  { id: "little", naam: "Little Bear", prijs: 22.95, img: "img/ill/little.png",
+  { id: "little", naam: "Little Bear", prijs: 22.95, img: "img/ill/little.webp",
     tekst: "Klein maar dapper, past in elke rugzak.",
     lang: "Little Bear is klein genoeg voor de boekentas en groot genoeg voor alle geheimen. Ideaal als eerste beer of als broertje of zusje.",
     hoogte: "20 cm", materiaal: "Zacht pluche, gerecycleerde vulling", leeftijd: "Vanaf 0 jaar", wassen: "Handwas of 30°C in een kussensloop" },
@@ -115,7 +115,7 @@ function bouwLayout() {
     </div>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="index.html"><img src="img/ill/logo.png" alt="">BEER.</a>
+        <a class="logo" href="index.html"><img src="img/ill/logo.webp" alt="">BEER.</a>
         <nav class="hoofdmenu" id="hoofdmenu" aria-label="Hoofdmenu"><ul>${links}</ul></nav>
         <div class="header-acties">
           <button class="icoon-knop" id="mandje-knop" aria-label="Winkelmandje openen">
@@ -134,7 +134,7 @@ function bouwLayout() {
       <div class="container">
         <div class="footer-raster">
           <div>
-            <a class="logo" href="index.html"><img src="img/ill/logo.png" alt="">BEER.</a>
+            <a class="logo" href="index.html"><img src="img/ill/logo.webp" alt="">BEER.</a>
             <p>Jouw knuffel, jouw verhaal.</p>
             <span class="hand">Een knuffel voor het leven ♡</span>
           </div>
@@ -159,7 +159,7 @@ function bouwLayout() {
         <div class="regel"><span>Subtotaal</span><span id="mandje-subtotaal">€ 0,00</span></div>
         <div class="regel"><span>Verzending</span><span id="mandje-verzendkost">€ 0,00</span></div>
         <div class="totaal"><span>Totaal</span><span id="mandje-totaal">€ 0,00</span></div>
-        <button class="btn" id="afrekenen">Afrekenen</button>
+        <button class="btn koop" id="afrekenen">Afrekenen</button>
         <p class="betaal-chips"><span>Bancontact</span><span>Payconiq</span><span>Visa</span><span>Mastercard</span></p>
         <p class="mandje-belofte">Levering in 2–3 werkdagen · 14 dagen bedenktijd</p>
       </div>
@@ -310,7 +310,7 @@ function toonKnuffels() {
           ${doel.dataset.knuffels === "lang" ? `<p>${k.tekst}</p>` : ""}
           <div class="pk-koop">
             <span class="prijs">${euro(k.prijs)}</span>
-            <button class="btn klein plus" data-koop="${k.id}" aria-label="${k.naam} in mijn mandje">In mandje</button>
+            <button class="btn koop klein plus" data-koop="${k.id}" aria-label="${k.naam} in mijn mandje">In mandje</button>
           </div>
         </div>
       </article>`).join("");
@@ -330,7 +330,7 @@ function toonKnuffels() {
             <li>Beer naar keuze</li><li>Geurtje naar keuze</li><li>Kloppend hartje</li><li>Eigen berenpaspoort</li>
           </ul>
           <p class="pakket-prijs">Vanaf <strong>${euro(normaal - WINKEL.pakketKorting)}</strong> <s>${euro(normaal)}</s></p>
-          <a class="btn" href="samenstellen.html?pakket=1">Stel je pakket samen</a>
+          <a class="btn koop" href="samenstellen.html?pakket=1">Stel je pakket samen</a>
         </div>
       </div>`;
   });
@@ -385,7 +385,7 @@ function productPagina() {
           <div class="aantal-kiezer">
             <button id="p-min" aria-label="Eén minder">−</button><span id="p-aantal">1</span><button id="p-plus" aria-label="Eén meer">+</button>
           </div>
-          <button class="btn plus" id="p-koop">In mijn mandje</button>
+          <button class="btn koop plus" id="p-koop">In mijn mandje</button>
         </div>
         <a class="samenstel-link" href="samenstellen.html?beer=${k.id}">Of maak hem helemaal van jou: geurtje, kloppend hartje en paspoort →</a>
         <ul class="voordelen">

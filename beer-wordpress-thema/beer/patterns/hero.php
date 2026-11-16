@@ -17,8 +17,8 @@
 <!-- /wp:heading --><!-- wp:paragraph {"fontSize":"large"} -->
 <p class="has-large-font-size">Niet zomaar een knuffel. Een vriendje dat je zelf kiest, vult en helemaal van jou maakt.</p>
 <!-- /wp:paragraph --><!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'samenstellen' ); ?>">Stel jouw BEER. samen →</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
+<div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'samenstellen' ); ?>">Stel jouw BEER. samen →</a></div>
 <!-- /wp:button --><!-- wp:button {"className":"is-style-outline"} -->
 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'shop' ); ?>">Bekijk de knuffels</a></div>
 <!-- /wp:button --></div>

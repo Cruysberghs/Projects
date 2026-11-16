@@ -643,7 +643,7 @@ h1, h2 { color: var(--terracotta-donker); }
 .product-kaart:nth-child(4n+2) .pk-beeld { background: var(--tint-zand); }
 .product-kaart:nth-child(4n+3) .pk-beeld { background: var(--tint-roze); }
 .product-kaart:nth-child(4n+4) .pk-beeld { background: var(--tint-salie); }
-.pk-beeld img { width: 70%; max-width: 170px; aspect-ratio: 448 / 600; object-fit: contain; transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
+.pk-beeld img { width: 70%; max-width: 170px; aspect-ratio: 479 / 600; object-fit: contain; transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
 .product-kaart:hover .pk-beeld img { transform: rotate(-5deg) scale(1.05); }
 .pk-info { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; text-align: left; }
 .pk-info h3 { margin: 0; font-size: 1.2rem; }
@@ -827,7 +827,7 @@ h1, h2 { color: var(--terracotta-donker); }
 
 /* Samensteller: de vier beren naast elkaar */
 .beer-keuzes .keuzes { grid-template-columns: repeat(4, 1fr); }
-.beer-keuzes .keuze img { width: 100%; max-width: 84px; height: auto; aspect-ratio: 448 / 600; }
+.beer-keuzes .keuze img { width: 100%; max-width: 84px; height: auto; aspect-ratio: 479 / 600; }
 @media (max-width: 760px) {
   .beer-keuzes .keuzes { gap: 6px; }
   .beer-keuzes .keuze { padding: 8px 4px; font-size: .74rem; }
@@ -876,3 +876,24 @@ h1, h2 { color: var(--terracotta-donker); }
   .pk-beeld img, .pk-beeld.blij img { animation: none !important; }
   .pk-beeld.blij::after { animation: none; }
 }
+
+/* =========================================================
+   Conversieknoppen: alles wat tot kopen of boeken leidt
+   krijgt een eigen, opvallende koraalkleur (wit erop: ±5:1).
+   Gewone navigatie blijft terracotta of omlijnd.
+   ========================================================= */
+:root { --koop: #C93A57; --koop-donker: #A82C46; --koop-gloed: rgba(201, 58, 87, .35); }
+.btn.koop, .gsm-cta {
+  background: var(--koop); color: #fff; border: 0;
+  box-shadow: 0 8px 20px var(--koop-gloed);
+}
+.btn.koop:hover, .gsm-cta:hover { background: var(--koop-donker); color: #fff; }
+.btn.koop.klein { box-shadow: 0 4px 12px var(--koop-gloed); }
+/* De hoofdknop bovenaan trekt één keer de aandacht met een zachte gloed */
+.hero-knoppen .btn.koop { animation: koop-gloed 2.4s ease-out 1.2s 2; }
+@keyframes koop-gloed { 0% { box-shadow: 0 8px 20px var(--koop-gloed), 0 0 0 0 rgba(201, 58, 87, .45); } 70% { box-shadow: 0 8px 20px var(--koop-gloed), 0 0 0 14px rgba(201, 58, 87, 0); } 100% { box-shadow: 0 8px 20px var(--koop-gloed), 0 0 0 0 rgba(201, 58, 87, 0); } }
+/* Badges en prijzen die bij een aankoop horen in dezelfde kleur */
+.pakket-label, .mandje-aantal { background: var(--koop); }
+.pakket { border-color: var(--koop); }
+.voortgang span { background: var(--koop); }
+@media (prefers-reduced-motion: reduce) { .hero-knoppen .btn.koop { animation: none; } }

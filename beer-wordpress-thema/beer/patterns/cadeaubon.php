@@ -46,8 +46,8 @@
 <!-- /wp:list --><!-- wp:paragraph -->
 <p>Laat ons weten welke bon je wil, voor wie en van wie. Je krijgt hem binnen één werkdag.</p>
 <!-- /wp:paragraph --><!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="mailto:info@beer.be?subject=Cadeaubon">Bestel een cadeaubon →</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
+<div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="mailto:info@beer.be?subject=Cadeaubon">Bestel een cadeaubon →</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div>

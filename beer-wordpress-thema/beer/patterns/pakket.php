@@ -34,8 +34,8 @@
 <!-- /wp:list --><!-- wp:paragraph {"className":"beer-pakket-prijs"} -->
 <p class="beer-pakket-prijs">Vanaf <strong>€ 27,95</strong> <s>€ 30,40</s></p>
 <!-- /wp:paragraph --><!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'samenstellen' ); ?>">Stel je pakket samen →</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
+<div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'samenstellen' ); ?>">Stel je pakket samen →</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:column --></div>

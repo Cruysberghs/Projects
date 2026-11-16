@@ -24,8 +24,8 @@
 <!-- /wp:paragraph --><!-- wp:paragraph {"className":"beer-stap-chips"} -->
 <p class="beer-stap-chips"><span>1</span> Kies je beer <span>2</span> Geef hem een geur <span>3</span> Een hartje erbij</p>
 <!-- /wp:paragraph --><!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'samenstellen' ); ?>">Begin met samenstellen →</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
+<div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'samenstellen' ); ?>">Begin met samenstellen →</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:column --></div>

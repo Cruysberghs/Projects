@@ -22,8 +22,8 @@
 <li>Elk kind gaat naar huis met een eigen beer</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --><!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'contact' ); ?>">Boek een feestje →</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
+<div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="<?php echo beer_link( 'contact' ); ?>">Boek een feestje →</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->

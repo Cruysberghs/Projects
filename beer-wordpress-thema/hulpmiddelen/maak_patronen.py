@@ -51,9 +51,10 @@ def btns(*items, center=False):
     a = {"layout": {"type": "flex", "justifyContent": "center"}} if center else {}
     inner = ""
     for label, link, *rest in items:
-        outline = rest and rest[0]
-        ba = {"className": "is-style-outline"} if outline else {}
-        inner += f'<!-- wp:button{attrs(ba)} -->\n<div class="{cls("wp-block-button", "is-style-outline" if outline else "")}"><a class="wp-block-button__link wp-element-button" href="{link}">{label}</a></div>\n<!-- /wp:button -->'
+        soort = rest[0] if rest else None
+        klasse = "beer-koop" if soort == "koop" else ("is-style-outline" if soort else None)
+        ba = {"className": klasse} if klasse else {}
+        inner += f'<!-- wp:button{attrs(ba)} -->\n<div class="{cls("wp-block-button", klasse or "")}"><a class="wp-block-button__link wp-element-button" href="{link}">{label}</a></div>\n<!-- /wp:button -->'
     return f'<!-- wp:buttons{attrs(a)} -->\n<div class="wp-block-buttons">{inner}</div>\n<!-- /wp:buttons -->'
 
 def img(file, alt="", width=None, center=False, className=None, link=None):
@@ -116,7 +117,7 @@ def save(slug, title, body, inserter=True, desc=""):
 # ---------------- Header & footer ----------------
 save("header", "Header", group(
     group(
-        group(img("ill/logo.png", "BEER.", "34px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->",
+        group(img("ill/logo.webp", "BEER.", "34px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->",
               layout={"type": "flex", "flexWrap": "nowrap"})
         + '<!-- wp:navigation {"overlayBackgroundColor":"creme","overlayTextColor":"tekst","layout":{"type":"flex","justifyContent":"right"}} -->\n<?php echo beer_menu_links(); // phpcs:ignore ?>\n<!-- /wp:navigation -->',
         align="wide", layout={"type": "flex", "flexWrap": "nowrap", "justifyContent": "space-between"}),
@@ -127,7 +128,7 @@ save("header", "Header", group(
 
 save("footer", "Footer", section(
     cols(
-        group(img("ill/logo.png", "", "34px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->", layout={"type": "flex", "flexWrap": "nowrap"})
+        group(img("ill/logo.webp", "", "34px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->", layout={"type": "flex", "flexWrap": "nowrap"})
         + p("Jouw knuffel, jouw verhaal.")
         + p("Een knuffel voor het leven ♡", size="x-large", className="beer-hand"),
         h("Ontdek", 3) + ul([f'<a href="{L(s)}">{n}</a>' for s, n in
@@ -144,7 +145,7 @@ save("hero", "Welkom (hero)", section(cols(
     p("Een knuffel met een verhaal", className="beer-bovenkop")
     + h('Welkom bij<br><span style="font-size:1.55em;font-weight:600">BEER.</span>', 1)
     + p("Niet zomaar een knuffel. Een vriendje dat je zelf kiest, vult en helemaal van jou maakt.", size="large")
-    + btns(("Stel jouw BEER. samen →", L("samenstellen")), ("Bekijk de knuffels", L("shop"), True))
+    + btns(("Stel jouw BEER. samen →", L("samenstellen"), "koop"), ("Bekijk de knuffels", L("shop"), True))
     + p("Vanaf € 22,95 · Gratis verzending vanaf € 40", size="small", className="beer-hero-klein")
     + p(f'Liever samen knutselen? <a href="{L("workshops")}">Workshops</a> <a href="{L("kinderfeestjes")}">Kinderfeestjes</a> <a href="{L("kampjes")}">Kampjes</a>', className="beer-hero-snel"),
     group(img("ill/groot-hero.webp", "Een grote beer knuffelt een kleine beer", "460px", center=True, className="is-style-wiebel"),
@@ -159,10 +160,10 @@ save("kenmerken", "Kenmerken", group(group(
     style_extra=({"spacing": {"padding": {"top": "var:preset|spacing|40", "bottom": "var:preset|spacing|40"}}},
                  "padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)")))
 
-KNUFFELS = [("ill/classic.png", "Classic Bear", "€ 24,95", "De tijdloze favoriet in warm honingbruin."),
-            ("ill/brownie.png", "Brownie Bear", "€ 24,95", "Chocoladebruin en extra knuffelbaar."),
-            ("ill/dreamy.png", "Dreamy Bear", "€ 24,95", "Zacht vanillekleurig, voor zoete dromen."),
-            ("ill/little.png", "Little Bear", "€ 22,95", "Klein maar dapper, past in elke rugzak.")]
+KNUFFELS = [("ill/classic.webp", "Classic Bear", "€ 24,95", "De tijdloze favoriet in warm honingbruin."),
+            ("ill/brownie.webp", "Brownie Bear", "€ 24,95", "Chocoladebruin en extra knuffelbaar."),
+            ("ill/dreamy.webp", "Dreamy Bear", "€ 24,95", "Zacht vanillekleurig, voor zoete dromen."),
+            ("ill/little.webp", "Little Bear", "€ 22,95", "Klein maar dapper, past in elke rugzak.")]
 PSLUG = lambda naam: "shop/" + naam.lower().replace(" ", "-")
 save("knuffels", "Onze knuffels", section(
     p("Onze knuffelvriendjes", className="beer-bovenkop")
@@ -178,7 +179,7 @@ save("samenstellen-cta", "Stel jouw BEER. samen (blok)", section(cols(
     + h("Stel jouw BEER. samen")
     + p("Kies je beer, geef hem een geurtje en een kloppend hartje, en maak een vriend voor het leven.")
     + p("<span>1</span> Kies je beer <span>2</span> Geef hem een geur <span>3</span> Een hartje erbij", className="beer-stap-chips")
-    + btns(("Begin met samenstellen →", L("samenstellen")))), className="beer-samenstel-blok", bg="wit"))
+    + btns(("Begin met samenstellen →", L("samenstellen"), "koop"))), className="beer-samenstel-blok", bg="wit"))
 
 BEELD = {"workshops": "workshop-knutselen", "kinderfeestjes": "kinderfeestje", "kampjes": "kampjes"}
 AANBOD = [("Workshops", "Samen knutselen, samen herinneringen maken. Vanaf € 19,95 per kind.", "workshops", "Ontdek →"),
@@ -218,7 +219,7 @@ save("stappen", "Stel jouw BEER. samen (stappen)", section(
 def aanbod(slug, titel, lead, punten, knop, beren, prijs, per, info_titel, info):
     beeld = group(img(beren[0], beren[1], "100%", center=True)
                   + badge("Vanaf", prijs, per), className="beer-badge-houder")
-    body = section(cols(h(titel, 1) + p(lead, size="large") + ul(punten) + btns((knop, L("contact"))), beeld), gradient="zacht")
+    body = section(cols(h(titel, 1) + p(lead, size="large") + ul(punten) + btns((knop, L("contact"), "koop")), beeld), gradient="zacht")
     body += "\n\n" + section(h(info_titel, center=True) + grid("".join(kaart(h(t, 3, center=True) + p(x, center=True)) for t, x in info), "14rem"), bg="wit")
     save(slug, titel, body)
 
@@ -301,7 +302,7 @@ save("pakket", "Het complete knuffelpakket", group(group(group(
          + h("Het complete knuffelpakket", 3)
          + ul(["Beer naar keuze", "Geurtje naar keuze", "Kloppend hartje", "Eigen berenpaspoort"])
          + p("Vanaf <strong>€ 27,95</strong> <s>€ 30,40</s>", className="beer-pakket-prijs")
-         + btns(("Stel je pakket samen →", L("samenstellen")))),
+         + btns(("Stel je pakket samen →", L("samenstellen"), "koop"))),
     className="beer-pakket"), align="wide", layout={"type": "default"}), full=True,
     style_extra=({"spacing": {"padding": {"bottom": "var:preset|spacing|60"}}}, "padding-bottom:var(--wp--preset--spacing--60)")),
     desc="Pakketaanbieding: beer + geurtje + kloppend hartje + paspoort.")
@@ -322,11 +323,11 @@ for f, naam, prijs, tekst, hoogte in PRODUCTEN:
     body = section(
         p(f'<a href="{L("shop")}">Shop</a> › {naam}', size="small")
         + cols(
-            group(img(f + ".png", naam, "70%", center=True), className="beer-galerij-groot"),
+            group(img(f + ".webp", naam, "70%", center=True), className="beer-galerij-groot"),
             h(naam, 1)
             + p(prijs, className="beer-product-prijs")
             + p(tekst, size="large")
-            + btns((f"Bestel {naam} →", f"mailto:info@beer.be?subject=Bestelling%20{naam.replace(' ', '%20')}"))
+            + btns((f"Bestel {naam} →", f"mailto:info@beer.be?subject=Bestelling%20{naam.replace(' ', '%20')}", "koop"))
             + p(f'<a href="{L("samenstellen")}"><strong>Of maak hem helemaal van jou: geurtje, kloppend hartje en paspoort →</strong></a>')
             + grid(rij("uniek", "Levering in 2–3 werkdagen") + rij("hart", "Gratis verzending vanaf € 40")
                    + rij("met-liefde", "14 dagen bedenktijd") + rij("veilig", "Veilig betalen met Bancontact"), "12rem", 2)
@@ -334,7 +335,7 @@ for f, naam, prijs, tekst, hoogte in PRODUCTEN:
                     + spec("Leeftijd", "Vanaf 0 jaar") + spec("Wassen", "Handwas of 30°C in een kussensloop"), className="beer-specs"),
             center=False)
         + h("Ook leuk", center=True)
-        + grid("".join(kaart(img(a + ".png", n, "120px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3, center=True) + p(pr, center=True))
+        + grid("".join(kaart(img(a + ".webp", n, "120px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3, center=True) + p(pr, center=True))
                        for a, n, pr, _, _ in anderen), "9rem", 3))
     save("product-" + slug, naam + " (productpagina)", body)
 
@@ -348,7 +349,7 @@ save("cadeaubon", "Cadeaubon", section(cols(
     kaart(h("Kies je bon", 3)
           + ul(["€ 25, € 50, € 75 of € 100", "Of: 1 workshop voor een kind (€ 19,95)", "Met een persoonlijke boodschap", "Per e-mail (gratis) of op mooi papier per post (+ € 2,50)"])
           + p("Laat ons weten welke bon je wil, voor wie en van wie. Je krijgt hem binnen één werkdag.")
-          + btns(("Bestel een cadeaubon →", "mailto:info@beer.be?subject=Cadeaubon")))),
+          + btns(("Bestel een cadeaubon →", "mailto:info@beer.be?subject=Cadeaubon", "koop")))),
     gradient="zacht"), desc="Cadeaubon met voorbeeld en bestelknop.")
 
 print("ok", sorted(os.listdir(OUT)))
