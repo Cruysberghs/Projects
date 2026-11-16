@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadeaubon – BEER.</title>
+  <meta name="description" content="Geef een cadeaubon van BEER.: voor een knuffel, een workshop, een feestje of een kampje.">
+  <link rel="icon" href="img/bear-classic.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <section class="pagina-hero" id="cadeaubon">
+    <div class="container split" style="align-items:start">
+      <div>
+        <h1>Cadeaubon</h1>
+        <p class="lead">Twijfel je welke beer? Geef een cadeaubon. Inwisselbaar voor knuffels, workshops, feestjes en kampjes, en een jaar lang geldig.</p>
+        <div class="bon" aria-live="polite">
+          <img class="bon-beer" src="img/bear-classic-kloppend.svg" alt="">
+          <p class="bon-logo">BEER.</p>
+          <p class="bon-titel">Cadeaubon</p>
+          <p class="bon-waarde" id="bon-waarde">€ 50</p>
+          <p class="bon-namen">Voor <strong id="bon-voor">…</strong><br>Van <strong id="bon-van">…</strong></p>
+          <p class="bon-boodschap hand" id="bon-boodschap">Veel knuffelplezier!</p>
+        </div>
+      </div>
+      <div class="kaart links formulier">
+        <h2>Stel je bon samen</h2>
+        <div>
+          <p class="veld-label">Waarde</p>
+          <div class="keuzes bon-keuzes">
+            <button class="keuze" data-bedrag="25">€ 25</button>
+            <button class="keuze" data-bedrag="50">€ 50</button>
+            <button class="keuze" data-bedrag="75">€ 75</button>
+            <button class="keuze" data-bedrag="100">€ 100</button>
+            <button class="keuze" data-bedrag="workshop">1 workshop<small>€ 19,95</small></button>
+          </div>
+        </div>
+        <div class="rij">
+          <div><label for="c-voor">Voor</label><input id="c-voor" maxlength="30" placeholder="bv. Lotte"></div>
+          <div><label for="c-van">Van</label><input id="c-van" maxlength="30" placeholder="bv. Oma en opa"></div>
+        </div>
+        <div><label for="c-boodschap">Persoonlijke boodschap</label><textarea id="c-boodschap" rows="3" maxlength="120" placeholder="Veel knuffelplezier!"></textarea></div>
+        <fieldset class="levering">
+          <legend>Hoe wil je de bon ontvangen?</legend>
+          <label><input type="radio" name="levering" value="mail" checked> Per e-mail, meteen te printen (gratis)</label>
+          <label><input type="radio" name="levering" value="post"> Op mooi papier, per post (+ € 2,50)</label>
+        </fieldset>
+        <div class="configurator-voet">
+          <span class="totaal" id="bon-totaal">€ 50,00</span>
+          <button class="btn plus" id="bon-koop">In mijn mandje</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

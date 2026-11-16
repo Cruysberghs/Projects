@@ -8,7 +8,8 @@
   --perzik: #F6DCC6;
   --zand: #F1D3B6;
   --terracotta: #D9673F;
-  --terracotta-donker: #B9502C;
+  --terracotta-donker: #B9502C; /* knoppen, links en kleine tekst: goed leesbaar (contrast ±5:1) */
+  --terracotta-diep: #9A4122;
   --bruin: #6B3A26;
   --tekst: #5A3A2A;
   --wit: #FFFDFB;
@@ -30,7 +31,7 @@ body {
   line-height: 1.6;
 }
 img { max-width: 100%; display: block; }
-a { color: var(--terracotta); }
+a { color: var(--terracotta-donker); }
 h1, h2, h3 { font-family: var(--kop); color: var(--terracotta); font-weight: 500; line-height: 1.15; margin: 0 0 .5em; }
 h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
 h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
@@ -44,17 +45,17 @@ h3 { font-size: 1.25rem; color: var(--bruin); }
 /* ---------- Knoppen ---------- */
 .btn {
   display: inline-flex; align-items: center; gap: .5em;
-  background: var(--terracotta); color: #fff; text-decoration: none;
+  background: var(--terracotta-donker); color: #fff; text-decoration: none;
   border: 0; border-radius: 999px; padding: .8em 1.6em;
   font: 600 1rem var(--body); cursor: pointer;
   box-shadow: 0 6px 16px rgba(217, 103, 63, .3);
   transition: background .2s, transform .2s;
 }
-.btn:hover { background: var(--terracotta-donker); transform: translateY(-2px); }
+.btn:hover { background: var(--terracotta-diep); transform: translateY(-2px); }
 .btn::after { content: "→"; }
 .btn.plus::after { content: "+"; }
 .btn.geen-pijl::after { content: none; }
-.btn.licht { background: var(--wit); color: var(--terracotta); box-shadow: none; border: 2px solid var(--terracotta); }
+.btn.licht { background: var(--wit); color: var(--terracotta-donker); box-shadow: none; border: 2px solid var(--terracotta-donker); }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -68,18 +69,18 @@ h3 { font-size: 1.25rem; color: var(--bruin); }
 .hoofdmenu { margin-left: auto; }
 .hoofdmenu ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
 .hoofdmenu a { color: var(--tekst); text-decoration: none; font-size: .93rem; font-weight: 600; padding: 4px 0; border-bottom: 2px solid transparent; }
-.hoofdmenu a:hover, .hoofdmenu a[aria-current="page"] { color: var(--terracotta); border-color: var(--terracotta); }
+.hoofdmenu a:hover, .hoofdmenu a[aria-current="page"] { color: var(--terracotta-donker); border-color: var(--terracotta-donker); }
 .icoon-knop { background: none; border: 0; cursor: pointer; color: var(--tekst); padding: 6px; position: relative; display: inline-flex; }
 .icoon-knop svg { width: 24px; height: 24px; }
 .mandje-aantal {
   position: absolute; top: -2px; right: -4px; min-width: 18px; height: 18px; border-radius: 9px;
-  background: var(--terracotta); color: #fff; font-size: .72rem; font-weight: 700;
+  background: var(--terracotta-donker); color: #fff; font-size: .72rem; font-weight: 700;
   display: grid; place-items: center; padding: 0 4px;
 }
 .mandje-aantal[data-leeg="true"] { display: none; }
 .menu-knop { display: none; }
 
-@media (max-width: 1080px) {
+@media (max-width: 1140px) {
   .menu-knop { display: inline-flex; }
   .hoofdmenu {
     position: fixed; inset: 76px 0 auto 0; background: var(--creme);
@@ -181,9 +182,9 @@ section { padding: 70px 0; }
 .stappen li::before {
   content: counter(stap); display: grid; place-items: center; margin: 0 auto 6px;
   width: 40px; height: 40px; border-radius: 50%; background: var(--wit); border: 2px solid var(--terracotta);
-  color: var(--terracotta); font-weight: 700; position: relative;
+  color: var(--terracotta-donker); font-weight: 700; position: relative;
 }
-.stappen li.actief::before, .stappen li.klaar::before { background: var(--terracotta); color: #fff; }
+.stappen li.actief::before, .stappen li.klaar::before { background: var(--terracotta-donker); color: #fff; }
 @media (max-width: 600px) { .stappen li { font-size: 0; } }
 
 .configurator { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; }
@@ -202,7 +203,7 @@ section { padding: 70px 0; }
 }
 .keuze img { width: 70px; height: 77px; margin: 0 auto 6px; }
 .keuze .emoji { font-size: 2rem; display: block; }
-.keuze small { display: block; font-weight: 400; color: var(--terracotta); }
+.keuze small { display: block; font-weight: 400; color: var(--terracotta-donker); }
 .keuze[aria-pressed="true"] { border-color: var(--terracotta); background: #FFF1E8; }
 .configurator-voet { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .configurator-voet .totaal { font: 600 2rem var(--kop); color: var(--bruin); }
@@ -248,7 +249,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--t
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin: 4px 0; }
 .site-footer a { color: var(--tekst); text-decoration: none; }
-.site-footer a:hover { color: var(--terracotta); }
+.site-footer a:hover { color: var(--terracotta-donker); }
 .footer-onder { text-align: center; margin-top: 30px; font-size: .85rem; opacity: .8; }
 @media (max-width: 700px) { .footer-raster { grid-template-columns: 1fr; } }
 
@@ -265,7 +266,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--t
 .mandje-items li { display: grid; grid-template-columns: 56px 1fr auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--perzik); }
 .mandje-items img { width: 56px; height: 62px; }
 .mandje-items small { display: block; opacity: .8; }
-.mandje-items button { background: none; border: 0; color: var(--terracotta); cursor: pointer; font-size: 1.2rem; }
+.mandje-items button { background: none; border: 0; color: var(--terracotta-donker); cursor: pointer; font-size: 1.2rem; }
 .mandje-voet { padding: 20px; border-top: 1px solid var(--perzik); }
 .mandje-voet .totaal { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem; margin-bottom: 14px; }
 .mandje-voet .btn { width: 100%; justify-content: center; }
@@ -323,4 +324,138 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--t
 @media (prefers-reduced-motion: reduce) {
   .hero-beeld::after { animation: none; }
   .onthul { opacity: 1; transform: none; }
+}
+
+/* =========================================================
+   Verkoop: seizoensbalk, hero-knoppen, pakket, mandje,
+   productpagina en cadeaubon
+   ========================================================= */
+
+/* Seizoensbalk */
+.seizoensbalk { background: var(--bruin); color: #fff; font-size: .92rem; }
+.seizoensbalk p { margin: 0; padding: 8px 20px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }
+.seizoensbalk img { width: 18px; height: 18px; filter: brightness(0) invert(1); }
+.seizoensbalk a { color: #FFD9C4; font-weight: 700; }
+
+/* Hero: één duidelijke hoofdknop */
+.hero-sub { font-size: 1.05rem !important; max-width: 440px; margin: -.4em 0 1.4em; }
+.hero-knoppen { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.tekst-link { font-weight: 700; color: var(--terracotta-donker); }
+.hero-klein { font-size: .9rem !important; margin-top: 1.2em; opacity: .85; }
+@media (max-width: 760px) {
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-knoppen { justify-content: center; }
+}
+
+/* Kaarten in de shop zijn klikbaar */
+.kaart-link { color: inherit; text-decoration: none; display: block; }
+.kaart-link h3 { transition: color .2s; }
+.kaart-link:hover h3 { color: var(--terracotta-donker); }
+
+/* Het complete pakket */
+.pakket {
+  margin-top: 34px; display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; text-align: left;
+  background: var(--wit); border: 2px dashed var(--terracotta); border-radius: var(--radius); padding: 26px 34px;
+  box-shadow: var(--schaduw);
+}
+.pakket-beeld { background: var(--perzik); border-radius: 50%; padding: 18px; }
+.pakket h3 { font-size: 1.6rem; color: var(--terracotta); margin-bottom: .2em; }
+.pakket .hart-lijst { display: grid; grid-template-columns: repeat(2, auto); justify-content: start; gap: 0 28px; margin: .6em 0 1em; }
+.pakket-label { display: inline-block; margin: 0 0 6px; background: var(--terracotta-donker); color: #fff; font-size: .8rem; font-weight: 700; padding: 3px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: .06em; }
+.pakket-prijs { font-size: 1.1rem; margin: 0 0 1em; }
+.pakket-prijs strong { font: 600 1.7rem var(--kop); color: var(--bruin); }
+.pakket-prijs s, .totaal s { opacity: .55; font-size: .65em; font-weight: 400; margin-left: 6px; }
+@media (max-width: 640px) {
+  .pakket { grid-template-columns: 1fr; text-align: center; padding: 24px; }
+  .pakket-beeld { width: 160px; margin: 0 auto; }
+  .pakket .hart-lijst { grid-template-columns: auto; justify-content: center; text-align: left; }
+}
+
+/* Pakketkorting in de samensteller */
+.pakket-tip { margin: 14px 0 0; padding: 10px 14px; border-radius: 14px; background: #FFF1E8; font-size: .95rem; }
+.pakket-tip.gelukt { background: #EAF6E9; color: #2F6B34; }
+
+/* Mandje: gratis verzending, aantallen, extraatjes */
+.mandje-verzending { padding: 14px 20px 4px; font-size: .92rem; }
+.mandje-verzending p { margin: 0 0 6px; }
+.voortgang { height: 8px; border-radius: 4px; background: var(--perzik); overflow: hidden; }
+.voortgang span { display: block; height: 100%; background: var(--terracotta-donker); border-radius: 4px; transition: width .4s; }
+.mandje-items li { grid-template-columns: 56px 1fr auto; }
+.mandje-items .mandje-leeg { display: block; }
+.mandje-prijs { font-weight: 700; white-space: nowrap; }
+.aantal-knoppen { display: inline-flex; align-items: center; gap: 2px; margin-top: 6px; border: 1.5px solid var(--perzik); border-radius: 999px; }
+.aantal-knoppen span { min-width: 22px; text-align: center; font-weight: 700; font-size: .9rem; }
+.mandje-items .aantal-knoppen button { width: 28px; height: 28px; font-size: 1.1rem; line-height: 1; color: var(--terracotta-donker); }
+.mandje-extra { padding: 6px 20px 12px; border-top: 1px solid var(--perzik); }
+.mandje-extra-titel { margin: 8px 0; font-weight: 700; font-size: .92rem; }
+.extra-knop {
+  display: flex; align-items: center; gap: 10px; width: 100%; margin: 6px 0; padding: 8px 12px;
+  background: var(--wit); border: 1.5px dashed var(--terracotta); border-radius: 12px;
+  font: inherit; font-size: .9rem; color: var(--tekst); cursor: pointer; text-align: left;
+}
+.extra-knop:hover { background: #FFF1E8; }
+.extra-knop img { width: 26px; height: 26px; }
+.extra-knop span { flex: 1; }
+.extra-knop strong { color: var(--terracotta-donker); white-space: nowrap; }
+.mandje-voet .regel { display: flex; justify-content: space-between; font-size: .95rem; margin-bottom: 4px; }
+.betaal-chips { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin: 12px 0 4px; }
+.betaal-chips span { font-size: .72rem; font-weight: 700; padding: 3px 8px; border: 1px solid #D8C3B3; border-radius: 6px; background: var(--wit); color: var(--bruin); }
+.mandje-belofte { text-align: center; font-size: .8rem; margin: 0; opacity: .8; }
+
+/* Productpagina */
+.kruimel { font-size: .9rem; margin-bottom: 20px; }
+.product-raster { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+.galerij-groot { background: var(--perzik); border-radius: var(--radius); padding: 40px; display: grid; place-items: center; }
+.galerij-groot img { width: 75%; }
+.galerij-klein { display: flex; gap: 12px; margin-top: 12px; }
+.galerij-klein button { width: 84px; height: 84px; padding: 8px; background: var(--wit); border: 2px solid var(--perzik); border-radius: 14px; cursor: pointer; }
+.galerij-klein button[aria-pressed="true"] { border-color: var(--terracotta-donker); }
+.product-info h1 { margin-bottom: .1em; }
+.product-prijs { font: 600 2rem var(--kop); color: var(--bruin); margin: 0 0 .5em; }
+.koop-rij { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 1.4em 0 .8em; }
+.aantal-kiezer { display: inline-flex; align-items: center; border: 2px solid var(--perzik); border-radius: 999px; background: var(--wit); }
+.aantal-kiezer button { width: 44px; height: 44px; border: 0; background: none; font-size: 1.3rem; color: var(--terracotta-donker); cursor: pointer; }
+.aantal-kiezer span { min-width: 28px; text-align: center; font-weight: 700; }
+.samenstel-link { display: inline-block; font-weight: 700; margin-bottom: 1.4em; }
+.voordelen { list-style: none; padding: 0; margin: 0 0 1.6em; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; font-size: .95rem; }
+.voordelen li { display: flex; align-items: center; gap: 10px; }
+.voordelen img { width: 26px; height: 26px; flex: none; }
+.specs { margin: 0; border-top: 1px solid var(--perzik); }
+.specs div { display: grid; grid-template-columns: 120px 1fr; padding: 10px 0; border-bottom: 1px solid var(--perzik); }
+.specs dt { font-weight: 700; }
+.specs dd { margin: 0; }
+.ook-leuk { padding: 70px 0 0; }
+@media (max-width: 760px) {
+  .product-raster { grid-template-columns: 1fr; gap: 24px; }
+  .voordelen { grid-template-columns: 1fr; }
+}
+
+/* Cadeaubon */
+.bon {
+  position: relative; margin-top: 24px; padding: 30px 34px; border-radius: var(--radius); overflow: hidden;
+  background: var(--wit); border: 2px dashed var(--terracotta); box-shadow: var(--schaduw); max-width: 460px;
+}
+.bon p { margin: 0; }
+.bon-beer { position: absolute; right: -20px; bottom: -24px; width: 170px; opacity: .95; }
+.bon-logo { font: 500 1.4rem var(--kop); color: var(--terracotta); letter-spacing: .04em; }
+.bon-titel { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; font-weight: 700; margin-top: 2px !important; }
+.bon-waarde { font: 600 3rem var(--kop); color: var(--bruin); margin: 10px 0 !important; }
+.bon-namen { line-height: 1.7; max-width: 60%; }
+.bon-boodschap { font-size: 1.7rem; margin-top: 12px !important; max-width: 62%; }
+.veld-label { font-weight: 600; font-size: .95rem; margin: 0 0 6px; }
+.bon-keuzes { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); margin: 0 0 4px; }
+.levering { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
+.levering legend { font-weight: 600; font-size: .95rem; margin-bottom: 6px; }
+.levering label { font-weight: 400; display: flex; gap: 8px; align-items: center; }
+.levering input { width: auto; }
+.ook-leuk .raster { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 760px) {
+  .seizoensbalk { font-size: .82rem; }
+  .seizoensbalk p { padding: 6px 14px; gap: 4px 8px; }
+  .seizoensbalk img { display: none; }
+  .ook-leuk .raster { gap: 10px; }
+  .ook-leuk .kaart { padding: 12px 8px; }
+  .ook-leuk .kaart img { width: 100%; height: auto; margin-bottom: 6px; }
+  .ook-leuk .kaart h3 { font-size: .95rem; }
+  .ook-leuk .kaart .prijs { margin: 0; font-size: .9rem; }
 }
