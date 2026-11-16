@@ -118,6 +118,8 @@ const Mandje = {
     items.push(item);
     this.bewaar(items);
     toast(`${item.naam} zit in je mandje! 🧸`);
+    const mk = document.getElementById("mandje-knop");
+    mk.classList.remove("hup"); void mk.offsetWidth; mk.classList.add("hup");
   },
   verwijder(i) { const items = this.lees(); items.splice(i, 1); this.bewaar(items); },
   toon() {
@@ -182,6 +184,7 @@ function toonKnuffels() {
     const knop = e.target.closest("[data-koop]");
     if (!knop) return;
     const k = KNUFFELS.find((x) => x.id === knop.dataset.koop);
+    springHartjes(knop);
     Mandje.voegToe({ naam: k.naam, prijs: k.prijs, img: k.img });
   });
 }
@@ -256,6 +259,7 @@ function samensteller() {
     if (stap < 4) { stap++; return teken(); }
     const details = [keuze.geur.id !== "geen" && keuze.geur.naam, keuze.hart.naam,
       keuze.kraal.id !== "geen" && keuze.kraal.naam, keuze.naam && "paspoort: " + keuze.naam].filter(Boolean).join(" · ");
+    springHartjes(el.querySelector("#volgende"));
     Mandje.voegToe({ naam: keuze.beer.naam + " (op maat)", details, prijs: totaal(), img: keuze.beer.img });
     Mandje.open();
   });
@@ -279,8 +283,61 @@ function formulieren() {
   });
 }
 
+// ---------- 6. Beweging ----------
+const minderBeweging = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Kleine hartjes die uit een knop springen
+function springHartjes(knop) {
+  if (minderBeweging || !knop || !knop.animate) return;
+  const r = knop.getBoundingClientRect();
+  for (let i = 0; i < 6; i++) {
+    const h = document.createElement("span");
+    h.className = "spring-hart";
+    h.textContent = "♥";
+    h.style.left = r.left + r.width / 2 + "px";
+    h.style.top = r.top + "px";
+    document.body.appendChild(h);
+    const dx = (Math.random() - 0.5) * 120, dy = -60 - Math.random() * 60;
+    h.animate(
+      [{ transform: "translate(-50%, 0) scale(.6)", opacity: 1 },
+       { transform: `translate(calc(-50% + ${dx * 0.6}px), ${dy * 0.6}px) scale(1)`, opacity: 1, offset: 0.6 },
+       { transform: `translate(calc(-50% + ${dx}px), ${dy}px) scale(1.1) rotate(${dx / 4}deg)`, opacity: 0 }],
+      { duration: 700 + Math.random() * 300, easing: "cubic-bezier(.2,.7,.3,1)" }
+    ).onfinish = () => h.remove();
+  }
+}
+
+// Kaarten en blokken schuiven zacht in beeld bij het scrollen
+function onthul() {
+  if (minderBeweging || !("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver((items) => items.forEach((it) => {
+    if (!it.isIntersecting) return;
+    it.target.classList.add("zichtbaar");
+    io.unobserve(it.target);
+    // daarna de klasse weghalen, zodat het hover-effect weer werkt
+    setTimeout(() => it.target.classList.remove("onthul", "zichtbaar"), 1200);
+  }), { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".kaart, .beloftes > div, .kenmerken li, .faq details, .split > *, .raster > *").forEach((el) => {
+    if (el.getBoundingClientRect().top < innerHeight) return; // al in beeld: niets verbergen
+    const broers = [...el.parentElement.children];
+    el.style.setProperty("--d", (broers.indexOf(el) % 4) * 90 + "ms");
+    el.classList.add("onthul");
+    io.observe(el);
+  });
+}
+
+// Schaduw onder de header zodra je scrolt
+function headerSchaduw() {
+  const h = document.querySelector(".site-header");
+  const zet = () => h.classList.toggle("gescrold", scrollY > 10);
+  addEventListener("scroll", zet, { passive: true });
+  zet();
+}
+
 bouwLayout();
 koppelMandje();
+headerSchaduw();
 toonKnuffels();
 samensteller();
 formulieren();
+onthul();

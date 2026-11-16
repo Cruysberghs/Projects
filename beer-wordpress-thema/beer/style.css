@@ -1,7 +1,7 @@
 /*
 Theme Name: BEER.
 Description: Warm, zacht thema voor BEER. – jouw knuffel, jouw verhaal. Met kant-en-klare blokpatronen voor shop, workshops, kinderfeestjes, kampjes, FAQ en contact.
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -133,3 +133,35 @@ ul.beer-footer-links li { margin: 4px 0; }
 .beer-footer a { color: inherit; text-decoration: none; }
 .beer-footer a:hover { color: var(--wp--preset--color--terracotta); }
 .beer-footer .wp-block-site-title a { color: var(--wp--preset--color--terracotta); }
+
+/* =========================================================
+   Beweging (staat stil bij "minder beweging" op het toestel)
+   ========================================================= */
+.beer-header { transition: box-shadow .3s; }
+.beer-header.gescrold { box-shadow: 0 6px 20px rgba(140, 80, 40, .1); }
+
+/* Beer kantelt bij hover over zijn kaart */
+.is-style-kaart .wp-block-image img { transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
+.is-style-kaart:hover .wp-block-image img { transform: rotate(-5deg) scale(1.05); }
+
+/* Knoppen veren mee */
+.wp-block-button__link { transition: transform .2s, background-color .2s; }
+.wp-block-button__link:hover { transform: translateY(-2px); }
+
+/* Zwevende hartjes rond de hero-beer */
+.beer-hero-beeld::after {
+	content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+	background: url(assets/img/zweef-hartjes.svg) center / contain no-repeat;
+	animation: beer-zweef 7s ease-in-out infinite;
+}
+@keyframes beer-zweef { 0%, 100% { transform: translateY(6px); opacity: .7; } 50% { transform: translateY(-14px); opacity: 1; } }
+
+/* Inschuiven bij scrollen */
+.beer-onthul { opacity: 0; transform: translateY(26px); transition: opacity .7s ease-out var(--d, 0ms), transform .7s ease-out var(--d, 0ms); }
+.beer-onthul.zichtbaar { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+	.beer-hero-beeld::after { animation: none; }
+	.beer-onthul { opacity: 1; transform: none; }
+	.wp-block-button__link:hover { transform: none; }
+}

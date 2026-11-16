@@ -20,6 +20,7 @@ add_action( 'after_setup_theme', 'beer_setup' );
 
 function beer_styles() {
 	wp_enqueue_style( 'beer-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_script( 'beer-beweging', get_theme_file_uri( 'assets/js/beweging.js' ), array(), wp_get_theme()->get( 'Version' ), array( 'in_footer' => true, 'strategy' => 'defer' ) );
 }
 add_action( 'wp_enqueue_scripts', 'beer_styles' );
 
