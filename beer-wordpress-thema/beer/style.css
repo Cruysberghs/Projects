@@ -1,7 +1,7 @@
 /*
 Theme Name: BEER.
 Description: Warm, zacht thema voor BEER. – jouw knuffel, jouw verhaal. Met kant-en-klare blokpatronen voor shop, workshops, kinderfeestjes, kampjes, FAQ en contact.
-Version: 1.1.0
+Version: 1.2.0
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -165,3 +165,51 @@ ul.beer-footer-links li { margin: 4px 0; }
 	.beer-onthul { opacity: 1; transform: none; }
 	.wp-block-button__link:hover { transform: none; }
 }
+
+/* =========================================================
+   Verkoop: seizoensbalk, hero, pakket, productpagina, cadeaubon
+   ========================================================= */
+.beer-seizoensbalk, .beer-seizoensbalk p { color: #fff; margin: 0; }
+.beer-seizoensbalk a { color: #FFD9C4; font-weight: 700; }
+.beer-hero-klein { opacity: .85; }
+.wp-block-button.is-style-outline > .wp-block-button__link { color: var(--wp--preset--color--terracotta-donker); }
+
+/* Pakket */
+.beer-pakket {
+	background: var(--wp--preset--color--wit); border: 2px dashed var(--wp--preset--color--terracotta);
+	border-radius: 22px; padding: 26px 34px; box-shadow: var(--wp--preset--shadow--zacht);
+}
+.beer-pakket-beeld { background: var(--wp--preset--color--perzik); border-radius: 50%; padding: 18px; max-width: 240px; margin-inline: auto; }
+.beer-pakket-label { display: inline-block; background: var(--wp--preset--color--terracotta-donker); color: #fff; font-size: .8rem; font-weight: 700; padding: 3px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 0 !important; }
+.beer-pakket h3 { color: var(--wp--preset--color--terracotta); font-size: 1.6rem; margin-top: .3em; }
+.beer-pakket .is-style-hartjes { display: grid; grid-template-columns: repeat(2, auto); justify-content: start; gap: 0 28px; }
+.beer-pakket-prijs strong { font-family: var(--wp--preset--font-family--fredoka); font-size: 1.7rem; color: var(--wp--preset--color--bruin); }
+.beer-pakket-prijs s { opacity: .55; margin-left: 6px; }
+@media (max-width: 640px) { .beer-pakket .is-style-hartjes { grid-template-columns: auto; } }
+
+/* Productpagina */
+.beer-galerij-groot { background: var(--wp--preset--color--perzik); border-radius: 22px; padding: 40px; }
+.beer-galerij-klein { gap: 12px; }
+.beer-galerij-klein .wp-block-image { margin: 0; background: var(--wp--preset--color--wit); border: 2px solid var(--wp--preset--color--perzik); border-radius: 14px; padding: 6px; }
+.beer-product-prijs { font-family: var(--wp--preset--font-family--fredoka); font-size: 2rem; font-weight: 600; color: var(--wp--preset--color--bruin); margin-top: 0 !important; }
+.beer-specs { border-top: 1px solid var(--wp--preset--color--perzik); gap: 0; }
+.beer-specs > * { margin: 0 !important; }
+.wp-block-group.beer-spec { grid-template-columns: 120px 1fr !important; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--wp--preset--color--perzik); }
+.beer-spec p { margin: 0; }
+
+/* Cadeaubon */
+.beer-bon {
+	position: relative; overflow: hidden; max-width: 460px; padding: 30px 34px !important;
+	background: var(--wp--preset--color--wit); border: 2px dashed var(--wp--preset--color--terracotta);
+	border-radius: 22px; box-shadow: var(--wp--preset--shadow--zacht);
+}
+.beer-bon > * { margin-block: 0 !important; position: relative; z-index: 1; }
+.beer-bon > .beer-bon-beer { position: absolute; right: -20px; bottom: -24px; z-index: 0; }
+.beer-bon-logo { font-family: var(--wp--preset--font-family--fredoka); color: var(--wp--preset--color--terracotta); font-size: 1.4rem; }
+.beer-bon-titel { letter-spacing: .12em; font-size: .8rem; font-weight: 700; }
+.beer-bon-waarde { font-family: var(--wp--preset--font-family--fredoka); font-size: 3rem; font-weight: 600; color: var(--wp--preset--color--bruin); margin-block: 10px !important; }
+.beer-bon-boodschap { font-size: 1.7rem; margin-top: 12px !important; }
+@media (min-width: 782px) { .beer-hero-beeld > .beer-hart-hint { top: 60%; left: -2%; } }
+.is-style-kaart h3 a { color: inherit; text-decoration: none; }
+.is-style-kaart h3 a:hover { color: var(--wp--preset--color--terracotta-donker); }
+.beer-galerij-klein img { cursor: pointer; }

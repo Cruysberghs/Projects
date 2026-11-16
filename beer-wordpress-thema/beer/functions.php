@@ -48,17 +48,61 @@ function beer_img( $file ) {
 }
 
 /**
+ * Het menu bovenaan. Pas hier de volgorde of de namen aan.
+ * (Veelgestelde vragen staat in de footer.)
+ */
+function beer_menu() {
+	return array(
+		''               => 'Home',
+		'shop'           => 'Shop',
+		'samenstellen'   => 'Stel jouw BEER. samen',
+		'workshops'      => 'Workshops',
+		'kinderfeestjes' => 'Kinderfeestjes',
+		'kampjes'        => 'Kampjes',
+		'cadeaubon'      => 'Cadeaubon',
+		'ons-verhaal'    => 'Ons verhaal',
+		'contact'        => 'Contact',
+	);
+}
+
+/**
+ * Menu-items als navigatieblokken (zodat de huidige pagina onderlijnd wordt).
+ */
+function beer_menu_links() {
+	$uit = '';
+	foreach ( beer_menu() as $slug => $label ) {
+		$id     = $slug ? ( get_page_by_path( $slug ) ? get_page_by_path( $slug )->ID : 0 ) : (int) get_option( 'page_on_front' );
+		$attrs  = array(
+			'label' => $label,
+			'url'   => $slug ? home_url( "/$slug/" ) : home_url( '/' ),
+			'kind'  => $id ? 'post-type' : 'custom',
+		);
+		if ( $id ) {
+			$attrs['type'] = 'page';
+			$attrs['id']   = $id;
+		}
+		$uit .= '<!-- wp:navigation-link ' . wp_json_encode( $attrs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . " /-->\n";
+	}
+	return $uit;
+}
+
+/**
  * De pagina's die het thema bij activatie aanmaakt.
  * slug => array( titel, patronen die de inhoud vormen )
  */
 function beer_paginas() {
 	return array(
-		'home'           => array( 'Home', array( 'hero', 'kenmerken', 'knuffels', 'samenstellen-cta', 'samen-beleven', 'beloftes' ) ),
-		'shop'           => array( 'Shop', array( 'knuffels', 'beloftes' ) ),
+		'home'           => array( 'Home', array( 'hero', 'kenmerken', 'knuffels', 'pakket', 'samenstellen-cta', 'samen-beleven', 'beloftes' ) ),
+		'shop'           => array( 'Shop', array( 'knuffels', 'pakket', 'beloftes' ) ),
+		'shop/classic-bear' => array( 'Classic Bear', array( 'product-classic-bear', 'beloftes' ) ),
+		'shop/brownie-bear' => array( 'Brownie Bear', array( 'product-brownie-bear', 'beloftes' ) ),
+		'shop/dreamy-bear'  => array( 'Dreamy Bear', array( 'product-dreamy-bear', 'beloftes' ) ),
+		'shop/little-bear'  => array( 'Little Bear', array( 'product-little-bear', 'beloftes' ) ),
 		'samenstellen'   => array( 'Stel jouw BEER. samen', array( 'stappen', 'beloftes' ) ),
 		'workshops'      => array( 'Workshops', array( 'workshops', 'beloftes' ) ),
 		'kinderfeestjes' => array( 'Kinderfeestjes', array( 'kinderfeestjes', 'beloftes' ) ),
 		'kampjes'        => array( 'Kampjes', array( 'kampjes', 'beloftes' ) ),
+		'cadeaubon'      => array( 'Cadeaubon', array( 'cadeaubon', 'beloftes' ) ),
 		'ons-verhaal'    => array( 'Ons verhaal', array( 'ons-verhaal', 'beloftes' ) ),
 		'faq'            => array( 'FAQ', array( 'faq' ) ),
 		'contact'        => array( 'Contact', array( 'contact' ) ),
@@ -87,6 +131,13 @@ function beer_maak_paginas() {
 	foreach ( beer_paginas() as $slug => list( $titel, $patronen ) ) {
 		$volgorde++;
 		$bestaand = get_page_by_path( $slug );
+		$ouder    = 0;
+		$naam     = $slug;
+		if ( false !== strpos( $slug, '/' ) ) {
+			list( $ouder_slug, $naam ) = explode( '/', $slug, 2 );
+			$ouder_pagina = get_page_by_path( $ouder_slug );
+			$ouder        = $ouder_pagina ? $ouder_pagina->ID : 0;
+		}
 		if ( $bestaand ) {
 			$id = $bestaand->ID;
 		} else {
@@ -95,7 +146,8 @@ function beer_maak_paginas() {
 					'post_type'    => 'page',
 					'post_status'  => 'publish',
 					'post_title'   => $titel,
-					'post_name'    => $slug,
+					'post_name'    => $naam,
+					'post_parent'  => $ouder,
 					'menu_order'   => $volgorde,
 					'post_content' => implode( "\n\n", array_map( 'beer_patroon', $patronen ) ),
 					'page_template' => 'page-zonder-titel',

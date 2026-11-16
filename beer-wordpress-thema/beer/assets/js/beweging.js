@@ -26,3 +26,12 @@
 		io.observe(el);
 	});
 })();
+
+/* Productpagina: klik op een kleine foto om hem groot te tonen. */
+(function () {
+	var groot = document.querySelector('.beer-galerij-groot img');
+	if (!groot) return;
+	document.querySelectorAll('.beer-galerij-klein img').forEach(function (img) {
+		img.addEventListener('click', function () { groot.src = img.src; groot.alt = img.alt; });
+	});
+})();

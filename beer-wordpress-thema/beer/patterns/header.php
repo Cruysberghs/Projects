@@ -13,7 +13,7 @@
 <figure class="wp-block-image size-full is-resized"><a href="<?php echo beer_link( '' ); ?>"><img src="<?php echo beer_img( 'bear-classic.svg' ); ?>" alt="BEER." style="width:44px"/></a></figure>
 <!-- /wp:image --><!-- wp:site-title {"level":0} /--></div>
 <!-- /wp:group --><!-- wp:navigation {"overlayBackgroundColor":"creme","overlayTextColor":"tekst","layout":{"type":"flex","justifyContent":"right"}} -->
-<!-- wp:page-list /-->
+<?php echo beer_menu_links(); // phpcs:ignore ?>
 <!-- /wp:navigation --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

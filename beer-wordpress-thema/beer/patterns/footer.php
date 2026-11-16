@@ -28,13 +28,17 @@
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li><a href="<?php echo beer_link( 'samenstellen' ); ?>">Stel jouw BEER. samen</a></li>
 <!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="<?php echo beer_link( 'cadeaubon' ); ?>">Cadeaubon</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
 <li><a href="<?php echo beer_link( 'workshops' ); ?>">Workshops</a></li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li><a href="<?php echo beer_link( 'kinderfeestjes' ); ?>">Kinderfeestjes</a></li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li><a href="<?php echo beer_link( 'kampjes' ); ?>">Kampjes</a></li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li><a href="<?php echo beer_link( 'faq' ); ?>">FAQ</a></li>
+<li><a href="<?php echo beer_link( 'faq' ); ?>">Veelgestelde vragen</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="<?php echo beer_link( 'ons-verhaal' ); ?>">Ons verhaal</a></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:column --><!-- wp:column -->

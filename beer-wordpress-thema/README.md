@@ -30,6 +30,15 @@ Extra stijlen die je rechts bij een blok kan kiezen (onder *Stijlen*):
 - **Lijst → Hartjes**: opsomming met hartjes
 - **Afbeelding → Wiebelen**: de beer wiebelt zachtjes
 
+## Verkoop
+
+- **Seizoensbalk** bovenaan (Sinterklaas, Kerst, anders "gratis verzending vanaf € 40"). De teksten en data pas je aan bovenaan in `beer/patterns/seizoensbalk.php`.
+- **Het complete knuffelpakket** op Home en Shop (beer + geurtje + kloppend hartje + paspoort, met korting).
+- **Productpagina's** per beer onder Shop (bv. `/shop/brownie-bear/`). **Let op:** hoogte, materiaal, leeftijd en wasvoorschrift zijn voorbeelden. Vul de echte gegevens in.
+- **Cadeaubonpagina** (`/cadeaubon/`). Bestellen gebeurt voorlopig per e-mail.
+- **Thema al geïnstalleerd?** Upload de nieuwe `beer.zip`, activeer even een ander thema en daarna opnieuw BEER. Zo worden de nieuwe pagina's (cadeaubon, productpagina's) aangemaakt. Bestaande pagina's blijven ongewijzigd, dus het pakketblok voeg je op Home en Shop zelf toe via **+** → *Patronen* → **BEER.**
+- **Menu**: pas de volgorde of namen aan in `beer_menu()` in `beer/functions.php`. Veelgestelde vragen staat in de footer.
+
 ## Later uitbreiden
 
 - **Contactformulier**: installeer de plugin *WPForms Lite* of *Contact Form 7* en zet het formulier op de Contact-pagina. Nu staat er een knop die een e-mail opent.

@@ -10,7 +10,10 @@ Dubbelklik op `index.html`: de site opent in je browser. Je hebt niets te instal
 |---|---|
 | Teksten van een pagina | het `.html`-bestand van die pagina (bv. `workshops.html`) |
 | Menu, footer, adres, telefoon | bovenaan in `js/main.js` (één keer aanpassen = overal aangepast) |
-| Knuffels, prijzen, geurtjes | `KNUFFELS`, `GEURTJES`, … in `js/main.js` |
+| Knuffels, prijzen, productinfo | `KNUFFELS` bovenaan in `js/main.js` (hoogte, materiaal, leeftijd en wassen zijn **voorbeelden**) |
+| Verzendkosten, gratis verzending, pakketkorting | `WINKEL` bovenaan in `js/main.js` |
+| Seizoensbalk (Sinterklaas, Kerst) | `SEIZOEN` bovenaan in `js/main.js` |
+| Extraatjes in het mandje | `EXTRAS` bovenaan in `js/main.js` |
 | Kleuren en lettertypes | bovenaan in `css/style.css` (`:root`) |
 | Afbeeldingen | map `img/` – vervang de getekende beertjes door echte foto's |
 

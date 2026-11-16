@@ -118,7 +118,7 @@ save("header", "Header", group(
     group(
         group(img("bear-classic.svg", "BEER.", "44px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->",
               layout={"type": "flex", "flexWrap": "nowrap"})
-        + '<!-- wp:navigation {"overlayBackgroundColor":"creme","overlayTextColor":"tekst","layout":{"type":"flex","justifyContent":"right"}} -->\n<!-- wp:page-list /-->\n<!-- /wp:navigation -->',
+        + '<!-- wp:navigation {"overlayBackgroundColor":"creme","overlayTextColor":"tekst","layout":{"type":"flex","justifyContent":"right"}} -->\n<?php echo beer_menu_links(); // phpcs:ignore ?>\n<!-- /wp:navigation -->',
         align="wide", layout={"type": "flex", "flexWrap": "nowrap", "justifyContent": "space-between"}),
     full=True, bg="creme", className="beer-header",
     style_extra=({"spacing": {"padding": {"top": "12px", "bottom": "12px"}}, "border": {"bottom": {"color": "var:preset|color|perzik", "width": "1px"}}},
@@ -131,7 +131,7 @@ save("footer", "Footer", section(
         + p("Jouw knuffel, jouw verhaal.")
         + p("Een knuffel voor het leven ♡", size="x-large", className="beer-hand"),
         h("Ontdek", 3) + ul([f'<a href="{L(s)}">{n}</a>' for s, n in
-            [("shop", "Shop"), ("samenstellen", "Stel jouw BEER. samen"), ("workshops", "Workshops"), ("kinderfeestjes", "Kinderfeestjes"), ("kampjes", "Kampjes"), ("faq", "FAQ")]], className="beer-footer-links"),
+            [("shop", "Shop"), ("samenstellen", "Stel jouw BEER. samen"), ("cadeaubon", "Cadeaubon"), ("workshops", "Workshops"), ("kinderfeestjes", "Kinderfeestjes"), ("kampjes", "Kampjes"), ("faq", "Veelgestelde vragen"), ("ons-verhaal", "Ons verhaal")]], className="beer-footer-links"),
         h("Contact", 3) + rij("mail", '<a href="mailto:info@beer.be">info@beer.be</a>', "18px")
         + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>', "18px")
         + rij("locatie", "Straatnaam 12, 9000 Gent", "18px"),
@@ -143,7 +143,9 @@ save("footer", "Footer", section(
 save("hero", "Welkom (hero)", section(cols(
     h('Welkom bij<br><span style="font-size:1.5em;font-weight:600">BEER.</span>', 1)
     + p("Jouw knuffel, jouw verhaal.", size="large")
-    + btns(("Ontdek onze knuffels →", L("shop"))),
+    + p("Kies je beer, een geurtje en een kloppend hartje, en geef hem een eigen paspoort.")
+    + btns(("Stel jouw beer samen →", L("samenstellen")), ("Bekijk de knuffels", L("shop"), True))
+    + p("Vanaf € 22,95 · Klaar in 5 stappen · Gratis verzending vanaf € 40", size="small", className="beer-hero-klein"),
     group(img("krul.svg", "", None, className="beer-krul")
           + p(f'voel je<br>zijn hartje?<br><img src="{IMG("pijl.svg")}" alt="">', className="beer-hand beer-hart-hint")
           + img("bear-classic-kloppend.svg", "Een zachte knuffelbeer met een kloppend hartje", "400px", center=True, className="is-style-wiebel"),
@@ -162,11 +164,12 @@ KNUFFELS = [("bear-classic.svg", "Classic Bear", "€ 24,95", "De tijdloze favor
             ("bear-brownie.svg", "Brownie Bear", "€ 24,95", "Chocoladebruin en extra knuffelbaar."),
             ("bear-dreamy.svg", "Dreamy Bear", "€ 24,95", "Zacht vanillekleurig, voor zoete dromen."),
             ("bear-little.svg", "Little Bear", "€ 22,95", "Klein maar dapper, past in elke rugzak.")]
+PSLUG = lambda naam: "shop/" + naam.lower().replace(" ", "-")
 save("knuffels", "Onze knuffels", section(
     h("Onze knuffels", center=True)
     + p("Kies je favoriete beer en maak hem helemaal van jou. Zacht, warm en klaar voor een knuffelavontuur!", center=True)
-    + grid("".join(kaart(img(f, n, "150px", center=True) + h(n, 3, center=True) + p(t, center=True, size="small")
-                         + p(f"<strong>{pr}</strong>", center=True) + btns(("Bestellen", L("contact")), center=True))
+    + grid("".join(kaart(img(f, n, "150px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3, center=True) + p(t, center=True, size="small")
+                         + p(f"<strong>{pr}</strong>", center=True) + btns(("Bekijk", L(PSLUG(n))), center=True))
                    for f, n, pr, t in KNUFFELS), "13rem", 4)), desc="Vier knuffelkaarten met prijs.")
 
 save("samenstellen-cta", "Stel jouw BEER. samen (blok)", section(cols(
@@ -272,5 +275,81 @@ save("contact", "Contact", section(cols(
     + rij("locatie", "Onze locatie<br>Straatnaam 12, 9000 Gent")
     + btns(("Stuur een bericht →", "mailto:info@beer.be")),
     img("bear-dreamy.svg", "", "300px", center=True, className="is-style-wiebel"))))
+
+# ---------------- Verkoop ----------------
+save("seizoensbalk", "Seizoensbalk", """<?php
+// Pas de teksten en data (maand-dag) hier aan. De eerste die past, wordt getoond.
+$beer_seizoenen = array(
+	array( '11-01', '12-02', 'Bestel vóór 2 december en je beer is op tijd bij de Sint', 'shop', 'Naar de shop' ),
+	array( '12-03', '12-19', 'Bestel vóór 19 december en je beer ligt op tijd onder de kerstboom', 'shop', 'Naar de shop' ),
+	array( '12-20', '12-31', 'Te laat voor een pakje? Een cadeaubon kan je meteen geven', 'cadeaubon', 'Cadeaubon' ),
+);
+$beer_s = array( '', '', 'Gratis verzending in België vanaf € 40', 'shop', 'Naar de shop' );
+foreach ( $beer_seizoenen as $beer_rij ) {
+	if ( wp_date( 'm-d' ) >= $beer_rij[0] && wp_date( 'm-d' ) <= $beer_rij[1] ) { $beer_s = $beer_rij; break; }
+}
+?>
+""" + group(p('<?php echo esc_html( $beer_s[2] ); ?> <a href="<?php echo beer_link( $beer_s[3] ); ?>"><?php echo esc_html( $beer_s[4] ); ?> →</a>', center=True, size="small"),
+            full=True, bg="bruin", className="beer-seizoensbalk",
+            style_extra=({"spacing": {"padding": {"top": "8px", "bottom": "8px"}}}, "padding-top:8px;padding-bottom:8px")),
+     inserter=False)
+
+save("pakket", "Het complete knuffelpakket", group(group(group(
+    cols(group(img("bear-classic-kloppend.svg", "", "200px", center=True), className="beer-pakket-beeld"),
+         p("Meest gekozen", className="beer-pakket-label")
+         + h("Het complete knuffelpakket", 3)
+         + ul(["Beer naar keuze", "Geurtje naar keuze", "Kloppend hartje", "Eigen berenpaspoort"])
+         + p("Vanaf <strong>€ 27,95</strong> <s>€ 30,40</s>", className="beer-pakket-prijs")
+         + btns(("Stel je pakket samen →", L("samenstellen")))),
+    className="beer-pakket"), align="wide", layout={"type": "default"}), full=True,
+    style_extra=({"spacing": {"padding": {"bottom": "var:preset|spacing|60"}}}, "padding-bottom:var(--wp--preset--spacing--60)")),
+    desc="Pakketaanbieding: beer + geurtje + kloppend hartje + paspoort.")
+
+# Productpagina's. LET OP: hoogte, materiaal, leeftijd en wassen zijn VOORBEELDEN.
+PRODUCTEN = [
+    ("bear-classic", "Classic Bear", "€ 24,95", "Classic Bear is de beer waar het allemaal mee begon. Zacht honingbruin pluche, een lieve snuit en armen die gemaakt zijn om te knuffelen.", "30 cm"),
+    ("bear-brownie", "Brownie Bear", "€ 24,95", "Brownie Bear heeft een diepe chocoladebruine vacht en is net iets steviger gevuld. Een echte bodyguard voor onder het donsdeken.", "30 cm"),
+    ("bear-dreamy", "Dreamy Bear", "€ 24,95", "Dreamy Bear is licht als een wolkje. Met een geurtje lavendel erbij is hij de perfecte slaapvriend.", "30 cm"),
+    ("bear-little", "Little Bear", "€ 22,95", "Little Bear is klein genoeg voor de boekentas en groot genoeg voor alle geheimen. Ideaal als eerste beer of als broertje of zusje.", "20 cm"),
+]
+def spec(k, v):
+    return group(p(f"<strong>{k}</strong>") + p(v), className="beer-spec",
+                 layout={"type": "grid", "columnCount": 2})
+for f, naam, prijs, tekst, hoogte in PRODUCTEN:
+    slug = naam.lower().replace(" ", "-")
+    anderen = [x for x in PRODUCTEN if x[1] != naam]
+    body = section(
+        p(f'<a href="{L("shop")}">Shop</a> › {naam}', size="small")
+        + cols(
+            group(img(f + ".svg", naam, "75%", center=True), className="beer-galerij-groot")
+            + group(img(f + ".svg", naam, "84px") + img(f + "-kloppend.svg", naam + " met kloppend hartje", "84px"),
+                    className="beer-galerij-klein", layout={"type": "flex", "flexWrap": "nowrap"}),
+            h(naam, 1)
+            + p(prijs, className="beer-product-prijs")
+            + p(tekst, size="large")
+            + btns((f"Bestel {naam} →", f"mailto:info@beer.be?subject=Bestelling%20{naam.replace(' ', '%20')}"))
+            + p(f'<a href="{L("samenstellen")}"><strong>Of maak hem helemaal van jou: geurtje, kloppend hartje en paspoort →</strong></a>')
+            + grid(rij("uniek", "Levering in 2–3 werkdagen") + rij("hart", "Gratis verzending vanaf € 40")
+                   + rij("met-liefde", "14 dagen bedenktijd") + rij("veilig", "Veilig betalen met Bancontact"), "12rem", 2)
+            + group(spec("Hoogte", hoogte) + spec("Materiaal", "Zacht pluche, gerecycleerde vulling")
+                    + spec("Leeftijd", "Vanaf 0 jaar") + spec("Wassen", "Handwas of 30°C in een kussensloop"), className="beer-specs"),
+            center=False)
+        + h("Ook leuk", center=True)
+        + grid("".join(kaart(img(a + ".svg", n, "120px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3, center=True) + p(pr, center=True))
+                       for a, n, pr, _, _ in anderen), "9rem", 3))
+    save("product-" + slug, naam + " (productpagina)", body)
+
+save("cadeaubon", "Cadeaubon", section(cols(
+    h("Cadeaubon", 1)
+    + p("Twijfel je welke beer? Geef een cadeaubon. Inwisselbaar voor knuffels, workshops, feestjes en kampjes, en een jaar lang geldig.", size="large")
+    + group(img("bear-classic-kloppend.svg", "", "170px", className="beer-bon-beer")
+            + p("BEER.", className="beer-bon-logo") + p("CADEAUBON", className="beer-bon-titel")
+            + p("€ 50", className="beer-bon-waarde") + p("Voor <strong>Lotte</strong><br>Van <strong>Oma en opa</strong>")
+            + p("Veel knuffelplezier!", className="beer-hand beer-bon-boodschap"), className="beer-bon"),
+    kaart(h("Kies je bon", 3)
+          + ul(["€ 25, € 50, € 75 of € 100", "Of: 1 workshop voor een kind (€ 19,95)", "Met een persoonlijke boodschap", "Per e-mail (gratis) of op mooi papier per post (+ € 2,50)"])
+          + p("Laat ons weten welke bon je wil, voor wie en van wie. Je krijgt hem binnen één werkdag.")
+          + btns(("Bestel een cadeaubon →", "mailto:info@beer.be?subject=Cadeaubon")))),
+    gradient="zacht"), desc="Cadeaubon met voorbeeld en bestelknop.")
 
 print("ok", sorted(os.listdir(OUT)))
