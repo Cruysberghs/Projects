@@ -101,3 +101,35 @@ ul.beer-footer-links li { margin: 4px 0; }
 	.wp-block-group.is-layout-grid { grid-template-columns: repeat(2, 1fr) !important; }
 	.beer-kenmerken .wp-block-group.is-layout-grid { grid-template-columns: repeat(3, 1fr) !important; }
 }
+
+/* ---------- Icoontjes ---------- */
+.beer-kenmerken .wp-block-image img { transition: transform .25s; }
+.beer-kenmerken .wp-block-group:hover .wp-block-image img { transform: translateY(-3px) rotate(-6deg); }
+.beer-ico-rij { gap: 10px; margin-block: 6px; }
+.beer-ico-rij > * { margin: 0 !important; }
+.beer-ico-rij .wp-block-image { flex: none; }
+
+/* ---------- Hero: zachte gloed, getekende krul en "voel je zijn hartje?" ---------- */
+.beer-hero-beeld { position: relative; }
+.beer-hero-beeld::before {
+	content: ""; position: absolute; inset: 4% 8%; border-radius: 50%;
+	background: radial-gradient(circle, rgba(255, 249, 240, .95) 0, rgba(255, 249, 240, .5) 40%, transparent 70%);
+}
+.beer-hero-beeld > .wp-block-image { position: relative; z-index: 1; }
+.beer-hero-beeld > .wp-block-image.beer-krul { position: absolute; width: 44%; right: -6%; top: -4%; margin: 0; z-index: 0; pointer-events: none; }
+.beer-hero-beeld > .beer-hart-hint {
+	position: absolute; top: 46%; left: -16%; z-index: 2; margin: 0 !important;
+	font-size: 2.1rem; line-height: 1; text-align: center;
+	animation: beer-hint-in .8s 1s both ease-out;
+}
+.beer-hart-hint img { width: 80px; margin: 6px 0 0 50px; transform: scaleX(-1); }
+@keyframes beer-hint-in { from { transform: rotate(-14deg) scale(.9); } to { transform: rotate(-6deg); } }
+@media (max-width: 781px) {
+	.beer-hero-beeld > .wp-block-image.beer-krul, .beer-hart-hint img { display: none; }
+	.beer-hero-beeld > .beer-hart-hint { top: auto; bottom: -2%; left: auto; right: 0; font-size: 1.6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .beer-hero-beeld > .beer-hart-hint { animation: none; } }
+.beer-ico-rij .wp-block-image img { display: block; }
+.beer-footer a { color: inherit; text-decoration: none; }
+.beer-footer a:hover { color: var(--wp--preset--color--terracotta); }
+.beer-footer .wp-block-site-title a { color: var(--wp--preset--color--terracotta); }

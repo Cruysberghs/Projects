@@ -11,25 +11,25 @@
 <h2 class="wp-block-heading has-text-align-center">Onze beloftes</h2>
 <!-- /wp:heading --><!-- wp:group {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"14rem"}} -->
 <div class="wp-block-group"><!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"align":"center","fontSize":"x-large"} -->
-<p class="has-text-align-center has-x-large-font-size">🛡</p>
-<!-- /wp:paragraph --><!-- wp:heading {"textAlign":"center","level":3} -->
+<div class="wp-block-group"><!-- wp:image {"width":"48px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'icons/veilig.svg' ); ?>" alt="" style="width:48px"/></figure>
+<!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center">Veilig &amp; kwalitatief</h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center"} -->
 <p class="has-text-align-center">Getest volgens de Europese speelgoednormen.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"align":"center","fontSize":"x-large"} -->
-<p class="has-text-align-center has-x-large-font-size">♡</p>
-<!-- /wp:paragraph --><!-- wp:heading {"textAlign":"center","level":3} -->
+<div class="wp-block-group"><!-- wp:image {"width":"48px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'icons/uniek.svg' ); ?>" alt="" style="width:48px"/></figure>
+<!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center">Persoonlijk &amp; uniek</h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center"} -->
 <p class="has-text-align-center">Geen twee beren zijn hetzelfde.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"align":"center","fontSize":"x-large"} -->
-<p class="has-text-align-center has-x-large-font-size">✂</p>
-<!-- /wp:paragraph --><!-- wp:heading {"textAlign":"center","level":3} -->
+<div class="wp-block-group"><!-- wp:image {"width":"48px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'icons/met-liefde.svg' ); ?>" alt="" style="width:48px"/></figure>
+<!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center">Met liefde gemaakt</h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center"} -->
 <p class="has-text-align-center">Elke knuffel wordt met zorg afgewerkt.</p>

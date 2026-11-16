@@ -94,6 +94,15 @@ def badge(boven, prijs, onder):
 def details(q, a):
     return f'<!-- wp:details -->\n<details class="wp-block-details"><summary>{q}</summary>{p(a)}</details>\n<!-- /wp:details -->'
 
+def ico(naam, size="44px", center=True, className=None):
+    return img(f"icons/{naam}.svg", "", size, center=center, className=className)
+
+def rij(naam, html, size="26px"):
+    """Icoontje + tekst naast elkaar."""
+    return group(ico(naam, size, center=False) + p(html), className="beer-ico-rij",
+                 layout={"type": "flex", "flexWrap": "nowrap", "verticalAlignment": "center"})
+
+IMG = lambda f: f"<?php echo beer_img( '{f}' ); ?>"
 L = lambda slug="": f"<?php echo beer_link( '{slug}' ); ?>"
 
 def save(slug, title, body, inserter=True, desc=""):
@@ -123,22 +132,27 @@ save("footer", "Footer", section(
         + p("Een knuffel voor het leven ♡", size="x-large", className="beer-hand"),
         h("Ontdek", 3) + ul([f'<a href="{L(s)}">{n}</a>' for s, n in
             [("shop", "Shop"), ("samenstellen", "Stel jouw BEER. samen"), ("workshops", "Workshops"), ("kinderfeestjes", "Kinderfeestjes"), ("kampjes", "Kampjes"), ("faq", "FAQ")]], className="beer-footer-links"),
-        h("Contact", 3) + p('✉ <a href="mailto:info@beer.be">info@beer.be</a><br>☎ <a href="tel:+32479123456">+32 479 12 34 56</a><br>📍 Straatnaam 12, 9000 Gent'),
+        h("Contact", 3) + rij("mail", '<a href="mailto:info@beer.be">info@beer.be</a>', "18px")
+        + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>', "18px")
+        + rij("locatie", "Straatnaam 12, 9000 Gent", "18px"),
         center=False)
     + p("© <?php echo esc_html( gmdate( 'Y' ) ); ?> BEER. – Met liefde gemaakt", center=True, size="small"),
-    bg="perzik"), inserter=False)
+    bg="perzik", className="beer-footer"), inserter=False)
 
 # ---------------- Home ----------------
 save("hero", "Welkom (hero)", section(cols(
     h('Welkom bij<br><span style="font-size:1.5em;font-weight:600">BEER.</span>', 1)
     + p("Jouw knuffel, jouw verhaal.", size="large")
     + btns(("Ontdek onze knuffels →", L("shop"))),
-    img("bear-classic.svg", "Een zachte knuffelbeer", "400px", center=True, className="is-style-wiebel"))
+    group(img("krul.svg", "", None, className="beer-krul")
+          + p(f'voel je<br>zijn hartje?<br><img src="{IMG("pijl.svg")}" alt="">', className="beer-hand beer-hart-hint")
+          + img("bear-classic-kloppend.svg", "Een zachte knuffelbeer met een kloppend hartje", "400px", center=True, className="is-style-wiebel"),
+          className="beer-hero-beeld"))
 , gradient="zacht"), desc="Grote welkomstbanner met beer en knop.")
 
-kenmerken = [("♡", "Zelf vullen"), ("♨", "Heerlijk geurtje"), ("💓", "Kloppend hartje"), ("📘", "Paspoort"), ("📿", "Vriendschapsbandje")]
+kenmerken = [("zelf-vullen", "Zelf vullen"), ("geurtje", "Heerlijk geurtje"), ("kloppend-hartje", "Kloppend hartje"), ("paspoort", "Paspoort"), ("bandje", "Vriendschapsbandje")]
 save("kenmerken", "Kenmerken", group(group(
-    grid("".join(group(p(i, center=True, className="beer-ico") + p(f"<strong>{t}</strong>", center=True, size="small"),
+    grid("".join(group(ico(i) + p(f"<strong>{t}</strong>", center=True, size="small"),
                        style_extra=({"spacing": {"blockGap": "0"}}, "")) for i, t in kenmerken), "9rem", 5),
     align="wide", layout={"type": "default"}), full=True, bg="wit", className="beer-kenmerken",
     style_extra=({"spacing": {"padding": {"top": "var:preset|spacing|40", "bottom": "var:preset|spacing|40"}}},
@@ -174,10 +188,10 @@ save("samen-beleven", "Samen beleven", section(
 
 save("beloftes", "Onze beloftes", section(
     h("Onze beloftes", center=True)
-    + grid("".join(group(p(i, center=True, size="x-large") + h(t, 3, center=True) + p(x, center=True))
-                   for i, t, x in [("🛡", "Veilig &amp; kwalitatief", "Getest volgens de Europese speelgoednormen."),
-                                   ("♡", "Persoonlijk &amp; uniek", "Geen twee beren zijn hetzelfde."),
-                                   ("✂", "Met liefde gemaakt", "Elke knuffel wordt met zorg afgewerkt.")]), "14rem"),
+    + grid("".join(group(ico(i, "48px") + h(t, 3, center=True) + p(x, center=True))
+                   for i, t, x in [("veilig", "Veilig &amp; kwalitatief", "Getest volgens de Europese speelgoednormen."),
+                                   ("uniek", "Persoonlijk &amp; uniek", "Geen twee beren zijn hetzelfde."),
+                                   ("met-liefde", "Met liefde gemaakt", "Elke knuffel wordt met zorg afgewerkt.")]), "14rem"),
     bg="wit"))
 
 # ---------------- Samenstellen ----------------
@@ -253,9 +267,9 @@ save("faq", "Veelgestelde vragen", group(
 save("contact", "Contact", section(cols(
     h("Contact", 1)
     + p("Heb je een vraag, een idee of wil je iets reserveren? Laat het ons weten!", size="large")
-    + p('✉ <a href="mailto:info@beer.be">info@beer.be</a>')
-    + p('☎ <a href="tel:+32479123456">+32 479 12 34 56</a>')
-    + p("📍 Onze locatie<br>Straatnaam 12, 9000 Gent")
+    + rij("mail", '<a href="mailto:info@beer.be">info@beer.be</a>')
+    + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>')
+    + rij("locatie", "Onze locatie<br>Straatnaam 12, 9000 Gent")
     + btns(("Stuur een bericht →", "mailto:info@beer.be")),
     img("bear-dreamy.svg", "", "300px", center=True, className="is-style-wiebel"))))
 

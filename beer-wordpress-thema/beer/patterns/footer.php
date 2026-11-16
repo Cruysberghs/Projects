@@ -6,8 +6,8 @@
  * Inserter: no
  */
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"perzik","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-perzik-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"beer-footer","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"perzik","layout":{"type":"constrained"}} -->
+<div class="wp-block-group beer-footer alignfull has-perzik-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
@@ -40,9 +40,25 @@
 <!-- /wp:column --><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Contact</h3>
-<!-- /wp:heading --><!-- wp:paragraph -->
-<p>✉ <a href="mailto:info@beer.be">info@beer.be</a><br>☎ <a href="tel:+32479123456">+32 479 12 34 56</a><br>📍 Straatnaam 12, 9000 Gent</p>
+<!-- /wp:heading --><!-- wp:group {"className":"beer-ico-rij","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group beer-ico-rij"><!-- wp:image {"width":"18px","sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'icons/mail.svg' ); ?>" alt="" style="width:18px"/></figure>
+<!-- /wp:image --><!-- wp:paragraph -->
+<p><a href="mailto:info@beer.be">info@beer.be</a></p>
 <!-- /wp:paragraph --></div>
+<!-- /wp:group --><!-- wp:group {"className":"beer-ico-rij","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group beer-ico-rij"><!-- wp:image {"width":"18px","sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'icons/telefoon.svg' ); ?>" alt="" style="width:18px"/></figure>
+<!-- /wp:image --><!-- wp:paragraph -->
+<p><a href="tel:+32479123456">+32 479 12 34 56</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --><!-- wp:group {"className":"beer-ico-rij","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group beer-ico-rij"><!-- wp:image {"width":"18px","sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'icons/locatie.svg' ); ?>" alt="" style="width:18px"/></figure>
+<!-- /wp:image --><!-- wp:paragraph -->
+<p>Straatnaam 12, 9000 Gent</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
 <p class="has-text-align-center has-small-font-size">© <?php echo esc_html( gmdate( 'Y' ) ); ?> BEER. – Met liefde gemaakt</p>

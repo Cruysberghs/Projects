@@ -28,18 +28,18 @@ const KNUFFELS = [
   { id: "little", naam: "Little Bear", prijs: 22.95, img: "img/bear-little.svg", tekst: "Klein maar dapper, past in elke rugzak." },
 ];
 const GEURTJES = [
-  { id: "geen", naam: "Geen geurtje", emoji: "🚫", prijs: 0 },
+  { id: "geen", naam: "Geen geurtje", emoji: "–", prijs: 0 },
   { id: "vanille", naam: "Vanille", emoji: "🍦", prijs: 2.5 },
   { id: "aardbei", naam: "Aardbei", emoji: "🍓", prijs: 2.5 },
   { id: "lavendel", naam: "Lavendel", emoji: "💜", prijs: 2.5 },
 ];
 const HARTJES = [
-  { id: "zacht", naam: "Zacht hartje", emoji: "🤍", prijs: 0 },
-  { id: "kloppend", naam: "Kloppend hartje", emoji: "💓", prijs: 4.95 },
+  { id: "zacht", naam: "Zacht hartje", icoon: "hart", prijs: 0 },
+  { id: "kloppend", naam: "Kloppend hartje", icoon: "kloppend-hartje", prijs: 4.95 },
 ];
 const KRAALTJES = [
   { id: "geen", naam: "Geen bandje", emoji: "–", prijs: 0 },
-  { id: "bandje", naam: "Vriendschapsbandje", emoji: "📿", prijs: 3.5 },
+  { id: "bandje", naam: "Vriendschapsbandje", icoon: "bandje", prijs: 3.5 },
 ];
 
 const euro = (n) => "€ " + n.toFixed(2).replace(".", ",");
@@ -81,9 +81,9 @@ function bouwLayout() {
           </div>
           <div><h3>Ontdek</h3><ul>${MENU.slice(1, 6).map(([h, n]) => `<li><a href="${h}">${n}</a></li>`).join("")}</ul></div>
           <div><h3>Contact</h3><ul>
-            <li>✉ <a href="mailto:info@beer.be">info@beer.be</a></li>
-            <li>☎ <a href="tel:+32479123456">+32 479 12 34 56</a></li>
-            <li>📍 Straatnaam 12, 9000 Gent</li>
+            <li><img class="ico" src="img/icons/mail.svg" alt=""><a href="mailto:info@beer.be">info@beer.be</a></li>
+            <li><img class="ico" src="img/icons/telefoon.svg" alt=""><a href="tel:+32479123456">+32 479 12 34 56</a></li>
+            <li><img class="ico" src="img/icons/locatie.svg" alt="">Straatnaam 12, 9000 Gent</li>
           </ul></div>
         </div>
         <p class="footer-onder">© ${new Date().getFullYear()} BEER. – Met liefde gemaakt · Veilige betalingen met Bancontact</p>
@@ -198,7 +198,7 @@ function samensteller() {
 
   const knoppen = (lijst, sleutel) => `<div class="keuzes">${lijst.map((o) => `
       <button class="keuze" data-${sleutel}="${o.id}" aria-pressed="${keuze[sleutel].id === o.id}">
-        ${o.img ? `<img src="${o.img}" alt="">` : `<span class="emoji">${o.emoji}</span>`}
+        ${o.img ? `<img src="${o.img}" alt="">` : o.icoon ? `<img class="ico" src="img/icons/${o.icoon}.svg" alt="">` : `<span class="emoji">${o.emoji}</span>`}
         ${o.naam}<small>${o.prijs ? (sleutel === "beer" ? euro(o.prijs) : "+ " + euro(o.prijs)) : "gratis"}</small>
       </button>`).join("")}</div>`;
 
@@ -222,7 +222,15 @@ function samensteller() {
       li.classList.toggle("klaar", i < stap);
     });
     inhoud.innerHTML = schermen[stap]();
-    el.querySelector("#voorbeeld-img").src = keuze.beer.img;
+    // Voorbeeld: de beer springt even op als hij verandert, en bij een kloppend hartje klopt het echt.
+    const img = el.querySelector("#voorbeeld-img");
+    const kloppend = keuze.hart.id === "kloppend";
+    const nieuweSrc = kloppend ? keuze.beer.img.replace(".svg", "-kloppend.svg") : keuze.beer.img;
+    if (!img.src.endsWith(nieuweSrc)) {
+      img.src = nieuweSrc;
+      img.classList.remove("pop"); void img.offsetWidth; img.classList.add("pop");
+    }
+    el.querySelector("#hart-label").hidden = !kloppend;
     el.querySelector("#voorbeeld-naam").textContent = keuze.naam ? `“${keuze.naam}”` : keuze.beer.naam;
     el.querySelector("#totaal").textContent = euro(totaal());
     el.querySelector("#vorige").hidden = stap === 0;
