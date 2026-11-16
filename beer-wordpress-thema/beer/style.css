@@ -1,7 +1,7 @@
 /*
 Theme Name: BEER.
 Description: Warm, zacht thema voor BEER. – jouw knuffel, jouw verhaal. Met kant-en-klare blokpatronen voor shop, workshops, kinderfeestjes, kampjes, FAQ en contact.
-Version: 1.6.1
+Version: 1.7.0
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -362,3 +362,18 @@ h1.wp-block-heading, h2.wp-block-heading { color: var(--wp--preset--color--terra
 /* Nieuwe gekleurde icoontjes in de kenmerkenbalk */
 .beer-kenmerk-ico img { height: 60px !important; width: auto; max-width: 72px; object-fit: contain; }
 @media (max-width: 781px) { .beer-kenmerk-ico img { height: 44px !important; } }
+
+/* Levende knuffels: alle beren hetzelfde gedrag (vervangt de vier verschillende animaties) */
+.beer-knuffels .is-style-kaart > .wp-block-image { position: relative; }
+.beer-knuffels .is-style-kaart > .wp-block-image img,
+.beer-knuffels .is-layout-grid > :nth-child(n):hover img { transform-origin: 50% 100%; animation: beer-adem 3.2s ease-in-out infinite; }
+.beer-knuffels .is-layout-grid > :nth-child(2) img { animation-delay: -.8s; }
+.beer-knuffels .is-layout-grid > :nth-child(3) img { animation-delay: -1.6s; }
+.beer-knuffels .is-layout-grid > :nth-child(4) img { animation-delay: -2.4s; }
+.beer-knuffels .is-layout-grid > :nth-child(n) > .wp-block-image.blij img { animation: beer-blij-sprong .75s cubic-bezier(.3, .7, .4, 1); }
+.beer-knuffels .is-style-kaart > .wp-block-image::after { content: "♥"; position: absolute; left: 62%; top: 18%; font-size: 1.6rem; color: #E0755B; opacity: 0; pointer-events: none; }
+.beer-knuffels .is-style-kaart > .wp-block-image.blij::after { animation: beer-hartje-op .9s ease-out; }
+@keyframes beer-adem { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.015, 1.035); } }
+@keyframes beer-blij-sprong { 0% { transform: scale(1, 1); } 18% { transform: scale(1.12, .86); } 42% { transform: translateY(-18%) scale(.94, 1.08); } 66% { transform: translateY(0) scale(1.08, .93); } 82% { transform: scale(.98, 1.03); } 100% { transform: scale(1, 1); } }
+@keyframes beer-hartje-op { 0% { opacity: 0; transform: translateY(10px) scale(.5); } 25% { opacity: 1; transform: translateY(0) scale(1.15); } 100% { opacity: 0; transform: translateY(-42px) scale(.9) rotate(12deg); } }
+@media (prefers-reduced-motion: reduce) { .beer-knuffels img { animation: none !important; } }

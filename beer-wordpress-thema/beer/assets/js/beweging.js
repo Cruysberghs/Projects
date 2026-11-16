@@ -49,3 +49,18 @@
 	});
 	document.querySelectorAll('main .wp-block-button__link').forEach(function (b) { io.observe(b); });
 })();
+
+/* Knuffelkaarten: blij sprongetje + hartje bij muis erover of aanraken. */
+(function () {
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	var blij = function (vak) {
+		if (!vak || vak.classList.contains('blij')) return;
+		vak.classList.add('blij');
+		setTimeout(function () { vak.classList.remove('blij'); }, 900);
+	};
+	document.querySelectorAll('.beer-knuffels .is-style-kaart').forEach(function (kaart) {
+		var vak = kaart.querySelector('.wp-block-image');
+		kaart.addEventListener('mouseenter', function () { blij(vak); });
+		kaart.addEventListener('touchstart', function () { blij(vak); }, { passive: true });
+	});
+})();

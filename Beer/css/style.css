@@ -833,3 +833,46 @@ h1, h2 { color: var(--terracotta-donker); }
   .beer-keuzes .keuze { padding: 8px 4px; font-size: .74rem; }
   .beer-keuzes .keuze small { font-size: .7rem; }
 }
+
+/* =========================================================
+   Levende knuffels: alle beren hetzelfde gedrag
+   - uit zichzelf: zacht ademen (elk een tikje verschoven)
+   - muis erover of tikken: blij sprongetje + hartje
+   - "In mandje": een mini-beertje vliegt naar het mandje
+   ========================================================= */
+.product-kaart:hover .pk-beeld img,
+.product-kaart:nth-child(n):hover .pk-beeld img { animation: adem 3.2s ease-in-out infinite; transform: none; }
+.pk-beeld { position: relative; }
+.pk-beeld img { transform-origin: 50% 100%; animation: adem 3.2s ease-in-out infinite; }
+.product-kaart:nth-child(4n+2) .pk-beeld img { animation-delay: -.8s; }
+.product-kaart:nth-child(4n+3) .pk-beeld img { animation-delay: -1.6s; }
+.product-kaart:nth-child(4n+4) .pk-beeld img { animation-delay: -2.4s; }
+@keyframes adem { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.015, 1.035); } }
+
+.pk-beeld.blij img, .product-kaart:nth-child(n) .pk-beeld.blij img { animation: blij-sprong .75s cubic-bezier(.3, .7, .4, 1); }
+@keyframes blij-sprong {
+  0% { transform: scale(1, 1); }
+  18% { transform: scale(1.12, .86); }              /* indeuken */
+  42% { transform: translateY(-18%) scale(.94, 1.08); } /* omhoog */
+  66% { transform: translateY(0) scale(1.08, .93); }  /* landen */
+  82% { transform: scale(.98, 1.03); }
+  100% { transform: scale(1, 1); }
+}
+.pk-beeld::after {
+  content: "♥"; position: absolute; left: 62%; top: 18%; font-size: 1.6rem; color: #E0755B;
+  opacity: 0; pointer-events: none;
+}
+.pk-beeld.blij::after { animation: hartje-op .9s ease-out; }
+@keyframes hartje-op {
+  0% { opacity: 0; transform: translateY(10px) scale(.5); }
+  25% { opacity: 1; transform: translateY(0) scale(1.15); }
+  100% { opacity: 0; transform: translateY(-42px) scale(.9) rotate(12deg); }
+}
+
+/* Mini-beertje dat naar het mandje vliegt */
+.vlieg-beer { position: fixed; z-index: 140; pointer-events: none; object-fit: contain; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pk-beeld img, .pk-beeld.blij img { animation: none !important; }
+  .pk-beeld.blij::after { animation: none; }
+}

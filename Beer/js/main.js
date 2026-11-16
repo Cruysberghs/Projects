@@ -335,10 +335,25 @@ function toonKnuffels() {
       </div>`;
   });
 
+  // Beer reageert: blij sprongetje + hartje (muis erover of aanraken)
+  const maakBlij = (vak) => {
+    if (minderBeweging || !vak || vak.classList.contains("blij")) return;
+    vak.classList.add("blij");
+    setTimeout(() => vak.classList.remove("blij"), 900);
+  };
+  document.addEventListener("pointerover", (e) => {
+    const vak = e.target.closest(".pk-beeld");
+    if (vak && e.pointerType === "mouse" && !vak.contains(e.relatedTarget)) maakBlij(vak);
+  });
+  document.addEventListener("touchstart", (e) => maakBlij(e.target.closest(".product-kaart")?.querySelector(".pk-beeld")), { passive: true });
+
   document.addEventListener("click", (e) => {
     const knop = e.target.closest("[data-koop]");
     if (!knop) return;
     const k = KNUFFELS.find((x) => x.id === knop.dataset.koop);
+    const vak = knop.closest(".product-kaart")?.querySelector(".pk-beeld");
+    maakBlij(vak);
+    vliegNaarMandje(vak?.querySelector("img"));
     springHartjes(knop);
     Mandje.voegToe({ naam: k.naam, prijs: k.prijs, img: k.img });
   });
@@ -585,6 +600,24 @@ function springHartjes(knop) {
       { duration: 700 + Math.random() * 300, easing: "cubic-bezier(.2,.7,.3,1)" }
     ).onfinish = () => h.remove();
   }
+}
+
+// Een mini-beertje vliegt in een boogje van de kaart naar het mandje
+function vliegNaarMandje(img) {
+  const mandje = document.getElementById("mandje-knop");
+  if (minderBeweging || !img || !mandje || !img.animate) return;
+  const van = img.getBoundingClientRect(), naar = mandje.getBoundingClientRect();
+  const kopie = img.cloneNode();
+  kopie.className = "vlieg-beer";
+  Object.assign(kopie.style, { left: van.left + "px", top: van.top + "px", width: van.width + "px", height: van.height + "px" });
+  document.body.appendChild(kopie);
+  const dx = naar.left + naar.width / 2 - (van.left + van.width / 2);
+  const dy = naar.top + naar.height / 2 - (van.top + van.height / 2);
+  kopie.animate([
+    { transform: "translate(0, 0) scale(1)", opacity: 1 },
+    { transform: `translate(${dx * 0.45}px, ${dy * 0.45 - 90}px) scale(.55) rotate(-12deg)`, opacity: 1, offset: 0.45 },
+    { transform: `translate(${dx}px, ${dy}px) scale(.12) rotate(10deg)`, opacity: .6 },
+  ], { duration: 800, easing: "cubic-bezier(.45,.05,.55,.95)" }).onfinish = () => kopie.remove();
 }
 
 // Kaarten en blokken schuiven zacht in beeld bij het scrollen
