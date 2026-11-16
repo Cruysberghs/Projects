@@ -7,7 +7,9 @@
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"gradient":"zacht","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-zacht-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide"><!-- wp:heading {"textAlign":"center","level":1} -->
+<div class="wp-block-group alignwide"><!-- wp:paragraph {"fontSize":"small"} -->
+<p class="has-small-font-size"><a href="<?php echo beer_link( '' ); ?>">Home</a> › Stel jouw BEER. samen</p>
+<!-- /wp:paragraph --><!-- wp:heading {"textAlign":"center","level":1} -->
 <h1 class="wp-block-heading has-text-align-center">Stel jouw BEER. samen</h1>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"large"} -->
 <p class="has-text-align-center has-large-font-size">In een paar simpele stappen creëer je een unieke knuffelvriend.</p>

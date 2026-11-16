@@ -8,8 +8,8 @@
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide"><!-- wp:heading {"textAlign":"center"} -->
-<h2 class="wp-block-heading has-text-align-center">Onze knuffels</h2>
+<div class="wp-block-group alignwide"><!-- wp:heading {"textAlign":"center","className":"beer-titel-deco"} -->
+<h2 class="wp-block-heading has-text-align-center beer-titel-deco">Onze knuffels</h2>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center"} -->
 <p class="has-text-align-center">Kies je favoriete beer en maak hem helemaal van jou. Zacht, warm en klaar voor een knuffelavontuur!</p>
 <!-- /wp:paragraph --><!-- wp:group {"layout":{"type":"grid","columnCount":4,"minimumColumnWidth":"13rem"}} -->

@@ -5,8 +5,8 @@
  * Categories: beer
  */
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"wit","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-wit-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"beer-beloftes","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"wit","layout":{"type":"constrained"}} -->
+<div class="wp-block-group beer-beloftes alignfull has-wit-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide"><!-- wp:heading {"textAlign":"center"} -->
 <h2 class="wp-block-heading has-text-align-center">Onze beloftes</h2>
 <!-- /wp:heading --><!-- wp:group {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"14rem"}} -->

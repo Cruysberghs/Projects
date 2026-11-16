@@ -116,7 +116,7 @@ def save(slug, title, body, inserter=True, desc=""):
 # ---------------- Header & footer ----------------
 save("header", "Header", group(
     group(
-        group(img("bear-classic.svg", "BEER.", "44px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->",
+        group(img("logo-beer.svg", "BEER.", "42px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->",
               layout={"type": "flex", "flexWrap": "nowrap"})
         + '<!-- wp:navigation {"overlayBackgroundColor":"creme","overlayTextColor":"tekst","layout":{"type":"flex","justifyContent":"right"}} -->\n<?php echo beer_menu_links(); // phpcs:ignore ?>\n<!-- /wp:navigation -->',
         align="wide", layout={"type": "flex", "flexWrap": "nowrap", "justifyContent": "space-between"}),
@@ -127,7 +127,7 @@ save("header", "Header", group(
 
 save("footer", "Footer", section(
     cols(
-        group(img("bear-classic.svg", "", "44px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->", layout={"type": "flex", "flexWrap": "nowrap"})
+        group(img("logo-beer.svg", "", "42px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->", layout={"type": "flex", "flexWrap": "nowrap"})
         + p("Jouw knuffel, jouw verhaal.")
         + p("Een knuffel voor het leven ♡", size="x-large", className="beer-hand"),
         h("Ontdek", 3) + ul([f'<a href="{L(s)}">{n}</a>' for s, n in
@@ -166,7 +166,7 @@ KNUFFELS = [("bear-classic.svg", "Classic Bear", "€ 24,95", "De tijdloze favor
             ("bear-little.svg", "Little Bear", "€ 22,95", "Klein maar dapper, past in elke rugzak.")]
 PSLUG = lambda naam: "shop/" + naam.lower().replace(" ", "-")
 save("knuffels", "Onze knuffels", section(
-    h("Onze knuffels", center=True)
+    h("Onze knuffels", center=True, className="beer-titel-deco")
     + p("Kies je favoriete beer en maak hem helemaal van jou. Zacht, warm en klaar voor een knuffelavontuur!", center=True)
     + grid("".join(kaart(img(f, n, "150px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3, center=True) + p(t, center=True, size="small")
                          + p(f"<strong>{pr}</strong>", center=True) + btns(("Bekijk", L(PSLUG(n))), center=True))
@@ -195,7 +195,7 @@ save("beloftes", "Onze beloftes", section(
                    for i, t, x in [("veilig", "Veilig &amp; kwalitatief", "Getest volgens de Europese speelgoednormen."),
                                    ("uniek", "Persoonlijk &amp; uniek", "Geen twee beren zijn hetzelfde."),
                                    ("met-liefde", "Met liefde gemaakt", "Elke knuffel wordt met zorg afgewerkt.")]), "14rem"),
-    bg="wit"))
+    bg="wit", className="beer-beloftes"))
 
 # ---------------- Samenstellen ----------------
 STAPPEN = [("Kies je beer", "Classic, Brownie, Dreamy of Little Bear."),
@@ -204,7 +204,8 @@ STAPPEN = [("Kies je beer", "Classic, Brownie, Dreamy of Little Bear."),
            ("Maak een paspoort", "Geef je beer een naam en een verjaardag."),
            ("Optioneel: kraaltjes", "Een vriendschapsbandje voor jou én je beer.")]
 save("stappen", "Stel jouw BEER. samen (stappen)", section(
-    h("Stel jouw BEER. samen", 1, center=True)
+    p(f'<a href="{L()}">Home</a> › Stel jouw BEER. samen', size="small")
+    + h("Stel jouw BEER. samen", 1, center=True)
     + p("In een paar simpele stappen creëer je een unieke knuffelvriend.", center=True, size="large")
     + grid("".join(kaart(p(f"<strong>{n}</strong>", center=True, size="x-large", className="beer-hand") + h(t, 3, center=True) + p(x, center=True, size="small"))
                    for n, (t, x) in enumerate(STAPPEN, 1)), "11rem", 5)
@@ -252,7 +253,8 @@ save("ons-verhaal", "Ons verhaal", section(cols(
     + p("Een vriendje om te koesteren, een maatje voor het leven.")
     + p("Vertel hier jullie eigen verhaal: wie zit erachter, hoe kwam het idee, en waarom beren?")
     + btns(("Leer ons kennen →", L("contact"))),
-    img("bear-classic.svg", "", "380px", center=True, className="is-style-wiebel")), gradient="zacht"))
+    group(img("krul.svg", "", None, className="beer-krul")
+          + img("bear-classic.svg", "", "380px", center=True, className="is-style-wiebel"), className="beer-hero-beeld")), gradient="zacht"))
 
 FAQ = [("Hoe werkt het zelf vullen?", "In onze winkel of tijdens een workshop vul je je beer zelf met zachte vulling, zo stevig of zo zacht als je wil."),
        ("Welke geurtjes zijn er?", "Vanille, aardbei en lavendel. Het geurtje zit in een klein zakje in de buik en blijft maandenlang lekker ruiken."),
@@ -265,7 +267,7 @@ save("faq", "Veelgestelde vragen", group(
     + p("Hier vind je de antwoorden op de meestgestelde vragen.", center=True)
     + "".join(details(q, a) for q, a in FAQ)
     + p(f'Staat je vraag er niet bij? <a href="{L("contact")}">Stuur ons een bericht</a>.', center=True),
-    full=True, pad=True))
+    full=True, pad=True, className="beer-faq"))
 
 save("contact", "Contact", section(cols(
     h("Contact", 1)
@@ -274,7 +276,7 @@ save("contact", "Contact", section(cols(
     + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>')
     + rij("locatie", "Onze locatie<br>Straatnaam 12, 9000 Gent")
     + btns(("Stuur een bericht →", "mailto:info@beer.be")),
-    img("bear-dreamy.svg", "", "300px", center=True, className="is-style-wiebel"))))
+    img("beer-lijn.svg", "", "340px", center=True))))
 
 # ---------------- Verkoop ----------------
 save("seizoensbalk", "Seizoensbalk", """<?php

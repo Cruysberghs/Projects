@@ -11,8 +11,8 @@
 <div class="wp-block-group alignwide"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"44px","sizeSlug":"full","linkDestination":"custom"} -->
-<figure class="wp-block-image size-full is-resized"><a href="<?php echo beer_link( '' ); ?>"><img src="<?php echo beer_img( 'bear-classic.svg' ); ?>" alt="" style="width:44px"/></a></figure>
+<div class="wp-block-group"><!-- wp:image {"width":"42px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="<?php echo beer_link( '' ); ?>"><img src="<?php echo beer_img( 'logo-beer.svg' ); ?>" alt="" style="width:42px"/></a></figure>
 <!-- /wp:image --><!-- wp:site-title {"level":0} /--></div>
 <!-- /wp:group --><!-- wp:paragraph -->
 <p>Jouw knuffel, jouw verhaal.</p>

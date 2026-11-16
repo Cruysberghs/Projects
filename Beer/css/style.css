@@ -459,3 +459,55 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--t
   .ook-leuk .kaart h3 { font-size: .95rem; }
   .ook-leuk .kaart .prijs { margin: 0; font-size: .9rem; }
 }
+
+/* =========================================================
+   Details uit de mockup
+   ========================================================= */
+
+/* Logo in lijnstijl */
+.logo img { width: 42px; height: 46px; }
+
+/* Streepjes naast de titel "Onze knuffels" */
+.titel-deco { position: relative; display: inline-block; }
+.titel-deco::after {
+  content: ""; position: absolute; right: -58px; top: -18px; width: 48px; height: 48px;
+  background: url(../img/streepjes.svg) center / contain no-repeat;
+}
+
+/* Kruimelpad bovenaan de samensteller */
+#samensteller .kruimel { margin-top: -30px; }
+
+/* Streepjes links van de beer in de samensteller (zoals in de mockup) */
+.configurator .voorbeeld::before {
+  content: ""; position: absolute; left: 14px; top: 14px; width: 46px; height: 46px; transform: scaleX(-1);
+  background: url(../img/streepjes.svg) center / contain no-repeat;
+}
+
+/* Carrousel "Kies je beer" */
+.carrousel { display: grid; grid-template-columns: 40px 1fr 40px; align-items: center; gap: 8px; margin: 16px 0 24px; }
+.carrousel-baan { min-width: 0; background: var(--wit); border: 1.5px solid var(--perzik); border-radius: 18px; padding: 12px; }
+.carrousel-baan .keuzes {
+  display: flex; gap: 12px; margin: 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; position: relative;
+}
+.carrousel-baan .keuzes::-webkit-scrollbar { display: none; }
+.carrousel-baan .keuze { flex: 0 0 calc((100% - 24px) / 3); scroll-snap-align: start; }
+.carrousel-baan .keuze img { width: 84px; height: 92px; }
+.carrousel-pijl {
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--perzik); background: var(--wit);
+  color: var(--terracotta-donker); font-size: 1.5rem; line-height: 1; cursor: pointer; transition: opacity .2s;
+}
+.carrousel-pijl:disabled { opacity: .35; cursor: default; }
+
+/* Grote lijntekening op de contactpagina */
+.contact-beer { width: min(100%, 340px); margin-top: 20px; }
+
+/* Hartje bij de veelgestelde vragen */
+.faq { position: relative; }
+.faq-hart { position: absolute; left: -130px; top: 30px; width: 80px; transform: rotate(-12deg); opacity: .9; }
+@media (max-width: 1060px) { .faq-hart { display: none; } }
+
+/* Lijntjes tussen de beloftes */
+@media (min-width: 601px) {
+  .beloftes > div + div { border-left: 1px solid var(--perzik); }
+}
+@media (max-width: 600px) { .titel-deco::after { right: -40px; width: 34px; height: 34px; } }
