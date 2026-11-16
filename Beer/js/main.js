@@ -436,12 +436,7 @@ function samensteller() {
       </button>`).join("")}</div>`;
 
   const schermen = [
-    () => `<h3>1. Kies je beer</h3>
-      <div class="carrousel">
-        <button class="carrousel-pijl" data-schuif="-1" aria-label="Vorige beren">‹</button>
-        <div class="carrousel-baan">${knoppen(KNUFFELS, "beer")}</div>
-        <button class="carrousel-pijl" data-schuif="1" aria-label="Volgende beren">›</button>
-      </div>`,
+    () => `<h3>1. Kies je beer</h3><div class="beer-keuzes">${knoppen(KNUFFELS, "beer")}</div>`,
     () => `<h3>2. Kies een geurtje</h3>${knoppen(GEURTJES, "geur")}`,
     () => `<h3>3. Voeg een hartje toe</h3>${knoppen(HARTJES, "hart")}`,
     () => `<h3>4. Maak een paspoort</h3>
@@ -467,10 +462,7 @@ function samensteller() {
       li.classList.toggle("actief", i === stap);
       li.classList.toggle("klaar", i < stap);
     });
-    const oudeBaan = inhoud.querySelector(".carrousel-baan .keuzes");
-    const scrollPos = oudeBaan ? oudeBaan.scrollLeft : null;
     inhoud.innerHTML = schermen[stap]();
-    carrousel(scrollPos);
     // De beer springt even op als hij verandert, en bij een kloppend hartje klopt het echt.
     const img = el.querySelector("#voorbeeld-img");
     const kloppend = keuze.hart.id === "kloppend";
@@ -488,28 +480,6 @@ function samensteller() {
       naamVeld.addEventListener("input", () => { keuze.naam = naamVeld.value.trim(); toonPrijs(); });
       el.querySelector("#p-dag").addEventListener("input", (e) => { keuze.verjaardag = e.target.value; });
     }
-  }
-
-  // Carrousel "Kies je beer": pijltjes schuiven één beer op
-  function carrousel(scrollPos) {
-    const baan = inhoud.querySelector(".carrousel-baan .keuzes");
-    if (!baan) return;
-    const pijlen = inhoud.querySelectorAll("[data-schuif]");
-    const zetPijlen = () => {
-      pijlen[0].disabled = baan.scrollLeft <= 2;
-      pijlen[1].disabled = baan.scrollLeft + baan.clientWidth >= baan.scrollWidth - 2;
-    };
-    if (scrollPos !== null) baan.scrollLeft = scrollPos;
-    else {
-      const gekozen = baan.querySelector('[aria-pressed="true"]');
-      if (gekozen) baan.scrollLeft = gekozen.offsetLeft - (baan.clientWidth - gekozen.offsetWidth) / 2;
-    }
-    pijlen.forEach((p) => p.addEventListener("click", () => {
-      const stapBreedte = baan.querySelector(".keuze").offsetWidth + 12;
-      baan.scrollBy({ left: +p.dataset.schuif * stapBreedte, behavior: minderBeweging ? "auto" : "smooth" });
-    }));
-    baan.addEventListener("scroll", zetPijlen, { passive: true });
-    zetPijlen();
   }
 
   inhoud.addEventListener("click", (e) => {
