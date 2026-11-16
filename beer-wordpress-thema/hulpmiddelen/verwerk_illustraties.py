@@ -8,7 +8,7 @@ BRON, DOEL = sys.argv[1], sys.argv[2]
 NAMEN = {
     # set 1: 24 illustraties
     "01_beer_hero_sjaal": ("beer-sjaal", 700), "02_classic_bear": ("classic", 600), "03_brownie_bear": ("brownie", 600),
-    "04_dreamy_bear": ("dreamy", 600), "05_little_bear": ("little", 600), "06_beer_met_groot_hart": ("beer-hart", 800),
+    "04_dreamy_bear": ("dreamy", 600), "05_little_bear": ("little", 600), "06_beer_met_groot_hart": ("beer-hart-oud", 800),
     "07_zwaaiende_beer": ("beer-zwaait", 700), "08_beer_logo_icoon": ("logo", 160), "09_ons_verhaal_knuffels": ("ons-verhaal", 900),
     "10_workshop_kinderen_beer": ("workshop", 900), "11_kinderfeestje_beer": ("kinderfeestje", 900),
     "12_kampjes_beer_met_rugzak": ("kampjes", 900), "13_icoon_zelf_vullen": ("icoon-zelf-vullen", 200),

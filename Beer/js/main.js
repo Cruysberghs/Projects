@@ -322,7 +322,7 @@ function toonKnuffels() {
   document.querySelectorAll("[data-pakket]").forEach((doel) => {
     doel.innerHTML = `
       <div class="pakket">
-        <div class="pakket-beeld"><img src="img/ill/beer-hart.png" alt=""></div>
+        <div class="pakket-beeld"><img src="img/ill/beer-hart.webp" alt=""></div>
         <div>
           <p class="pakket-label">Meest gekozen</p>
           <h3>Het complete knuffelpakket</h3>

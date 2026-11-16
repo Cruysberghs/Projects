@@ -174,7 +174,7 @@ save("knuffels", "Onze knuffels", section(
                    for f, n, pr, t in KNUFFELS), "13rem", 4), className="beer-knuffels"), desc="Vier knuffelkaarten met prijs.")
 
 save("samenstellen-cta", "Stel jouw BEER. samen (blok)", section(cols(
-    group(img("ill/beer-hart.png", "Een beer met een groot hart", "280px", center=True), className="beer-samenstel-beeld"),
+    group(img("ill/beer-hart.webp", "Een beer met een groot hart", "280px", center=True), className="beer-samenstel-beeld"),
     p("Helemaal van jou", className="beer-bovenkop")
     + h("Stel jouw BEER. samen")
     + p("Kies je beer, geef hem een geurtje en een kloppend hartje, en maak een vriend voor het leven.")
@@ -297,7 +297,7 @@ foreach ( $beer_seizoenen as $beer_rij ) {
      inserter=False)
 
 save("pakket", "Het complete knuffelpakket", group(group(group(
-    cols(group(img("ill/beer-hart.png", "", "200px", center=True), className="beer-pakket-beeld"),
+    cols(group(img("ill/beer-hart.webp", "", "200px", center=True), className="beer-pakket-beeld"),
          p("Meest gekozen", className="beer-pakket-label")
          + h("Het complete knuffelpakket", 3)
          + ul(["Beer naar keuze", "Geurtje naar keuze", "Kloppend hartje", "Eigen berenpaspoort"])

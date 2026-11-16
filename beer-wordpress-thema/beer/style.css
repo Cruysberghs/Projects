@@ -1,7 +1,7 @@
 /*
 Theme Name: BEER.
 Description: Warm, zacht thema voor BEER. – jouw knuffel, jouw verhaal. Met kant-en-klare blokpatronen voor shop, workshops, kinderfeestjes, kampjes, FAQ en contact.
-Version: 1.8.0
+Version: 1.8.1
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -384,3 +384,7 @@ h1.wp-block-heading, h2.wp-block-heading { color: var(--wp--preset--color--terra
 .wp-block-button.beer-koop > .wp-block-button__link:hover, .beer-gsm-cta:hover { background: var(--beer-koop-donker) !important; }
 .beer-pakket-label { background: var(--beer-koop); }
 .beer-pakket { border-color: var(--beer-koop); }
+
+/* Nieuwe beer met hart staat zelf al in het midden: niet meer opschuiven */
+.beer-samenstel-beeld img, .beer-pakket-beeld img { transform: none; width: 64% !important; }
+.beer-samenstel-blok:hover .beer-samenstel-beeld img, .beer-pakket:hover .beer-pakket-beeld img { transform: translateY(-10px) rotate(-3deg); }

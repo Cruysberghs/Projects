@@ -11,7 +11,7 @@
 <div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"className":"beer-samenstel-beeld","layout":{"type":"constrained"}} -->
 <div class="wp-block-group beer-samenstel-beeld"><!-- wp:image {"width":"280px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/beer-hart.png' ); ?>" alt="Een beer met een groot hart" style="width:280px"/></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/beer-hart.webp' ); ?>" alt="Een beer met een groot hart" style="width:280px"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->

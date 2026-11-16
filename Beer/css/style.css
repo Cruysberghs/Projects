@@ -715,7 +715,7 @@ h1, h2 { color: var(--terracotta-donker); }
 .bk-beeld { display: flex; justify-content: center; align-items: center; } .bk-beeld img { height: 148px; width: auto; max-width: 100%; }
 
 /* ---------- Beer echt in het midden van de cirkel ----------
-   In beer-hart.png staat rechts een sterretje: het lijf staat op 40% van de breedte.
+   In beer-hart.webp staat rechts een sterretje: het lijf staat op 40% van de breedte.
    Daarom schuiven we de afbeelding 9,6% naar rechts. */
 .samenstel-beeld, .pakket-beeld {
   aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; padding: 0; overflow: hidden;
@@ -897,3 +897,7 @@ h1, h2 { color: var(--terracotta-donker); }
 .pakket { border-color: var(--koop); }
 .voortgang span { background: var(--koop); }
 @media (prefers-reduced-motion: reduce) { .hero-knoppen .btn.koop { animation: none; } }
+
+/* Nieuwe beer met hart staat zelf al in het midden: niet meer opschuiven */
+.samenstel-beeld img, .pakket-beeld img { transform: none; width: 64% !important; }
+.pakket:hover .pakket-beeld img, .samenstel-blok:hover .samenstel-beeld img { transform: translateY(-10px) rotate(-3deg); }
