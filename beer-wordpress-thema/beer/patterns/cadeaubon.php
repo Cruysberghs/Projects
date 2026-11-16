@@ -16,7 +16,7 @@
 <p class="has-large-font-size">Twijfel je welke beer? Geef een cadeaubon. Inwisselbaar voor knuffels, workshops, feestjes en kampjes, en een jaar lang geldig.</p>
 <!-- /wp:paragraph --><!-- wp:group {"className":"beer-bon","layout":{"type":"constrained"}} -->
 <div class="wp-block-group beer-bon"><!-- wp:image {"width":"170px","sizeSlug":"full","linkDestination":"none","className":"beer-bon-beer"} -->
-<figure class="wp-block-image size-full is-resized beer-bon-beer"><img src="<?php echo beer_img( 'bear-classic-kloppend.svg' ); ?>" alt="" style="width:170px"/></figure>
+<figure class="wp-block-image size-full is-resized beer-bon-beer"><img src="<?php echo beer_img( 'ill/beer-sjaal.png' ); ?>" alt="" style="width:170px"/></figure>
 <!-- /wp:image --><!-- wp:paragraph {"className":"beer-bon-logo"} -->
 <p class="beer-bon-logo">BEER.</p>
 <!-- /wp:paragraph --><!-- wp:paragraph {"className":"beer-bon-titel"} -->

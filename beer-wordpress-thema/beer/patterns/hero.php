@@ -28,11 +28,11 @@
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"className":"beer-hero-beeld","layout":{"type":"constrained"}} -->
 <div class="wp-block-group beer-hero-beeld"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"beer-krul"} -->
-<figure class="wp-block-image size-full beer-krul"><img src="<?php echo beer_img( 'krul.svg' ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full beer-krul"><img src="<?php echo beer_img( 'ill/doodle-golflijn.png' ); ?>" alt=""/></figure>
 <!-- /wp:image --><!-- wp:paragraph {"className":"beer-hand beer-hart-hint"} -->
-<p class="beer-hand beer-hart-hint">voel je<br>zijn hartje?<br><img src="<?php echo beer_img( 'pijl.svg' ); ?>" alt=""></p>
-<!-- /wp:paragraph --><!-- wp:image {"width":"400px","sizeSlug":"full","linkDestination":"none","align":"center","className":"is-style-wiebel"} -->
-<figure class="wp-block-image aligncenter size-full is-resized is-style-wiebel"><img src="<?php echo beer_img( 'bear-classic-kloppend.svg' ); ?>" alt="Een zachte knuffelbeer met een kloppend hartje" style="width:400px"/></figure>
+<p class="beer-hand beer-hart-hint">voel je<br>zijn hartje?<br><img src="<?php echo beer_img( 'ill/doodle-pijl.png' ); ?>" alt=""></p>
+<!-- /wp:paragraph --><!-- wp:image {"width":"400px","sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-klop"} -->
+<figure class="wp-block-image aligncenter size-full is-resized beer-klop"><img src="<?php echo beer_img( 'ill/beer-hart.png' ); ?>" alt="Een zachte knuffelbeer met een groot hart" style="width:400px"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>

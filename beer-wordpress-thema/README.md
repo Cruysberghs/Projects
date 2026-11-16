@@ -53,6 +53,11 @@ Extra stijlen die je rechts bij een blok kan kiezen (onder *Stijlen*):
   ```
   python3 hulpmiddelen/maak_patronen.py beer/patterns
   ```
+- Nieuwe illustraties (PNG met transparante achtergrond) verwerken: lege randen wegsnijden, verkleinen en comprimeren:
+  ```
+  python3 hulpmiddelen/verwerk_illustraties.py <map-met-png's> beer/assets/img/ill
+  ```
+  De bestandsnamen moeten beginnen met het nummer uit de set (01 tot 24), zie het script.
 - Een nieuwe `beer.zip` maken na wijzigingen:
   ```
   zip -r beer.zip beer

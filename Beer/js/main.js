@@ -44,19 +44,19 @@ const FOOTER_LINKS = [
 
 // Knuffels. LET OP: hoogte, materiaal, leeftijd en wasvoorschrift zijn VOORBEELDEN – vervang ze door de echte gegevens.
 const KNUFFELS = [
-  { id: "classic", naam: "Classic Bear", prijs: 24.95, img: "img/bear-classic.svg",
+  { id: "classic", naam: "Classic Bear", prijs: 24.95, img: "img/ill/classic.png",
     tekst: "De tijdloze favoriet in warm honingbruin.",
     lang: "Classic Bear is de beer waar het allemaal mee begon. Zacht honingbruin pluche, een lieve snuit en armen die gemaakt zijn om te knuffelen.",
     hoogte: "30 cm", materiaal: "Zacht pluche, gerecycleerde vulling", leeftijd: "Vanaf 0 jaar", wassen: "Handwas of 30°C in een kussensloop" },
-  { id: "brownie", naam: "Brownie Bear", prijs: 24.95, img: "img/bear-brownie.svg",
+  { id: "brownie", naam: "Brownie Bear", prijs: 24.95, img: "img/ill/brownie.png",
     tekst: "Chocoladebruin en extra knuffelbaar.",
     lang: "Brownie Bear heeft een diepe chocoladebruine vacht en is net iets steviger gevuld. Een echte bodyguard voor onder het donsdeken.",
     hoogte: "30 cm", materiaal: "Zacht pluche, gerecycleerde vulling", leeftijd: "Vanaf 0 jaar", wassen: "Handwas of 30°C in een kussensloop" },
-  { id: "dreamy", naam: "Dreamy Bear", prijs: 24.95, img: "img/bear-dreamy.svg",
+  { id: "dreamy", naam: "Dreamy Bear", prijs: 24.95, img: "img/ill/dreamy.png",
     tekst: "Zacht vanillekleurig, voor zoete dromen.",
     lang: "Dreamy Bear is licht als een wolkje. Met een geurtje lavendel erbij is hij de perfecte slaapvriend.",
     hoogte: "30 cm", materiaal: "Extra zacht pluche, gerecycleerde vulling", leeftijd: "Vanaf 0 jaar", wassen: "Handwas of 30°C in een kussensloop" },
-  { id: "little", naam: "Little Bear", prijs: 22.95, img: "img/bear-little.svg",
+  { id: "little", naam: "Little Bear", prijs: 22.95, img: "img/ill/little.png",
     tekst: "Klein maar dapper, past in elke rugzak.",
     lang: "Little Bear is klein genoeg voor de boekentas en groot genoeg voor alle geheimen. Ideaal als eerste beer of als broertje of zusje.",
     hoogte: "20 cm", materiaal: "Zacht pluche, gerecycleerde vulling", leeftijd: "Vanaf 0 jaar", wassen: "Handwas of 30°C in een kussensloop" },
@@ -115,7 +115,7 @@ function bouwLayout() {
     </div>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="index.html"><img src="img/logo-beer.svg" alt="">BEER.</a>
+        <a class="logo" href="index.html"><img src="img/ill/logo.png" alt="">BEER.</a>
         <nav class="hoofdmenu" id="hoofdmenu" aria-label="Hoofdmenu"><ul>${links}</ul></nav>
         <div class="header-acties">
           <button class="icoon-knop" id="mandje-knop" aria-label="Winkelmandje openen">
@@ -134,7 +134,7 @@ function bouwLayout() {
       <div class="container">
         <div class="footer-raster">
           <div>
-            <a class="logo" href="index.html"><img src="img/logo-beer.svg" alt="">BEER.</a>
+            <a class="logo" href="index.html"><img src="img/ill/logo.png" alt="">BEER.</a>
             <p>Jouw knuffel, jouw verhaal.</p>
             <span class="hand">Een knuffel voor het leven ♡</span>
           </div>
@@ -303,7 +303,7 @@ function toonKnuffels() {
   document.querySelectorAll("[data-pakket]").forEach((doel) => {
     doel.innerHTML = `
       <div class="pakket">
-        <div class="pakket-beeld"><img src="img/bear-classic-kloppend.svg" alt=""></div>
+        <div class="pakket-beeld"><img src="img/ill/beer-hart.png" alt=""></div>
         <div>
           <p class="pakket-label">Meest gekozen</p>
           <h3>Het complete knuffelpakket</h3>
@@ -342,10 +342,6 @@ function productPagina() {
     <div class="product-raster">
       <div class="galerij">
         <div class="galerij-groot"><img id="groot-beeld" src="${k.img}" alt="${k.naam}"></div>
-        <div class="galerij-klein">
-          <button aria-pressed="true" data-beeld="${k.img}"><img src="${k.img}" alt="${k.naam}"></button>
-          <button aria-pressed="false" data-beeld="${k.img.replace(".svg", "-kloppend.svg")}"><img src="${k.img.replace(".svg", "-kloppend.svg")}" alt="${k.naam} met kloppend hartje"></button>
-        </div>
       </div>
       <div class="product-info">
         <h1>${k.naam}</h1>
@@ -379,11 +375,6 @@ function productPagina() {
       </div>
     </section>`;
 
-  const groot = el.querySelector("#groot-beeld");
-  el.querySelectorAll("[data-beeld]").forEach((b) => b.addEventListener("click", () => {
-    groot.src = b.dataset.beeld;
-    el.querySelectorAll("[data-beeld]").forEach((x) => x.setAttribute("aria-pressed", x === b));
-  }));
   const toonAantal = () => { el.querySelector("#p-aantal").textContent = aantal; };
   el.querySelector("#p-min").addEventListener("click", () => { aantal = Math.max(1, aantal - 1); toonAantal(); });
   el.querySelector("#p-plus").addEventListener("click", () => { aantal++; toonAantal(); });
@@ -464,11 +455,11 @@ function samensteller() {
     // De beer springt even op als hij verandert, en bij een kloppend hartje klopt het echt.
     const img = el.querySelector("#voorbeeld-img");
     const kloppend = keuze.hart.id === "kloppend";
-    const nieuweSrc = kloppend ? keuze.beer.img.replace(".svg", "-kloppend.svg") : keuze.beer.img;
-    if (!img.src.endsWith(nieuweSrc)) {
-      img.src = nieuweSrc;
+    if (!img.src.endsWith(keuze.beer.img)) {
+      img.src = keuze.beer.img;
       img.classList.remove("pop"); void img.offsetWidth; img.classList.add("pop");
     }
+    el.querySelector("#klop-hart").hidden = !kloppend;
     el.querySelector("#hart-label").hidden = !kloppend;
     el.querySelector("#vorige").hidden = stap === 0;
     el.querySelector("#volgende").textContent = stap === 4 ? "In mijn mandje" : "Volgende stap";

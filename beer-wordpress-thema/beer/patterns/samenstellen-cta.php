@@ -12,11 +12,11 @@
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"style":{"border":{"radius":"22px"},"spacing":{"padding":{"top":"30px","bottom":"30px","left":"30px","right":"30px"}}},"backgroundColor":"perzik","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-perzik-background-color has-background" style="border-radius:22px;padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"bottom"}} -->
 <div class="wp-block-group"><!-- wp:image {"width":"150px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-dreamy.svg' ); ?>" alt="" style="width:150px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'ill/dreamy.png' ); ?>" alt="" style="width:150px"/></figure>
 <!-- /wp:image --><!-- wp:image {"width":"200px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-classic.svg' ); ?>" alt="" style="width:200px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'ill/classic.png' ); ?>" alt="" style="width:200px"/></figure>
 <!-- /wp:image --><!-- wp:image {"width":"130px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-brownie.svg' ); ?>" alt="" style="width:130px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'ill/brownie.png' ); ?>" alt="" style="width:130px"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>

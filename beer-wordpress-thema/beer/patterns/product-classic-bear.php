@@ -12,14 +12,8 @@
 <!-- /wp:paragraph --><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:group {"className":"beer-galerij-groot","layout":{"type":"constrained"}} -->
-<div class="wp-block-group beer-galerij-groot"><!-- wp:image {"width":"75%","sizeSlug":"full","linkDestination":"none","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'bear-classic.svg' ); ?>" alt="Classic Bear" style="width:75%"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group --><!-- wp:group {"className":"beer-galerij-klein","layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group beer-galerij-klein"><!-- wp:image {"width":"84px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-classic.svg' ); ?>" alt="Classic Bear" style="width:84px"/></figure>
-<!-- /wp:image --><!-- wp:image {"width":"84px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-classic-kloppend.svg' ); ?>" alt="Classic Bear met kloppend hartje" style="width:84px"/></figure>
+<div class="wp-block-group beer-galerij-groot"><!-- wp:image {"width":"70%","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/classic.png' ); ?>" alt="Classic Bear" style="width:70%"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --><!-- wp:column -->
@@ -94,7 +88,7 @@
 <!-- /wp:heading --><!-- wp:group {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"9rem"}} -->
 <div class="wp-block-group"><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-kaart"><!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/brownie-bear' ); ?>"><img src="<?php echo beer_img( 'bear-brownie.svg' ); ?>" alt="Brownie Bear" style="width:120px"/></a></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/brownie-bear' ); ?>"><img src="<?php echo beer_img( 'ill/brownie.png' ); ?>" alt="Brownie Bear" style="width:120px"/></a></figure>
 <!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center"><a href="<?php echo beer_link( 'shop/brownie-bear' ); ?>">Brownie Bear</a></h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center"} -->
@@ -102,7 +96,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-kaart"><!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/dreamy-bear' ); ?>"><img src="<?php echo beer_img( 'bear-dreamy.svg' ); ?>" alt="Dreamy Bear" style="width:120px"/></a></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/dreamy-bear' ); ?>"><img src="<?php echo beer_img( 'ill/dreamy.png' ); ?>" alt="Dreamy Bear" style="width:120px"/></a></figure>
 <!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center"><a href="<?php echo beer_link( 'shop/dreamy-bear' ); ?>">Dreamy Bear</a></h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center"} -->
@@ -110,7 +104,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-kaart"><!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/little-bear' ); ?>"><img src="<?php echo beer_img( 'bear-little.svg' ); ?>" alt="Little Bear" style="width:120px"/></a></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/little-bear' ); ?>"><img src="<?php echo beer_img( 'ill/little.png' ); ?>" alt="Little Bear" style="width:120px"/></a></figure>
 <!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center"><a href="<?php echo beer_link( 'shop/little-bear' ); ?>">Little Bear</a></h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center"} -->

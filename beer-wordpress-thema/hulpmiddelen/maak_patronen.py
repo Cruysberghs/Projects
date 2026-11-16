@@ -116,7 +116,7 @@ def save(slug, title, body, inserter=True, desc=""):
 # ---------------- Header & footer ----------------
 save("header", "Header", group(
     group(
-        group(img("logo-beer.svg", "BEER.", "42px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->",
+        group(img("ill/logo.png", "BEER.", "34px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->",
               layout={"type": "flex", "flexWrap": "nowrap"})
         + '<!-- wp:navigation {"overlayBackgroundColor":"creme","overlayTextColor":"tekst","layout":{"type":"flex","justifyContent":"right"}} -->\n<?php echo beer_menu_links(); // phpcs:ignore ?>\n<!-- /wp:navigation -->',
         align="wide", layout={"type": "flex", "flexWrap": "nowrap", "justifyContent": "space-between"}),
@@ -127,7 +127,7 @@ save("header", "Header", group(
 
 save("footer", "Footer", section(
     cols(
-        group(img("logo-beer.svg", "", "42px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->", layout={"type": "flex", "flexWrap": "nowrap"})
+        group(img("ill/logo.png", "", "34px", link=L()) + "<!-- wp:site-title {\"level\":0} /-->", layout={"type": "flex", "flexWrap": "nowrap"})
         + p("Jouw knuffel, jouw verhaal.")
         + p("Een knuffel voor het leven ♡", size="x-large", className="beer-hand"),
         h("Ontdek", 3) + ul([f'<a href="{L(s)}">{n}</a>' for s, n in
@@ -146,24 +146,24 @@ save("hero", "Welkom (hero)", section(cols(
     + p("Kies je beer, een geurtje en een kloppend hartje, en geef hem een eigen paspoort.")
     + btns(("Stel jouw beer samen →", L("samenstellen")), ("Bekijk de knuffels", L("shop"), True))
     + p("Vanaf € 22,95 · Klaar in 5 stappen · Gratis verzending vanaf € 40", size="small", className="beer-hero-klein"),
-    group(img("krul.svg", "", None, className="beer-krul")
-          + p(f'voel je<br>zijn hartje?<br><img src="{IMG("pijl.svg")}" alt="">', className="beer-hand beer-hart-hint")
-          + img("bear-classic-kloppend.svg", "Een zachte knuffelbeer met een kloppend hartje", "400px", center=True, className="is-style-wiebel"),
+    group(img("ill/doodle-golflijn.png", "", None, className="beer-krul")
+          + p(f'voel je<br>zijn hartje?<br><img src="{IMG("ill/doodle-pijl.png")}" alt="">', className="beer-hand beer-hart-hint")
+          + img("ill/beer-hart.png", "Een zachte knuffelbeer met een groot hart", "400px", center=True, className="beer-klop"),
           className="beer-hero-beeld"))
 , gradient="zacht"), desc="Grote welkomstbanner met beer en knop.")
 
 kenmerken = [("zelf-vullen", "Zelf vullen"), ("geurtje", "Heerlijk geurtje"), ("kloppend-hartje", "Kloppend hartje"), ("paspoort", "Paspoort"), ("bandje", "Vriendschapsbandje")]
 save("kenmerken", "Kenmerken", group(group(
-    grid("".join(group(ico(i) + p(f"<strong>{t}</strong>", center=True, size="small"),
+    grid("".join(group(img(f"ill/icoon-{i}.png", "", None, center=True, className="beer-kenmerk-ico") + p(f"<strong>{t}</strong>", center=True, size="small"),
                        style_extra=({"spacing": {"blockGap": "0"}}, "")) for i, t in kenmerken), "9rem", 5),
     align="wide", layout={"type": "default"}), full=True, bg="wit", className="beer-kenmerken",
     style_extra=({"spacing": {"padding": {"top": "var:preset|spacing|40", "bottom": "var:preset|spacing|40"}}},
                  "padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)")))
 
-KNUFFELS = [("bear-classic.svg", "Classic Bear", "€ 24,95", "De tijdloze favoriet in warm honingbruin."),
-            ("bear-brownie.svg", "Brownie Bear", "€ 24,95", "Chocoladebruin en extra knuffelbaar."),
-            ("bear-dreamy.svg", "Dreamy Bear", "€ 24,95", "Zacht vanillekleurig, voor zoete dromen."),
-            ("bear-little.svg", "Little Bear", "€ 22,95", "Klein maar dapper, past in elke rugzak.")]
+KNUFFELS = [("ill/classic.png", "Classic Bear", "€ 24,95", "De tijdloze favoriet in warm honingbruin."),
+            ("ill/brownie.png", "Brownie Bear", "€ 24,95", "Chocoladebruin en extra knuffelbaar."),
+            ("ill/dreamy.png", "Dreamy Bear", "€ 24,95", "Zacht vanillekleurig, voor zoete dromen."),
+            ("ill/little.png", "Little Bear", "€ 22,95", "Klein maar dapper, past in elke rugzak.")]
 PSLUG = lambda naam: "shop/" + naam.lower().replace(" ", "-")
 save("knuffels", "Onze knuffels", section(
     h("Onze knuffels", center=True, className="beer-titel-deco")
@@ -173,7 +173,7 @@ save("knuffels", "Onze knuffels", section(
                    for f, n, pr, t in KNUFFELS), "13rem", 4)), desc="Vier knuffelkaarten met prijs.")
 
 save("samenstellen-cta", "Stel jouw BEER. samen (blok)", section(cols(
-    group(group(img("bear-dreamy.svg", "", "150px") + img("bear-classic.svg", "", "200px") + img("bear-brownie.svg", "", "130px"),
+    group(group(img("ill/dreamy.png", "", "150px") + img("ill/classic.png", "", "200px") + img("ill/brownie.png", "", "130px"),
                 layout={"type": "flex", "flexWrap": "nowrap", "justifyContent": "center", "verticalAlignment": "bottom"}),
           bg="perzik", style_extra=({"border": {"radius": "22px"}, "spacing": {"padding": {"top": "30px", "bottom": "30px", "left": "30px", "right": "30px"}}},
                                     "border-radius:22px;padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px")),
@@ -215,8 +215,7 @@ save("stappen", "Stel jouw BEER. samen (stappen)", section(
 
 # ---------------- Aanbodpagina's ----------------
 def aanbod(slug, titel, lead, punten, knop, beren, prijs, per, info_titel, info):
-    beeld = group(group("".join(img(b, "", w) for b, w in beren),
-                        layout={"type": "flex", "flexWrap": "nowrap", "justifyContent": "center", "verticalAlignment": "bottom"})
+    beeld = group(img(beren[0], beren[1], "100%", center=True)
                   + badge("Vanaf", prijs, per), className="beer-badge-houder")
     body = section(cols(h(titel, 1) + p(lead, size="large") + ul(punten) + btns((knop, L("contact"))), beeld), gradient="zacht")
     body += "\n\n" + section(h(info_titel, center=True) + grid("".join(kaart(h(t, 3, center=True) + p(x, center=True)) for t, x in info), "14rem"), bg="wit")
@@ -224,7 +223,7 @@ def aanbod(slug, titel, lead, punten, knop, beren, prijs, per, info_titel, info)
 
 aanbod("workshops", "Workshops", "Samen knutselen, samen herinneringen maken.",
        ["Maak je eigen knuffelbeer", "Kies een geurtje", "Versier je berenpaspoort"], "Reserveer een workshop →",
-       [("bear-dreamy.svg", "150px"), ("bear-classic.svg", "200px"), ("bear-little.svg", "120px")], "€ 19,95", "per kind",
+       ("ill/workshop.png", "Kinderen knutselen samen een knuffelbeer"), "€ 19,95", "per kind",
        "Hoe werkt een workshop?",
        [("1. Welkom", "We ontvangen je in ons atelier in Gent met een drankje."),
         ("2. Knutselen", "Je kiest je beer, vult hem zelf en geeft hem een hartje en geurtje."),
@@ -232,7 +231,7 @@ aanbod("workshops", "Workshops", "Samen knutselen, samen herinneringen maken.",
 
 aanbod("kinderfeestjes", "Kinderfeestjes", "Vier een onvergetelijk feestje met BEER. en al je vriendjes!",
        ["Kies jouw formule", "Maak, speel en geniet", "Elk kind gaat naar huis met een eigen beer"], "Boek een feestje →",
-       [("bear-little.svg", "130px"), ("bear-classic.svg", "190px"), ("bear-brownie.svg", "130px")], "€ 17,50", "per kind",
+       ("ill/kinderfeestje.png", "Een beer met feesthoedje tussen ballonnen en cadeautjes"), "€ 17,50", "per kind",
        "Onze formules",
        [("Mini-feestje", "<strong>€ 17,50 per kind</strong><br>1,5 uur · Little Bear · paspoort"),
         ("Berenfeest", "<strong>€ 24,50 per kind</strong><br>2 uur · beer naar keuze · geurtje · drankje &amp; taart"),
@@ -240,7 +239,7 @@ aanbod("kinderfeestjes", "Kinderfeestjes", "Vier een onvergetelijk feestje met B
 
 aanbod("kampjes", "Kampjes", "Een week vol knutselplezier, spel en creativiteit.",
        ["Creatief knutselatelier", "Spel en avontuur", "Nieuwe vriendjes"], "Schrijf je in →",
-       [("bear-brownie.svg", "170px"), ("bear-classic.svg", "200px")], "€ 125", "per week",
+       ("ill/kampjes.png", "Een beer met rugzak naast een tentje"), "€ 125", "per week",
        "Praktisch",
        [("Wanneer?", "Tijdens de krokus-, paas-, zomer- en herfstvakantie. Ma–vr, 9u tot 16u."),
         ("Voor wie?", "Kinderen van 5 tot 12 jaar, in kleine groepjes."),
@@ -253,8 +252,8 @@ save("ons-verhaal", "Ons verhaal", section(cols(
     + p("Een vriendje om te koesteren, een maatje voor het leven.")
     + p("Vertel hier jullie eigen verhaal: wie zit erachter, hoe kwam het idee, en waarom beren?")
     + btns(("Leer ons kennen →", L("contact"))),
-    group(img("krul.svg", "", None, className="beer-krul")
-          + img("bear-classic.svg", "", "380px", center=True, className="is-style-wiebel"), className="beer-hero-beeld")), gradient="zacht"))
+    group(img("ill/doodle-golflijn.png", "", None, className="beer-krul")
+          + img("ill/ons-verhaal.png", "Twee knuffelberen naast elkaar", "420px", center=True), className="beer-hero-beeld")), gradient="zacht"))
 
 FAQ = [("Hoe werkt het zelf vullen?", "In onze winkel of tijdens een workshop vul je je beer zelf met zachte vulling, zo stevig of zo zacht als je wil."),
        ("Welke geurtjes zijn er?", "Vanille, aardbei en lavendel. Het geurtje zit in een klein zakje in de buik en blijft maandenlang lekker ruiken."),
@@ -276,7 +275,7 @@ save("contact", "Contact", section(cols(
     + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>')
     + rij("locatie", "Onze locatie<br>Straatnaam 12, 9000 Gent")
     + btns(("Stuur een bericht →", "mailto:info@beer.be")),
-    img("beer-lijn.svg", "", "340px", center=True))))
+    img("ill/beer-zwaait.png", "Een zwaaiende beer", "360px", center=True))))
 
 # ---------------- Verkoop ----------------
 save("seizoensbalk", "Seizoensbalk", """<?php
@@ -297,7 +296,7 @@ foreach ( $beer_seizoenen as $beer_rij ) {
      inserter=False)
 
 save("pakket", "Het complete knuffelpakket", group(group(group(
-    cols(group(img("bear-classic-kloppend.svg", "", "200px", center=True), className="beer-pakket-beeld"),
+    cols(group(img("ill/beer-hart.png", "", "200px", center=True), className="beer-pakket-beeld"),
          p("Meest gekozen", className="beer-pakket-label")
          + h("Het complete knuffelpakket", 3)
          + ul(["Beer naar keuze", "Geurtje naar keuze", "Kloppend hartje", "Eigen berenpaspoort"])
@@ -309,10 +308,10 @@ save("pakket", "Het complete knuffelpakket", group(group(group(
 
 # Productpagina's. LET OP: hoogte, materiaal, leeftijd en wassen zijn VOORBEELDEN.
 PRODUCTEN = [
-    ("bear-classic", "Classic Bear", "€ 24,95", "Classic Bear is de beer waar het allemaal mee begon. Zacht honingbruin pluche, een lieve snuit en armen die gemaakt zijn om te knuffelen.", "30 cm"),
-    ("bear-brownie", "Brownie Bear", "€ 24,95", "Brownie Bear heeft een diepe chocoladebruine vacht en is net iets steviger gevuld. Een echte bodyguard voor onder het donsdeken.", "30 cm"),
-    ("bear-dreamy", "Dreamy Bear", "€ 24,95", "Dreamy Bear is licht als een wolkje. Met een geurtje lavendel erbij is hij de perfecte slaapvriend.", "30 cm"),
-    ("bear-little", "Little Bear", "€ 22,95", "Little Bear is klein genoeg voor de boekentas en groot genoeg voor alle geheimen. Ideaal als eerste beer of als broertje of zusje.", "20 cm"),
+    ("ill/classic", "Classic Bear", "€ 24,95", "Classic Bear is de beer waar het allemaal mee begon. Zacht honingbruin pluche, een lieve snuit en armen die gemaakt zijn om te knuffelen.", "30 cm"),
+    ("ill/brownie", "Brownie Bear", "€ 24,95", "Brownie Bear heeft een diepe chocoladebruine vacht en is net iets steviger gevuld. Een echte bodyguard voor onder het donsdeken.", "30 cm"),
+    ("ill/dreamy", "Dreamy Bear", "€ 24,95", "Dreamy Bear is licht als een wolkje. Met een geurtje lavendel erbij is hij de perfecte slaapvriend.", "30 cm"),
+    ("ill/little", "Little Bear", "€ 22,95", "Little Bear is klein genoeg voor de boekentas en groot genoeg voor alle geheimen. Ideaal als eerste beer of als broertje of zusje.", "20 cm"),
 ]
 def spec(k, v):
     return group(p(f"<strong>{k}</strong>") + p(v), className="beer-spec",
@@ -323,9 +322,7 @@ for f, naam, prijs, tekst, hoogte in PRODUCTEN:
     body = section(
         p(f'<a href="{L("shop")}">Shop</a> › {naam}', size="small")
         + cols(
-            group(img(f + ".svg", naam, "75%", center=True), className="beer-galerij-groot")
-            + group(img(f + ".svg", naam, "84px") + img(f + "-kloppend.svg", naam + " met kloppend hartje", "84px"),
-                    className="beer-galerij-klein", layout={"type": "flex", "flexWrap": "nowrap"}),
+            group(img(f + ".png", naam, "70%", center=True), className="beer-galerij-groot"),
             h(naam, 1)
             + p(prijs, className="beer-product-prijs")
             + p(tekst, size="large")
@@ -337,14 +334,14 @@ for f, naam, prijs, tekst, hoogte in PRODUCTEN:
                     + spec("Leeftijd", "Vanaf 0 jaar") + spec("Wassen", "Handwas of 30°C in een kussensloop"), className="beer-specs"),
             center=False)
         + h("Ook leuk", center=True)
-        + grid("".join(kaart(img(a + ".svg", n, "120px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3, center=True) + p(pr, center=True))
+        + grid("".join(kaart(img(a + ".png", n, "120px", center=True, link=L(PSLUG(n))) + h(f'<a href="{L(PSLUG(n))}">{n}</a>', 3, center=True) + p(pr, center=True))
                        for a, n, pr, _, _ in anderen), "9rem", 3))
     save("product-" + slug, naam + " (productpagina)", body)
 
 save("cadeaubon", "Cadeaubon", section(cols(
     h("Cadeaubon", 1)
     + p("Twijfel je welke beer? Geef een cadeaubon. Inwisselbaar voor knuffels, workshops, feestjes en kampjes, en een jaar lang geldig.", size="large")
-    + group(img("bear-classic-kloppend.svg", "", "170px", className="beer-bon-beer")
+    + group(img("ill/beer-sjaal.png", "", "170px", className="beer-bon-beer")
             + p("BEER.", className="beer-bon-logo") + p("CADEAUBON", className="beer-bon-titel")
             + p("€ 50", className="beer-bon-waarde") + p("Voor <strong>Lotte</strong><br>Van <strong>Oma en opa</strong>")
             + p("Veel knuffelplezier!", className="beer-hand beer-bon-boodschap"), className="beer-bon"),

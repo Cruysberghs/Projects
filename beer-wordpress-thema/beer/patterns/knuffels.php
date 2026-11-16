@@ -15,7 +15,7 @@
 <!-- /wp:paragraph --><!-- wp:group {"layout":{"type":"grid","columnCount":4,"minimumColumnWidth":"13rem"}} -->
 <div class="wp-block-group"><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-kaart"><!-- wp:image {"width":"150px","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/classic-bear' ); ?>"><img src="<?php echo beer_img( 'bear-classic.svg' ); ?>" alt="Classic Bear" style="width:150px"/></a></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/classic-bear' ); ?>"><img src="<?php echo beer_img( 'ill/classic.png' ); ?>" alt="Classic Bear" style="width:150px"/></a></figure>
 <!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center"><a href="<?php echo beer_link( 'shop/classic-bear' ); ?>">Classic Bear</a></h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
@@ -29,7 +29,7 @@
 <!-- /wp:buttons --></div>
 <!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-kaart"><!-- wp:image {"width":"150px","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/brownie-bear' ); ?>"><img src="<?php echo beer_img( 'bear-brownie.svg' ); ?>" alt="Brownie Bear" style="width:150px"/></a></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/brownie-bear' ); ?>"><img src="<?php echo beer_img( 'ill/brownie.png' ); ?>" alt="Brownie Bear" style="width:150px"/></a></figure>
 <!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center"><a href="<?php echo beer_link( 'shop/brownie-bear' ); ?>">Brownie Bear</a></h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
@@ -43,7 +43,7 @@
 <!-- /wp:buttons --></div>
 <!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-kaart"><!-- wp:image {"width":"150px","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/dreamy-bear' ); ?>"><img src="<?php echo beer_img( 'bear-dreamy.svg' ); ?>" alt="Dreamy Bear" style="width:150px"/></a></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/dreamy-bear' ); ?>"><img src="<?php echo beer_img( 'ill/dreamy.png' ); ?>" alt="Dreamy Bear" style="width:150px"/></a></figure>
 <!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center"><a href="<?php echo beer_link( 'shop/dreamy-bear' ); ?>">Dreamy Bear</a></h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
@@ -57,7 +57,7 @@
 <!-- /wp:buttons --></div>
 <!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-kaart"><!-- wp:image {"width":"150px","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/little-bear' ); ?>"><img src="<?php echo beer_img( 'bear-little.svg' ); ?>" alt="Little Bear" style="width:150px"/></a></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="<?php echo beer_link( 'shop/little-bear' ); ?>"><img src="<?php echo beer_img( 'ill/little.png' ); ?>" alt="Little Bear" style="width:150px"/></a></figure>
 <!-- /wp:image --><!-- wp:heading {"textAlign":"center","level":3} -->
 <h3 class="wp-block-heading has-text-align-center"><a href="<?php echo beer_link( 'shop/little-bear' ); ?>">Little Bear</a></h3>
 <!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->

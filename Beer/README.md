@@ -15,7 +15,7 @@ Dubbelklik op `index.html`: de site opent in je browser. Je hebt niets te instal
 | Seizoensbalk (Sinterklaas, Kerst) | `SEIZOEN` bovenaan in `js/main.js` |
 | Extraatjes in het mandje | `EXTRAS` bovenaan in `js/main.js` |
 | Kleuren en lettertypes | bovenaan in `css/style.css` (`:root`) |
-| Afbeeldingen | map `img/` – vervang de getekende beertjes door echte foto's |
+| Illustraties | map `img/ill/` (beren, logo, icoontjes, doodles). Een afbeelding vervangen = een nieuw bestand met dezelfde naam erin zetten |
 
 ## Nog te doen voor een echte winkel
 - **Foto's**: echte foto's van de beren en workshops in `img/` zetten.

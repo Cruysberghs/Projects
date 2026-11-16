@@ -28,13 +28,9 @@
 <!-- /wp:buttons --></div>
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"className":"beer-badge-houder","layout":{"type":"constrained"}} -->
-<div class="wp-block-group beer-badge-houder"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"bottom"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"170px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-brownie.svg' ); ?>" alt="" style="width:170px"/></figure>
-<!-- /wp:image --><!-- wp:image {"width":"200px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-classic.svg' ); ?>" alt="" style="width:200px"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group --><!-- wp:group {"className":"is-style-prijs-badge","layout":{"type":"constrained"}} -->
+<div class="wp-block-group beer-badge-houder"><!-- wp:image {"width":"100%","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/kampjes.png' ); ?>" alt="Een beer met rugzak naast een tentje" style="width:100%"/></figure>
+<!-- /wp:image --><!-- wp:group {"className":"is-style-prijs-badge","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-prijs-badge"><!-- wp:paragraph -->
 <p>Vanaf<br><strong>€ 125</strong>per week</p>
 <!-- /wp:paragraph --></div>

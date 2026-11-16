@@ -28,15 +28,9 @@
 <!-- /wp:buttons --></div>
 <!-- /wp:column --><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"className":"beer-badge-houder","layout":{"type":"constrained"}} -->
-<div class="wp-block-group beer-badge-houder"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"bottom"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"150px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-dreamy.svg' ); ?>" alt="" style="width:150px"/></figure>
-<!-- /wp:image --><!-- wp:image {"width":"200px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-classic.svg' ); ?>" alt="" style="width:200px"/></figure>
-<!-- /wp:image --><!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'bear-little.svg' ); ?>" alt="" style="width:120px"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group --><!-- wp:group {"className":"is-style-prijs-badge","layout":{"type":"constrained"}} -->
+<div class="wp-block-group beer-badge-houder"><!-- wp:image {"width":"100%","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="<?php echo beer_img( 'ill/workshop.png' ); ?>" alt="Kinderen knutselen samen een knuffelbeer" style="width:100%"/></figure>
+<!-- /wp:image --><!-- wp:group {"className":"is-style-prijs-badge","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-prijs-badge"><!-- wp:paragraph -->
 <p>Vanaf<br><strong>€ 19,95</strong>per kind</p>
 <!-- /wp:paragraph --></div>
