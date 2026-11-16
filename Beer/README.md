@@ -13,6 +13,8 @@ Dubbelklik op `index.html`: de site opent in je browser. Je hebt niets te instal
 | Knuffels, prijzen, productinfo | `KNUFFELS` bovenaan in `js/main.js` (hoogte, materiaal, leeftijd en wassen zijn **voorbeelden**) |
 | Verzendkosten, gratis verzending, pakketkorting | `WINKEL` bovenaan in `js/main.js` |
 | Seizoensbalk (Sinterklaas, Kerst) | `SEIZOEN` bovenaan in `js/main.js` |
+| Openingsuren (**voorbeeld**) | `OPENINGSUREN` bovenaan in `js/main.js` en op `contact.html` |
+| Bestellen | `bestellen.html`: opent het mailprogramma met de bestelling erin, tot online betalen gekoppeld is |
 | Extraatjes in het mandje | `EXTRAS` bovenaan in `js/main.js` |
 | Kleuren en lettertypes | bovenaan in `css/style.css` (`:root`) |
 | Illustraties | map `img/ill/` (beren, logo, icoontjes, doodles). Een afbeelding vervangen = een nieuw bestand met dezelfde naam erin zetten |

@@ -29,7 +29,7 @@
 <div class="wp-block-group beer-ico-rij"><!-- wp:image {"width":"26px","sizeSlug":"full","linkDestination":"none"} -->
 <figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'icons/locatie.svg' ); ?>" alt="" style="width:26px"/></figure>
 <!-- /wp:image --><!-- wp:paragraph -->
-<p>Onze locatie<br>Straatnaam 12, 9000 Gent</p>
+<p>Onze locatie<br>Straatnaam 12, 9000 Gent<br><strong>Open:</strong> wo–za 10u–18u</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->

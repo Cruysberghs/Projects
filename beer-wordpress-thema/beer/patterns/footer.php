@@ -62,6 +62,12 @@
 <!-- /wp:image --><!-- wp:paragraph -->
 <p>Straatnaam 12, 9000 Gent</p>
 <!-- /wp:paragraph --></div>
+<!-- /wp:group --><!-- wp:group {"className":"beer-ico-rij","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group beer-ico-rij"><!-- wp:image {"width":"18px","sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full is-resized"><img src="<?php echo beer_img( 'icons/uniek.svg' ); ?>" alt="" style="width:18px"/></figure>
+<!-- /wp:image --><!-- wp:paragraph -->
+<p>Wo–za 10u–18u</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->

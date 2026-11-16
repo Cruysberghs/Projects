@@ -12,31 +12,31 @@
 <div class="wp-block-group"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kenmerk-ico"} -->
 <figure class="wp-block-image aligncenter size-full beer-kenmerk-ico"><img src="<?php echo beer_img( 'ill/icoon-zelf-vullen.png' ); ?>" alt=""/></figure>
 <!-- /wp:image --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong>Zelf vullen</strong></p>
+<p class="has-text-align-center has-small-font-size"><strong>Zelf vullen</strong><br>in de winkel of workshop</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kenmerk-ico"} -->
 <figure class="wp-block-image aligncenter size-full beer-kenmerk-ico"><img src="<?php echo beer_img( 'ill/icoon-geurtje.png' ); ?>" alt=""/></figure>
 <!-- /wp:image --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong>Heerlijk geurtje</strong></p>
+<p class="has-text-align-center has-small-font-size"><strong>Heerlijk geurtje</strong><br>vanille, aardbei of lavendel</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kenmerk-ico"} -->
 <figure class="wp-block-image aligncenter size-full beer-kenmerk-ico"><img src="<?php echo beer_img( 'ill/icoon-kloppend-hartje.png' ); ?>" alt=""/></figure>
 <!-- /wp:image --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong>Kloppend hartje</strong></p>
+<p class="has-text-align-center has-small-font-size"><strong>Kloppend hartje</strong><br>klopt als je drukt</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kenmerk-ico"} -->
 <figure class="wp-block-image aligncenter size-full beer-kenmerk-ico"><img src="<?php echo beer_img( 'ill/icoon-paspoort.png' ); ?>" alt=""/></figure>
 <!-- /wp:image --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong>Berenpaspoort</strong></p>
+<p class="has-text-align-center has-small-font-size"><strong>Berenpaspoort</strong><br>met naam en verjaardag</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"beer-kenmerk-ico"} -->
 <figure class="wp-block-image aligncenter size-full beer-kenmerk-ico"><img src="<?php echo beer_img( 'ill/icoon-bandje.png' ); ?>" alt=""/></figure>
 <!-- /wp:image --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong>Vriendschapsbandje</strong></p>
+<p class="has-text-align-center has-small-font-size"><strong>Vriendschapsbandje</strong><br>voor jou én je beer</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>

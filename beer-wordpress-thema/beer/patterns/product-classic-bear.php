@@ -23,6 +23,8 @@
 <p class="beer-product-prijs">€ 24,95</p>
 <!-- /wp:paragraph --><!-- wp:paragraph {"fontSize":"large"} -->
 <p class="has-large-font-size">Classic Bear is de beer waar het allemaal mee begon. Zacht honingbruin pluche, een lieve snuit en armen die gemaakt zijn om te knuffelen.</p>
+<!-- /wp:paragraph --><!-- wp:paragraph {"className":"beer-inbegrepen"} -->
+<p class="beer-inbegrepen"><strong>Kant-en-klaar:</strong> gevuld, met een zacht hartje, klaar om te knuffelen. Geurtje, kloppend hartje of paspoort kies je in de samensteller.</p>
 <!-- /wp:paragraph --><!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
 <div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="mailto:info@beer.be?subject=Bestelling%20Classic%20Bear">Bestel Classic Bear →</a></div>

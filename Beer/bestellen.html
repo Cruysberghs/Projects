@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bestellen – BEER.</title>
+  <meta name="description" content="Rond je bestelling bij BEER. af.">
+  <link rel="icon" href="img/ill/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <section>
+    <div class="container" id="bestellen">
+      <nav class="kruimel" aria-label="Kruimelpad"><a href="shop.html">Shop</a> › <span>Bestelling afronden</span></nav>
+      <h1>Bestelling afronden</h1>
+      <div class="bestel-raster">
+        <form class="kaart links formulier">
+          <h2>Jouw gegevens</h2>
+          <div class="rij">
+            <div><label for="b-naam">Naam</label><input id="b-naam" name="naam" required autocomplete="name"></div>
+            <div><label for="b-email">E-mail</label><input id="b-email" name="email" type="email" required autocomplete="email"></div>
+          </div>
+          <div><label for="b-tel">Telefoon (optioneel)</label><input id="b-tel" name="telefoon" type="tel" autocomplete="tel"></div>
+          <fieldset class="levering">
+            <legend>Levering</legend>
+            <label><input type="radio" name="levering" value="verzenden" checked> Verzenden in België (2–3 werkdagen)</label>
+            <label><input type="radio" name="levering" value="afhalen"> Gratis afhalen in Gent</label>
+          </fieldset>
+          <div id="adres-velden" class="formulier">
+            <div><label for="b-straat">Straat en nummer</label><input id="b-straat" name="straat" autocomplete="street-address"></div>
+            <div class="rij">
+              <div><label for="b-pc">Postcode</label><input id="b-pc" name="postcode" inputmode="numeric" autocomplete="postal-code"></div>
+              <div><label for="b-gem">Gemeente</label><input id="b-gem" name="gemeente" autocomplete="address-level2"></div>
+            </div>
+          </div>
+          <div><label for="b-opm">Opmerking (optioneel)</label><textarea id="b-opm" name="opmerking" rows="3" placeholder="bv. inpakken als cadeau, gewenste leverdatum"></textarea></div>
+          <button class="btn koop groot" type="submit">Bestelling versturen</button>
+          <p class="hoe-betalen"><strong>Hoe betaal je?</strong> Je mailprogramma opent met je bestelling erin. Verstuur die mail, en je krijgt binnen 1 werkdag een bevestiging met een betaallink (Bancontact of Payconiq).</p>
+          <p class="melding" role="status">Je mailprogramma is geopend. Vergeet niet op <strong>versturen</strong> te klikken! Opende er niets? Mail je bestelling naar <strong>info@beer.be</strong>.</p>
+        </form>
+        <aside class="kaart links bestel-overzicht">
+          <h2>Overzicht</h2>
+          <ul id="b-items" class="bestel-items"></ul>
+          <div class="regel"><span>Subtotaal</span><span id="b-sub"></span></div>
+          <div class="regel"><span>Verzending</span><span id="b-verzend"></span></div>
+          <div class="regel totaal"><span>Totaal</span><span id="b-totaal"></span></div>
+          <p class="mandje-belofte">14 dagen bedenktijd · Veilig betalen</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

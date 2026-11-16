@@ -135,7 +135,8 @@ save("footer", "Footer", section(
             [("shop", "Shop"), ("samenstellen", "Stel jouw BEER. samen"), ("cadeaubon", "Cadeaubon"), ("workshops", "Workshops"), ("kinderfeestjes", "Kinderfeestjes"), ("kampjes", "Kampjes"), ("faq", "Veelgestelde vragen"), ("ons-verhaal", "Ons verhaal")]], className="beer-footer-links"),
         h("Contact", 3) + rij("mail", '<a href="mailto:info@beer.be">info@beer.be</a>', "18px")
         + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>', "18px")
-        + rij("locatie", "Straatnaam 12, 9000 Gent", "18px"),
+        + rij("locatie", "Straatnaam 12, 9000 Gent", "18px")
+        + rij("uniek", "Wo–za 10u–18u", "18px"),
         center=False)
     + p("© <?php echo esc_html( gmdate( 'Y' ) ); ?> BEER. – Met liefde gemaakt", center=True, size="small"),
     bg="perzik", className="beer-footer"), inserter=False)
@@ -152,10 +153,10 @@ save("hero", "Welkom (hero)", section(cols(
           className="beer-hero-beeld"))
 , gradient="zacht"), desc="Grote welkomstbanner met beer en knop.")
 
-kenmerken = [("zelf-vullen", "Zelf vullen"), ("geurtje", "Heerlijk geurtje"), ("kloppend-hartje", "Kloppend hartje"), ("paspoort", "Berenpaspoort"), ("bandje", "Vriendschapsbandje")]
+kenmerken = [("zelf-vullen", "Zelf vullen", "in de winkel of workshop"), ("geurtje", "Heerlijk geurtje", "vanille, aardbei of lavendel"), ("kloppend-hartje", "Kloppend hartje", "klopt als je drukt"), ("paspoort", "Berenpaspoort", "met naam en verjaardag"), ("bandje", "Vriendschapsbandje", "voor jou én je beer")]
 save("kenmerken", "Kenmerken", group(group(
-    grid("".join(group(img(f"ill/icoon-{i}.png", "", None, center=True, className="beer-kenmerk-ico") + p(f"<strong>{t}</strong>", center=True, size="small"),
-                       style_extra=({"spacing": {"blockGap": "0"}}, "")) for i, t in kenmerken), "9rem", 5),
+    grid("".join(group(img(f"ill/icoon-{i}.png", "", None, center=True, className="beer-kenmerk-ico") + p(f"<strong>{t}</strong><br>{u}", center=True, size="small"),
+                       style_extra=({"spacing": {"blockGap": "0"}}, "")) for i, t, u in kenmerken), "9rem", 5),
     align="wide", layout={"type": "default"}), full=True, bg="wit", className="beer-kenmerken",
     style_extra=({"spacing": {"padding": {"top": "var:preset|spacing|40", "bottom": "var:preset|spacing|40"}}},
                  "padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)")))
@@ -227,6 +228,12 @@ def aanbod(slug, titel, lead, punten, knop, beren, prijs, per, info_titel, info)
     beeld = group(img(beren[0], beren[1], "100%", center=True)
                   + badge("Vanaf", prijs, per), className="beer-badge-houder")
     body = section(cols(h(titel, 1) + p(lead, size="large") + ul(punten) + btns((knop, L("contact"), "koop")), beeld), gradient="zacht")
+    body += "\n\n" + section(h("Zo reserveer je", center=True)
+        + grid("".join(kaart(p(f"<strong>{n}</strong>", center=True, className="beer-stapnummer") + h(t, 3, center=True) + p(x, center=True, size="small"))
+                       for n, t, x in [(1, "Vraag een datum aan", "Via het formulier: kies je datum en het aantal kinderen."),
+                                       (2, "Wij bevestigen", "Binnen 1 werkdag, met alle praktische info."),
+                                       (3, "Betaal een voorschot", "Dan staat je plaats vast. Annuleren kan tot 7 dagen vooraf.")]), "14rem"),
+        bg="perzik")
     body += "\n\n" + section(h(info_titel, center=True) + grid("".join(kaart(h(t, 3, center=True) + p(x, center=True)) for t, x in info), "14rem"), bg="wit")
     save(slug, titel, body)
 
@@ -281,7 +288,7 @@ save("contact", "Contact", section(cols(
     + p("Heb je een vraag, een idee of wil je iets reserveren? Laat het ons weten!", size="large")
     + rij("mail", '<a href="mailto:info@beer.be">info@beer.be</a>')
     + rij("telefoon", '<a href="tel:+32479123456">+32 479 12 34 56</a>')
-    + rij("locatie", "Onze locatie<br>Straatnaam 12, 9000 Gent")
+    + rij("locatie", "Onze locatie<br>Straatnaam 12, 9000 Gent<br><strong>Open:</strong> wo–za 10u–18u")
     + btns(("Stuur een bericht →", "mailto:info@beer.be")),
     img("ill/groot-contact.webp", "Een zwaaiende beer achter een laptop", "440px", center=True))))
 
@@ -334,6 +341,7 @@ for f, naam, prijs, tekst, hoogte in PRODUCTEN:
             h(naam, 1)
             + p(prijs, className="beer-product-prijs")
             + p(tekst, size="large")
+            + p("<strong>Kant-en-klaar:</strong> gevuld, met een zacht hartje, klaar om te knuffelen. Geurtje, kloppend hartje of paspoort kies je in de samensteller.", className="beer-inbegrepen")
             + btns((f"Bestel {naam} →", f"mailto:info@beer.be?subject=Bestelling%20{naam.replace(' ', '%20')}", "koop"))
             + p(f'<a href="{L("samenstellen")}"><strong>Of maak hem helemaal van jou: geurtje, kloppend hartje en paspoort →</strong></a>')
             + grid(rij("uniek", "Levering in 2–3 werkdagen") + rij("hart", "Gratis verzending vanaf € 40")

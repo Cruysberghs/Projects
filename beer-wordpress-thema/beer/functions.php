@@ -191,7 +191,18 @@ function beer_gsm_knop() {
 	if ( is_page( 'samenstellen' ) ) {
 		return;
 	}
-	echo '<a class="beer-gsm-cta" href="' . esc_url( home_url( '/samenstellen/' ) ) . '">Stel jouw BEER. samen →</a>';
+	// De knop past zich aan de pagina aan.
+	$knop = array( 'samenstellen', 'Stel jouw BEER. samen →' );
+	if ( is_page( 'workshops' ) ) {
+		$knop = array( 'contact', 'Reserveer een workshop →' );
+	} elseif ( is_page( 'kinderfeestjes' ) ) {
+		$knop = array( 'contact', 'Boek een feestje →' );
+	} elseif ( is_page( 'kampjes' ) ) {
+		$knop = array( 'contact', 'Schrijf je in →' );
+	} elseif ( is_page( 'contact' ) ) {
+		return;
+	}
+	echo '<a class="beer-gsm-cta" href="' . esc_url( home_url( '/' . $knop[0] . '/' ) ) . '">' . esc_html( $knop[1] ) . '</a>';
 }
 add_action( 'wp_footer', 'beer_gsm_knop' );
 

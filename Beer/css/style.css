@@ -915,3 +915,40 @@ h1, h2 { color: var(--terracotta-donker); }
 .beer-specs dt { font-weight: 700; min-width: 74px; }
 .beer-specs dd { margin: 0; }
 @media (max-width: 480px) { .beer-specs { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   Duidelijkheid voor de bezoeker
+   ========================================================= */
+/* Kenmerken met korte uitleg */
+.kenmerken li small { display: block; font-weight: 400; font-size: .78rem; opacity: .8; margin-top: 2px; }
+
+/* Uitleg per stap in de samensteller */
+.stap-uitleg { margin: -4px 0 12px; font-size: .93rem; opacity: .9; }
+
+/* Wat zit erbij op de productpagina */
+.inbegrepen { background: #FFF1E8; border-radius: 12px; padding: 10px 14px; font-size: .92rem; margin: 0 0 12px; }
+
+/* Zo reserveer je */
+.reserveer-strook { background: var(--perzik); padding: 48px 0; }
+.reserveer-stappen { list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: res; }
+.reserveer-stappen li { counter-increment: res; background: var(--wit); border-radius: 18px; padding: 18px 18px 18px 62px; position: relative; display: flex; flex-direction: column; gap: 4px; }
+.reserveer-stappen li::before {
+  content: counter(res); position: absolute; left: 16px; top: 16px; width: 32px; height: 32px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--koop); color: #fff; font-weight: 700;
+}
+.reserveer-stappen span { font-size: .92rem; }
+@media (max-width: 760px) { .reserveer-stappen { grid-template-columns: 1fr; gap: 10px; } }
+
+/* Bestelpagina */
+.bestel-raster { display: grid; grid-template-columns: 1.4fr 1fr; gap: 26px; align-items: start; margin-top: 20px; }
+.bestel-overzicht { position: sticky; top: 100px; }
+.bestel-items { list-style: none; padding: 0; margin: 0 0 12px; }
+.bestel-items li { display: grid; grid-template-columns: 48px 1fr auto; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--perzik); font-size: .92rem; }
+.bestel-items img { width: 48px; height: 56px; object-fit: contain; }
+.bestel-items small { display: block; opacity: .75; }
+.bestel-overzicht .regel { display: flex; justify-content: space-between; margin: 6px 0; }
+.bestel-overzicht .totaal { font-weight: 700; font-size: 1.15rem; border-top: 1px solid var(--perzik); padding-top: 8px; }
+.hoe-betalen { font-size: .9rem; background: #FFF1E8; border-radius: 12px; padding: 10px 14px; margin: 0; }
+#bestellen .btn.koop { width: 100%; justify-content: center; }
+@media (max-width: 760px) { .bestel-raster { grid-template-columns: 1fr; } .bestel-overzicht { position: static; order: -1; } }
+input[type=radio], input[type=checkbox] { accent-color: var(--koop); }

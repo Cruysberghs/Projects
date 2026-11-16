@@ -23,6 +23,9 @@ const SEIZOEN = [
 ];
 const SEIZOEN_ANDERS = { tekst: `Gratis verzending in België vanaf € ${WINKEL.gratisVanaf}`, link: "shop.html", knop: "Naar de shop" };
 
+// Openingsuren van de winkel/het atelier (VOORBEELD – aanpassen)
+const OPENINGSUREN = "Wo–za 10u–18u";
+
 // Menu bovenaan
 const MENU = [
   ["index.html", "Home"],
@@ -143,6 +146,7 @@ function bouwLayout() {
             <li><img class="ico" src="img/icons/mail.svg" alt=""><a href="mailto:info@beer.be">info@beer.be</a></li>
             <li><img class="ico" src="img/icons/telefoon.svg" alt=""><a href="tel:+32479123456">+32 479 12 34 56</a></li>
             <li><img class="ico" src="img/icons/locatie.svg" alt="">Straatnaam 12, 9000 Gent</li>
+            <li><img class="ico" src="img/icons/uniek.svg" alt="">${OPENINGSUREN}</li>
           </ul></div>
         </div>
         <p class="footer-onder">© ${new Date().getFullYear()} BEER. – Met liefde gemaakt · Veilig betalen met Bancontact</p>
@@ -159,17 +163,22 @@ function bouwLayout() {
         <div class="regel"><span>Subtotaal</span><span id="mandje-subtotaal">€ 0,00</span></div>
         <div class="regel"><span>Verzending</span><span id="mandje-verzendkost">€ 0,00</span></div>
         <div class="totaal"><span>Totaal</span><span id="mandje-totaal">€ 0,00</span></div>
-        <button class="btn koop" id="afrekenen">Afrekenen</button>
+        <button class="btn koop" id="afrekenen">Bestelling afronden</button>
         <p class="betaal-chips"><span>Bancontact</span><span>Payconiq</span><span>Visa</span><span>Mastercard</span></p>
-        <p class="mandje-belofte">Levering in 2–3 werkdagen · 14 dagen bedenktijd</p>
+        <p class="mandje-belofte">Levering in 2–3 werkdagen · Gratis afhalen in Gent · 14 dagen bedenktijd</p>
       </div>
     </aside>
     <div class="toast" id="toast" role="status"></div>`);
 
   // Op de gsm: vaste knop onderaan, zodat bestellen altijd één tik ver is
-  if (!["samenstellen.html", "product.html", "cadeaubon.html"].includes(huidig)) {
-    document.body.insertAdjacentHTML("beforeend",
-      `<a class="gsm-cta" href="samenstellen.html">Stel jouw BEER. samen →</a>`);
+  const GSM_KNOP = {
+    "workshops.html": ["contact.html?onderwerp=Workshop", "Reserveer een workshop →"],
+    "kinderfeestjes.html": ["contact.html?onderwerp=Kinderfeestje", "Boek een feestje →"],
+    "kampjes.html": ["contact.html?onderwerp=Kampje", "Schrijf je in →"],
+  };
+  if (!["samenstellen.html", "product.html", "cadeaubon.html", "bestellen.html", "contact.html"].includes(huidig)) {
+    const [href, tekst] = GSM_KNOP[huidig] || ["samenstellen.html", "Stel jouw BEER. samen →"];
+    document.body.insertAdjacentHTML("beforeend", `<a class="gsm-cta" href="${href}">${tekst}</a>`);
     document.body.classList.add("heeft-gsm-cta");
     // Verbergen zolang er al een grote bestelknop in beeld is (geen dubbele knoppen)
     if ("IntersectionObserver" in window) {
@@ -281,8 +290,8 @@ function koppelMandje() {
   });
   document.getElementById("afrekenen").addEventListener("click", () => {
     if (!Mandje.lees().length) return toast("Je mandje is nog leeg.");
-    // TODO: hier komt later de echte betaling (bv. WooCommerce + Mollie met Bancontact).
-    toast("Online betalen komt binnenkort. Tot dan bestel je via info@beer.be.");
+    // TODO: later vervangen door echte online betaling (bv. WooCommerce + Mollie met Bancontact).
+    location.href = "bestellen.html";
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") Mandje.open(false); });
   Mandje.toon();
@@ -388,6 +397,7 @@ function productPagina() {
           </div>
           <button class="btn koop plus" id="p-koop">In mijn mandje</button>
         </div>
+        <p class="inbegrepen"><strong>Kant-en-klaar:</strong> gevuld, met een zacht hartje, klaar om te knuffelen. Geurtje, kloppend hartje of paspoort kies je in de samensteller.</p>
         <a class="samenstel-link" href="samenstellen.html?beer=${k.id}">Of maak hem helemaal van jou: geurtje, kloppend hartje en paspoort →</a>
         <ul class="voordelen">
           <li><img src="img/icons/uniek.svg" alt="">Levering in 2–3 werkdagen</li>
@@ -463,16 +473,16 @@ function samensteller() {
         </dl>
         <a class="tekst-pijl" href="product.html?id=${keuze.beer.id}">Alles over ${keuze.beer.naam}</a>
       </div>`,
-    () => `<h3>2. Kies een geurtje</h3>${knoppen(GEURTJES, "geur")}`,
-    () => `<h3>3. Voeg een hartje toe</h3>${knoppen(HARTJES, "hart")}`,
-    () => `<h3>4. Maak een paspoort</h3>
+    () => `<h3>2. Kies een geurtje</h3><p class="stap-uitleg">Een klein geurzakje in de buik. Blijft maandenlang lekker ruiken.</p>${knoppen(GEURTJES, "geur")}`,
+    () => `<h3>3. Voeg een hartje toe</h3><p class="stap-uitleg">Elk beertje krijgt een hartje. Een kloppend hartje klopt als je op de buik drukt.</p>${knoppen(HARTJES, "hart")}`,
+    () => `<h3>4. Maak een paspoort</h3><p class="stap-uitleg">Een echt berenpaspoort met naam en verjaardag. Gratis bij elke beer.</p>
       <div class="paspoort-veld">
         <label for="p-naam">Naam van je beer</label>
         <input id="p-naam" maxlength="20" placeholder="bv. Bruno" value="${esc(keuze.naam)}">
         <label for="p-dag">Verjaardag</label>
         <input id="p-dag" type="date" value="${keuze.verjaardag}">
       </div>`,
-    () => `<h3>5. Optioneel: kraaltjes</h3>${knoppen(KRAALTJES, "kraal")}`,
+    () => `<h3>5. Optioneel: vriendschapsbandje</h3><p class="stap-uitleg">Twee bandjes: één voor jou en één voor je beer.</p>${knoppen(KRAALTJES, "kraal")}`,
   ];
 
   function toonPrijs() {
@@ -578,13 +588,57 @@ function formulieren() {
   const veld = document.getElementById("onderwerp");
   if (onderwerp && veld) veld.value = onderwerp;
 
+  // Formulieren openen je mailprogramma met alles al ingevuld.
+  // TODO: later koppelen aan een formulierdienst (bv. WPForms in WordPress) zodat het zonder mailprogramma werkt.
   document.querySelectorAll("form[data-demo]").forEach((f) => {
     f.addEventListener("submit", (e) => {
-      // TODO: koppel aan een formulierdienst (bv. Formspree of Netlify Forms) om echt e-mails te ontvangen.
       e.preventDefault();
+      const d = new FormData(f);
+      const regels = [...d.entries()].filter(([, v]) => v).map(([k, v]) => `${k[0].toUpperCase() + k.slice(1)}: ${v}`);
+      location.href = `mailto:info@beer.be?subject=${encodeURIComponent((d.get("onderwerp") || "Vraag") + " via de website")}&body=${encodeURIComponent(regels.join("\n"))}`;
       f.querySelector(".melding").classList.add("zichtbaar");
-      f.reset();
     });
+  });
+  bestelPagina();
+}
+
+/* =========================================================
+   Bestelpagina (bestellen.html): overzicht + gegevens -> e-mail
+   ========================================================= */
+function bestelPagina() {
+  const el = document.getElementById("bestellen");
+  if (!el) return;
+  const items = Mandje.lees();
+  if (!items.length) { el.innerHTML = `<p class="lead">Je mandje is leeg. <a href="shop.html">Kies eerst een beer →</a></p>`; return; }
+  const sub = Mandje.subtotaal();
+  const teken = () => {
+    const afhalen = el.querySelector("[name=levering]:checked").value === "afhalen";
+    const verzend = afhalen || sub >= WINKEL.gratisVanaf ? 0 : WINKEL.verzendkost;
+    el.querySelector("#adres-velden").hidden = afhalen;
+    el.querySelectorAll("#adres-velden input").forEach((i) => (i.required = !afhalen));
+    el.querySelector("#b-verzend").textContent = verzend ? euro(verzend) : "Gratis";
+    el.querySelector("#b-totaal").textContent = euro(sub + verzend);
+    return { afhalen, verzend };
+  };
+  el.querySelector("#b-items").innerHTML = items.map((it) =>
+    `<li><img src="${it.img}" alt=""><span>${it.aantal} × ${esc(it.naam)}${it.details ? `<small>${esc(it.details)}</small>` : ""}</span><strong>${euro(it.prijs * it.aantal)}</strong></li>`).join("");
+  el.querySelector("#b-sub").textContent = euro(sub);
+  el.querySelectorAll("[name=levering]").forEach((r) => r.addEventListener("change", teken));
+  teken();
+  el.querySelector("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const { afhalen, verzend } = teken();
+    const d = new FormData(e.target);
+    const tekst = [
+      "Hallo BEER., ik wil graag bestellen:", "",
+      ...items.map((it) => `- ${it.aantal} x ${it.naam}${it.details ? " (" + it.details + ")" : ""}: ${euro(it.prijs * it.aantal)}`),
+      "", `Verzending: ${verzend ? euro(verzend) : "gratis"}`, `Totaal: ${euro(sub + verzend)}`, "",
+      `Naam: ${d.get("naam")}`, `E-mail: ${d.get("email")}`, `Telefoon: ${d.get("telefoon") || "-"}`,
+      afhalen ? "Levering: ik haal af in Gent" : `Adres: ${d.get("straat")}, ${d.get("postcode")} ${d.get("gemeente")}`,
+      d.get("opmerking") ? `Opmerking: ${d.get("opmerking")}` : "",
+    ].join("\n");
+    location.href = `mailto:info@beer.be?subject=${encodeURIComponent("Bestelling via de website")}&body=${encodeURIComponent(tekst)}`;
+    el.querySelector(".melding").classList.add("zichtbaar");
   });
 }
 
@@ -643,6 +697,7 @@ function onthul() {
   }), { rootMargin: "0px 0px -8% 0px" });
   document.querySelectorAll(".kaart, .beloftes > div, .faq details, .split > *, .raster > *, .pakket, .samenstel-blok").forEach((el) => {
     if (el.getBoundingClientRect().top < innerHeight) return; // al in beeld: niets verbergen
+    if (el.closest("form, #bestellen, #samensteller, #cadeaubon")) return; // formulieren nooit verbergen
     const broers = [...el.parentElement.children];
     el.style.setProperty("--d", (broers.indexOf(el) % 4) * 90 + "ms");
     el.classList.add("onthul");

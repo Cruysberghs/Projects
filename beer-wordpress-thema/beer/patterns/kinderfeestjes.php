@@ -41,6 +41,40 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"perzik","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-perzik-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide"><!-- wp:heading {"textAlign":"center"} -->
+<h2 class="wp-block-heading has-text-align-center">Zo reserveer je</h2>
+<!-- /wp:heading --><!-- wp:group {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"14rem"}} -->
+<div class="wp-block-group"><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
+<div class="wp-block-group is-style-kaart"><!-- wp:paragraph {"align":"center","className":"beer-stapnummer"} -->
+<p class="has-text-align-center beer-stapnummer"><strong>1</strong></p>
+<!-- /wp:paragraph --><!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Vraag een datum aan</h3>
+<!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
+<p class="has-text-align-center has-small-font-size">Via het formulier: kies je datum en het aantal kinderen.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
+<div class="wp-block-group is-style-kaart"><!-- wp:paragraph {"align":"center","className":"beer-stapnummer"} -->
+<p class="has-text-align-center beer-stapnummer"><strong>2</strong></p>
+<!-- /wp:paragraph --><!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Wij bevestigen</h3>
+<!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
+<p class="has-text-align-center has-small-font-size">Binnen 1 werkdag, met alle praktische info.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --><!-- wp:group {"className":"is-style-kaart","layout":{"type":"constrained"}} -->
+<div class="wp-block-group is-style-kaart"><!-- wp:paragraph {"align":"center","className":"beer-stapnummer"} -->
+<p class="has-text-align-center beer-stapnummer"><strong>3</strong></p>
+<!-- /wp:paragraph --><!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Betaal een voorschot</h3>
+<!-- /wp:heading --><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
+<p class="has-text-align-center has-small-font-size">Dan staat je plaats vast. Annuleren kan tot 7 dagen vooraf.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"wit","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-wit-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide"><!-- wp:heading {"textAlign":"center"} -->

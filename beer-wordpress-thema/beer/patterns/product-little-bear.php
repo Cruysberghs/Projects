@@ -23,6 +23,8 @@
 <p class="beer-product-prijs">€ 22,95</p>
 <!-- /wp:paragraph --><!-- wp:paragraph {"fontSize":"large"} -->
 <p class="has-large-font-size">Little Bear is klein genoeg voor de boekentas en groot genoeg voor alle geheimen. Ideaal als eerste beer of als broertje of zusje.</p>
+<!-- /wp:paragraph --><!-- wp:paragraph {"className":"beer-inbegrepen"} -->
+<p class="beer-inbegrepen"><strong>Kant-en-klaar:</strong> gevuld, met een zacht hartje, klaar om te knuffelen. Geurtje, kloppend hartje of paspoort kies je in de samensteller.</p>
 <!-- /wp:paragraph --><!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"beer-koop"} -->
 <div class="wp-block-button beer-koop"><a class="wp-block-button__link wp-element-button" href="mailto:info@beer.be?subject=Bestelling%20Little%20Bear">Bestel Little Bear →</a></div>
